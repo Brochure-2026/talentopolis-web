@@ -1,0 +1,49 @@
+---
+/**
+ * Ruta única que genera las 14 páginas de programa y de servicio, manteniendo
+ * exactamente las mismas URLs que el sitio actual (sin prefijos), para no
+ * romper enlaces existentes ni el posicionamiento ya ganado.
+ */
+import Base from "../layouts/Base.astro";
+import ProgramaLayout from "../components/ProgramaLayout.astro";
+import ServicioLayout from "../components/ServicioLayout.astro";
+import { programas } from "../data/programas.js";
+import { servicios } from "../data/servicios.js";
+
+export function getStaticPaths() {
+  const dePrograma = programas.map((p) => ({
+    params: { slug: p.slug },
+    props: {
+      tipo: "programa",
+      dato: p,
+      titulo: `${p.nombre} — Podcast de Talentópolis`,
+      descripcion: p.descripcion[0].slice(0, 180),
+      imagen: p.portada,
+    },
+  }));
+
+  const deServicio = servicios.map((s) => ({
+    params: { slug: s.slug },
+    props: {
+      tipo: "servicio",
+      dato: s,
+      titulo: `${s.nombre} — Talentópolis`,
+      descripcion: s.intro.slice(0, 180),
+    },
+  }));
+
+  return [...dePrograma, ...deServicio];
+}
+
+const { tipo, dato, titulo, descripcion, imagen } = Astro.props;
+---
+
+<Base titulo={titulo} descripcion={descripcion} imagen={imagen} tipo="article">
+  {
+    tipo === "programa" ? (
+      <ProgramaLayout programa={dato} />
+    ) : (
+      <ServicioLayout servicio={dato} />
+    )
+  }
+</Base>

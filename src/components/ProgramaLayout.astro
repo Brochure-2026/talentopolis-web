@@ -1,0 +1,207 @@
+---
+import Icon from "./Icon.astro";
+import PageHero from "./PageHero.astro";
+import VideoFacade from "./VideoFacade.astro";
+import SpotifyFacade from "./SpotifyFacade.astro";
+import ProgramGrid from "./ProgramGrid.astro";
+import CtaBanner from "./CtaBanner.astro";
+import Plataformas from "./Plataformas.astro";
+import { site } from "../data/site.js";
+
+const { programa: p } = Astro.props;
+const base = site.dominio;
+
+// Datos estructurados: la serie de podcast + las migas de navegación.
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "PodcastSeries",
+    name: p.nombre,
+    description: p.descripcion[0],
+    url: `${base}${p.url}`,
+    image: `${base}${p.portada}`,
+    inLanguage: "es-CL",
+    ...(p.spotify ? { sameAs: [p.spotify] } : {}),
+    author: { "@type": "Organization", name: site.nombre, url: base },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: `${base}/` },
+      { "@type": "ListItem", position: 2, name: p.nombre, item: `${base}${p.url}` },
+    ],
+  },
+];
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+
+<PageHero eyebrow="Programa" titulo={p.nombre} bajada={p.tagline} />
+
+{/* ---------- FICHA ---------- */}
+<section class="section bg-deep">
+  <div class="wrap ficha">
+    <div class="ficha__media reveal">
+      <img
+        src={p.portada}
+        alt={p.portadaAlt}
+        width="600"
+        height="600"
+        fetchpriority="high"
+      />
+    </div>
+
+    <div class="ficha__body reveal">
+      <h2 class="section-title" style="font-size:clamp(1.6rem,2.6vw,2.2rem)">
+        Descripción del <strong>programa</strong>
+      </h2>
+
+      {p.descripcion.map((t) => <p class="ficha__p">{t}</p>)}
+
+      {
+        p.paraQuien && (
+          <>
+            <h3 class="ficha__h3">Este podcast es tuyo si…</h3>
+            <ul class="lista-check">
+              {p.paraQuien.map((t) => (
+                <li>
+                  <Icon nombre="check" size={18} />
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </>
+        )
+      }
+
+      <dl class="meta">
+        {
+          p.conductor && (
+            <div>
+              <dt>Conduce</dt>
+              <dd>{p.conductor}</dd>
+            </div>
+          )
+        }
+        <div>
+          <dt>{p.tieneTemporadas ? "Temporadas" : "Temporada"}</dt>
+          <dd>{p.tieneTemporadas ? `${p.temporadas.length} temporadas` : p.temporada}</dd>
+        </div>
+        {
+          p.totalEpisodios > 0 && (
+            <div>
+              <dt>Episodios</dt>
+              <dd>{p.totalEpisodios} publicados</dd>
+            </div>
+          )
+        }
+      </dl>
+    </div>
+  </div>
+</section>
+
+{/* ---------- SPOTIFY ---------- */}
+{
+  p.spotify && (
+    <section class="section--tight bg-mid">
+      <div class="wrap">
+        <div class="section-head reveal" style="margin-bottom:28px">
+          <p class="eyebrow">Escúchanos en</p>
+          <h2 class="section-title" style="font-size:clamp(1.6rem,2.6vw,2.2rem)">Spotify</h2>
+        </div>
+        <div class="reveal">
+          <SpotifyFacade url={p.spotify} programa={p.nombre} />
+        </div>
+      </div>
+    </section>
+  )
+}
+
+{/* ---------- EPISODIOS (por temporada + ver más) ---------- */}
+{
+  p.totalEpisodios > 0 && (
+    <section class="section bg-deep" aria-labelledby="episodios-titulo">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Míralos en YouTube</p>
+          <h2 class="section-title" id="episodios-titulo">
+            {p.totalEpisodios} <strong>episodios</strong>
+          </h2>
+          <p class="section-sub">
+            El reproductor solo carga cuando pulsas play, para no ralentizar la página
+          </p>
+        </div>
+
+        <div class="temporadas" data-temporadas>
+          {/* Pestañas: solo si hay más de una temporada */}
+          {p.tieneTemporadas && (
+            <div class="temporadas__tabs" role="tablist" aria-label="Temporadas">
+              {p.temporadas.map((t, i) => (
+                <button
+                  class="temporadas__tab"
+                  role="tab"
+                  type="button"
+                  data-tab={i}
+                  aria-selected={i === 0 ? "true" : "false"}
+                >
+                  {t.temporada}
+                  <span class="temporadas__n">{t.videos.length}</span>
+                </button>
+              ))}
+            </div>
+          )}
+
+          {/* Un panel por temporada; el resto ocultos hasta pulsar la pestaña */}
+          {p.temporadas.map((t, i) => (
+            <div
+              class="temporadas__panel"
+              role="tabpanel"
+              data-panel={i}
+              hidden={i !== 0}
+              data-visibles="9"
+            >
+              <div class="episodios">
+                {t.videos.map((e, j) => (
+                  <article class="episodio" hidden={j >= 9}>
+                    <VideoFacade id={e.id} titulo={e.titulo} thumb={e.thumb} />
+                    <h3 class="episodio__t">{e.titulo}</h3>
+                  </article>
+                ))}
+              </div>
+
+              {t.videos.length > 9 && (
+                <div class="episodios__mas">
+                  <button class="btn btn--ghost" type="button" data-vermas>
+                    Ver más episodios
+                    <span class="episodios__resto">({t.videos.length - 9})</span>
+                  </button>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+<Plataformas />
+
+{/* ---------- OTROS PROGRAMAS ---------- */}
+<section class="section bg-deep">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Sigue explorando</p>
+      <h2 class="section-title">Otros <strong>programas</strong></h2>
+    </div>
+    <div class="reveal"><ProgramGrid excluir={p.slug} mostrarProximamente={false} /></div>
+  </div>
+</section>
+
+<CtaBanner
+  titulo="¿Quieres tu propio programa?"
+  texto="Producimos podcast y video podcast llave en mano. Tú hablas, nosotros hacemos el resto."
+  mensaje={`Hola, vi ${p.nombre} y me interesa crear mi propio podcast con Talentópolis.`}
+/>

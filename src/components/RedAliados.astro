@@ -1,0 +1,21 @@
+---
+import { aliados } from "../data/site.js";
+---
+
+<aside class="aliados reveal" aria-label="Red de aliados audiovisuales">
+  <p class="aliados__lead">
+    <span class="aliados__plus">+</span>
+    Una amplia, variada y robusta red de <strong>partners y aliados</strong>
+    del mundo audiovisual
+  </p>
+
+  <ul class="aliados__logos">
+    {
+      aliados.map((a) => (
+        <li>
+          <img src={a.img} alt={a.nombre} title={a.nombre} height="30" loading="lazy" decoding="async" />
+        </li>
+      ))
+    }
+  </ul>
+</aside>

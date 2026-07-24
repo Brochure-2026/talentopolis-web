@@ -1,0 +1,92 @@
+---
+import Base from "../layouts/Base.astro";
+import Icon from "../components/Icon.astro";
+import PageHero from "../components/PageHero.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import { partners } from "../data/site.js";
+import { servicios } from "../data/servicios.js";
+
+const formatos = servicios.filter((s) =>
+  ["alianzas-comerciales", "auspicios-y-patrocinio", "canjes", "produccion-audiovisual-media-partner-2"].includes(s.slug)
+);
+---
+
+<Base
+  titulo="Partners — Talentópolis"
+  descripcion="Marcas y organizaciones que acompañan a Talentópolis. Conoce las formas de sumarte: auspicio, patrocinio, canje, media partner o co-creación de contenidos."
+>
+  <PageHero
+    eyebrow="Nosotros"
+    titulo="Partners"
+    bajada="Marcas y organizaciones que hacen posible que estos contenidos existan."
+  />
+
+  <section class="section bg-deep">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Nos acompañan</p>
+        <h2 class="section-title">Marcas y <strong>aliados</strong></h2>
+        <p class="section-sub">
+          Organizaciones con las que colaboramos y que confían en nuestro contenido.
+        </p>
+      </div>
+
+      <div class="partners stagger">
+        {
+          partners.map((p) =>
+            p.url ? (
+              <a class="partner" href={p.url} target="_blank" rel="noopener">
+                {p.img ? (
+                  <img src={p.img} alt={p.nombre} style={`height:${p.alto ?? 48}px`} loading="lazy" />
+                ) : (
+                  <span class="partner__nombre">{p.nombre}</span>
+                )}
+              </a>
+            ) : (
+              <figure class="partner">
+                {p.img ? (
+                  <img src={p.img} alt={p.nombre} style={`height:${p.alto ?? 48}px`} loading="lazy" />
+                ) : (
+                  <span class="partner__nombre">{p.nombre}</span>
+                )}
+              </figure>
+            )
+          )
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-mid">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Cómo sumarte</p>
+        <h2 class="section-title">Formas de <strong>colaborar</strong></h2>
+        <p class="section-sub">
+          Cada alianza se diseña a medida. Estas son las puertas de entrada más habituales.
+        </p>
+      </div>
+
+      <div class="cards stagger">
+        {
+          formatos.map((f) => (
+            <a class="card" href={`/${f.slug}/`}>
+              <span class="card__icon"><Icon nombre={f.icono} size={22} /></span>
+              <h3 class="card__title">{f.nombre}</h3>
+              <p class="card__text">{f.resumen}</p>
+              <span class="card__go">
+                Ver detalle <Icon nombre="arrow" size={16} />
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    titulo="¿Tu marca quiere ser parte?"
+    texto="Diseñamos alianzas donde el beneficio es mutuo y la proyección, exponencial."
+    mensaje="Hola, me interesa ser partner de Talentópolis."
+  />
+</Base>

@@ -1,0 +1,74 @@
+---
+import Icon from "./Icon.astro";
+import { menu } from "../data/site.js";
+
+const rutaActual = Astro.url.pathname;
+
+/**
+ * Un ítem se marca como actual si la ruta coincide con la suya o con la de
+ * alguno de sus hijos. Los enlaces de ancla (`/#programas`) se descartan: al
+ * quitarles el hash quedan en "/" y marcarían todas las páginas del sitio.
+ */
+const sinHash = (url: string) => url.split("#")[0];
+const coincide = (url: string) => {
+  const base = sinHash(url);
+  return Boolean(base) && base !== "/" && rutaActual.startsWith(base);
+};
+const esActual = (item: { url: string; hijos?: { url: string }[] }) => {
+  if (item.url === "/") return rutaActual === "/";
+  if (coincide(item.url)) return true;
+  return (item.hijos ?? []).some((h) => coincide(h.url));
+};
+---
+
+<header class="site-header">
+  <nav class="nav wrap" aria-label="Principal">
+    <a class="nav__logo" href="/" aria-label="Talentópolis — ir al inicio">
+      <img
+        src="/assets/images/logo-talentopolis.webp"
+        alt="Talentópolis"
+        width="200"
+        height="40"
+      />
+    </a>
+
+    <button
+      class="nav__toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="menu-principal"
+      aria-label="Abrir menú"
+    >
+      <Icon nombre="menu" size={22} class="icon-open" />
+      <Icon nombre="close" size={22} class="icon-close" />
+    </button>
+
+    <ul class="nav__list" id="menu-principal">
+      {
+        menu.map((item) => (
+          <li class={`nav__item${item.hijos ? " nav__item--has-sub" : ""}`}>
+            <a
+              class="nav__link"
+              href={item.url}
+              aria-current={esActual(item) ? "page" : undefined}
+            >
+              {item.texto}
+            </a>
+            {item.hijos && (
+              <ul class="nav__submenu">
+                {item.hijos.map((hijo) => (
+                  <li>
+                    <a href={hijo.url}>{hijo.texto}</a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))
+      }
+      <li class="nav__item nav__cta">
+        <a class="btn btn--primary" href="/contacto/">Trabajemos juntos</a>
+      </li>
+    </ul>
+  </nav>
+</header>

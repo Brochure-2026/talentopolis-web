@@ -1,0 +1,34 @@
+---
+import Icon from "./Icon.astro";
+import { whatsappUrl, contacto } from "../data/site.js";
+
+interface Props {
+  titulo?: string;
+  texto?: string;
+  mensaje?: string;
+}
+const {
+  titulo = "¿Hablamos de tu proyecto?",
+  texto = "Cuéntanos qué necesitas y te respondemos con una propuesta concreta.",
+  mensaje,
+} = Astro.props;
+---
+
+<section class="section cta-banner bg-glow">
+  <div class="wrap cta-banner__inner reveal">
+    <div>
+      <h2 class="section-title">{titulo}</h2>
+      <p class="section-sub" style="margin-inline:0">{texto}</p>
+    </div>
+    <div class="ctas">
+      <a class="btn btn--primary" href={whatsappUrl(mensaje)} target="_blank" rel="noopener">
+        <Icon nombre="whatsapp" size={18} />
+        Escríbenos por WhatsApp
+      </a>
+      <a class="btn btn--ghost" href="/contacto/">
+        <Icon nombre="mail" size={18} />
+        Ver formas de contacto
+      </a>
+    </div>
+  </div>
+</section>

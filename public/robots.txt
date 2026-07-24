@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://talentopolis.cl/sitemap-index.xml

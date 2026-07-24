@@ -1,0 +1,304 @@
+---
+import Base from "../layouts/Base.astro";
+import Icon from "../components/Icon.astro";
+import ProgramGrid from "../components/ProgramGrid.astro";
+import Proximos from "../components/Proximos.astro";
+import Plataformas from "../components/Plataformas.astro";
+import VideoFacade from "../components/VideoFacade.astro";
+import Metricas from "../components/Metricas.astro";
+import Television from "../components/Television.astro";
+import Entregables from "../components/Entregables.astro";
+import Member from "../components/Member.astro";
+import RedAliados from "../components/RedAliados.astro";
+import { equipo, whatsappUrl, contacto } from "../data/site.js";
+import { servicios } from "../data/servicios.js";
+
+const pasos = [
+  ["Diagnóstico y objetivo", "Definimos audiencia, propósito y mensaje central del contenido"],
+  ["Diseño editorial", "Construimos pauta, formato y línea narrativa estratégica"],
+  ["Producción", "Grabamos con estándar profesional y dirección técnica"],
+  ["Postproducción y piezas", "Editamos episodios, cápsulas y piezas gráficas"],
+  ["Publicación y distribución", "Preparamos y lanzamos el contenido en canales digitales"],
+  ["Control de calidad", "Evaluamos y mejoramos continuamente los contenidos"],
+];
+
+---
+
+<Base
+  titulo="Talentópolis — Productora audiovisual y medio multiplataforma"
+  descripcion="Productora audiovisual y medio multiplataforma en Santiago de Chile. Creamos podcast, video podcast, webinars y contenido corporativo para empresas, líderes y expertos: del diseño editorial a la distribución."
+>
+  {/* ---------- HERO ---------- */}
+  <section class="hero" aria-label="Presentación">
+    <div class="hero__bg" aria-hidden="true">
+      <span class="hero__grid"></span>
+      <span class="hero__halo hero__halo--o"></span>
+      <span class="hero__halo hero__halo--t"></span>
+    </div>
+
+    <div class="wrap hero__inner">
+      <div class="hero__copy reveal">
+        <span class="badge"><b></b>El futuro del trabajo es hoy</span>
+        <h1>
+          Convertimos ideas en <em>contenido audiovisual de alto impacto</em>
+        </h1>
+        <p class="hero__sub">
+          Productora audiovisual y medio de comunicación multiplataforma.
+          Diseñamos, producimos y distribuimos podcast, video podcast y contenidos
+          para marcas, líderes y organizaciones.
+        </p>
+        <div class="ctas">
+          <a class="btn btn--primary" href="#programas">
+            <Icon nombre="play" size={16} /> Ver programas
+          </a>
+          <a class="btn btn--ghost" href="/contacto/">Trabajemos juntos</a>
+        </div>
+      </div>
+
+      <div class="hero__stage reveal" aria-hidden="true">
+        <img class="hero__cover hero__cover--back1" src="/assets/images/E0_Talentopolis-600.webp" alt="" width="600" height="600" loading="eager" decoding="async" />
+        <img class="hero__cover hero__cover--back2" src="/assets/images/E7_Talentopolis-600.webp" alt="" width="600" height="600" loading="eager" decoding="async" />
+        <img class="hero__cover hero__cover--main" src="/assets/images/E3_Talentopolis-600.webp" alt="" width="600" height="600" fetchpriority="high" decoding="async" />
+      </div>
+    </div>
+  </section>
+
+  <Metricas />
+
+  {/* ---------- PROGRAMAS ---------- */}
+  <section class="section bg-deep" id="programas" aria-labelledby="programas-titulo">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Nuestros programas</p>
+        <h2 class="section-title" id="programas-titulo">
+          Todo lo que necesitas para <strong>comunicar con impacto</strong>
+        </h2>
+      </div>
+      <ProgramGrid />
+    </div>
+  </section>
+
+  <Proximos />
+  <Plataformas />
+
+  {/* ---------- SERVICIOS ---------- */}
+  <section class="section bg-deep" aria-labelledby="servicios-titulo">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Qué hacemos</p>
+        <h2 class="section-title" id="servicios-titulo">Nuestros <strong>servicios</strong></h2>
+        <p class="section-sub">De la idea al episodio publicado, y todo lo que hay en medio</p>
+      </div>
+
+      <div class="cards stagger">
+        {
+          servicios.map((s) => (
+            <a class="card" href={`/${s.slug}/`}>
+              <span class="card__icon"><Icon nombre={s.icono} size={22} /></span>
+              <h3 class="card__title">{s.nombre}</h3>
+              <p class="card__text">{s.resumen}</p>
+              <span class="card__go">
+                Ver servicio <Icon nombre="arrow" size={16} />
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <Entregables />
+  <Television />
+
+  {/* ---------- PROCESO ---------- */}
+  <section class="section bg-mid" aria-labelledby="proceso-titulo">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Metodología</p>
+        <h2 class="section-title" id="proceso-titulo">¿Cómo trabajamos?</h2>
+        <p class="section-sub">Un proceso claro y profesional de principio a fin</p>
+      </div>
+
+      <div class="steps stagger">
+        {
+          pasos.map(([titulo, texto], i) => (
+            <article class="step">
+              <p class="step__n">Paso {String(i + 1).padStart(2, "0")}</p>
+              <h3>{titulo}</h3>
+              <p>{texto}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* ---------- NOSOTROS ---------- */}
+  <section class="section bg-glow" id="nosotros" aria-labelledby="nosotros-titulo">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">¿Quiénes somos?</p>
+        <h2 class="section-title" id="nosotros-titulo">Talentópolis</h2>
+      </div>
+      <div class="about__text reveal">
+        <p>
+          Ayudamos a empresas, instituciones, líderes y expertos a transformar su
+          conocimiento en contenidos profesionales, visibles y reutilizables en
+          múltiples canales.
+        </p>
+        <p>
+          Como medio de comunicación multiplataforma y productora audiovisual, no
+          solo grabamos: conceptualizamos, ordenamos editorialmente, producimos,
+          editamos y distribuimos. Combinamos una mirada estratégica con la
+          agilidad técnica necesaria para el ecosistema digital actual.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* ---------- EQUIPO ---------- */}
+  <section class="section bg-deep" aria-labelledby="equipo-titulo">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Nuestro</p>
+        <h2 class="section-title" id="equipo-titulo">Equipo</h2>
+      </div>
+
+      <div class="team stagger">
+        {equipo.map((m) => <Member persona={m} nivel={3} />)}
+      </div>
+
+      <RedAliados />
+
+      <div class="reveal" style="max-width:900px;margin:clamp(40px,5vw,64px) auto 0">
+        <VideoFacade
+          id="r9VHoOiBMPo"
+          titulo="Somos el Canal Talentópolis"
+          thumb="/assets/images/video-equipo.webp"
+        />
+      </div>
+    </div>
+  </section>
+
+  {/* ---------- CONTACTO ---------- */}
+  <section class="section bg-glow" id="contacto" aria-labelledby="colab-titulo">
+    <div class="wrap">
+      <div class="collab__grid">
+        <div class="reveal">
+          <p class="eyebrow">Colaboraciones &amp; Partners</p>
+          <h2 class="section-title" id="colab-titulo">
+            ¿Quieres <strong>colaborar</strong> con Talentópolis?
+          </h2>
+          <p class="section-sub" style="margin-inline:0">
+            Tenemos el espacio perfecto para tu marca o proyecto. Conecta con una
+            audiencia interesada en el futuro del trabajo y la innovación laboral.
+          </p>
+
+          <ul class="chips">
+            {
+              servicios.map((s) => (
+                <li class="chip">
+                  <Icon nombre={s.icono} size={21} />
+                  {s.nombre}
+                </li>
+              ))
+            }
+            <li class="chip"><Icon nombre="plus" size={21} />Más formatos a medida</li>
+          </ul>
+
+          <div class="ctas">
+            <a class="btn btn--primary" href={whatsappUrl()} target="_blank" rel="noopener">
+              <Icon nombre="whatsapp" size={18} />
+              Escríbenos por WhatsApp
+            </a>
+            <a class="btn btn--ghost" href={`mailto:${contacto.email}`}>
+              <Icon nombre="mail" size={18} />
+              Contáctanos por correo
+            </a>
+          </div>
+
+          {/* Formulario de contacto directo — misma estructura y estilos que la
+              página /contacto/, con validación y envío por el mismo manejador JS. */}
+          <form class="form form--compacta" id="form-contacto" action="https://api.web3forms.com/submit" method="POST" novalidate>
+            <input type="hidden" name="access_key" value="0069f34b-783c-42da-94fd-7b91319af0f1" />
+            <input type="hidden" name="subject" value="Nuevo mensaje desde talentopolis.cl" />
+            <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <p class="form__intro">O envíanos un mensaje directo</p>
+
+            <div class="form__row">
+              <label class="campo">
+                <span>Nombre completo <b aria-hidden="true">*</b></span>
+                <input type="text" name="nombre" required autocomplete="name" placeholder="Ej. Constanza Silva" />
+              </label>
+              <label class="campo">
+                <span>Correo <b aria-hidden="true">*</b></span>
+                <input type="email" name="email" required autocomplete="email" placeholder="nombre@empresa.com" />
+              </label>
+            </div>
+
+            <div class="form__row">
+              <label class="campo">
+                <span>Teléfono / WhatsApp</span>
+                <input type="tel" name="telefono" autocomplete="tel" placeholder="+56 9 1234 5678" />
+              </label>
+              <label class="campo">
+                <span>Servicio de interés</span>
+                <select name="interes">
+                  {servicios.map((s) => <option value={s.nombre}>{s.nombre}</option>)}
+                  <option value="Otro">Otro formato a medida</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="campo">
+              <span>Mensaje o proyecto <b aria-hidden="true">*</b></span>
+              <textarea name="mensaje" rows="4" required
+                placeholder="Cuéntanos sobre tu proyecto, fechas estimadas o requerimientos."></textarea>
+            </label>
+
+            <p class="form__error" id="form-error" role="alert" hidden></p>
+            <p class="form__ok" id="form-ok" role="status" hidden>
+              ✅ ¡Mensaje enviado! Te responderemos pronto.
+            </p>
+
+            <button class="btn btn--primary" type="submit">
+              <Icon nombre="arrow" size={18} />
+              <span data-label>Enviar mensaje</span>
+            </button>
+            <p class="form__nota">Te responderemos al correo que nos dejes. Tus datos solo se usan para contactarte.</p>
+          </form>
+        </div>
+
+        <aside class="qr-card reveal" aria-label="Códigos QR de contacto">
+          <div class="qr-card__head">
+            <p class="qr-card__title">Contacto rápido</p>
+            <span class="qr-card__dot" aria-hidden="true"></span>
+          </div>
+          <div class="qrs">
+            <figure class="qr">
+              <a href={whatsappUrl()} target="_blank" rel="noopener">
+                <img
+                  src="/assets/images/qr-whatsapp.webp"
+                  alt={`Código QR para escribirnos por WhatsApp al ${contacto.telefono}`}
+                  width="200" height="200" loading="lazy" decoding="async"
+                />
+              </a>
+              <figcaption>QR WhatsApp</figcaption>
+            </figure>
+            <figure class="qr">
+              <a href={`mailto:${contacto.email}`}>
+                <img
+                  src="/assets/images/qr-email.webp"
+                  alt={`Código QR para escribirnos a ${contacto.email}`}
+                  width="200" height="200" loading="lazy" decoding="async"
+                />
+              </a>
+              <figcaption>QR Correo</figcaption>
+            </figure>
+          </div>
+          <p class="qr-note">Toca o escanea para escribirnos.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+</Base>

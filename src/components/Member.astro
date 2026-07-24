@@ -1,0 +1,75 @@
+---
+import Icon from "./Icon.astro";
+
+interface Props {
+  persona: {
+    nombre: string;
+    cargo: string;
+    email?: string | null;
+    foto?: string | null;
+    linkedin?: string | null;
+  };
+  /** Usa <h2> en la página de equipo y <h3> cuando va dentro de la home. */
+  nivel?: 2 | 3;
+}
+const { persona: p, nivel = 3 } = Astro.props;
+const Titulo = `h${nivel}` as "h2" | "h3";
+
+const iniciales = p.nombre
+  .split(" ")
+  .map((parte) => parte[0])
+  .slice(0, 2)
+  .join("");
+---
+
+<article class="member">
+  {
+    p.foto ? (
+      p.linkedin ? (
+        <a
+          class="member__photo-link"
+          href={p.linkedin}
+          target="_blank"
+          rel="noopener"
+          aria-label={`Ver el LinkedIn de ${p.nombre}`}
+        >
+          <img
+            class="member__foto"
+            src={p.foto}
+            alt={`Retrato de ${p.nombre}`}
+            width="440"
+            height="440"
+            loading="lazy"
+            decoding="async"
+          />
+          <span class="member__li" aria-hidden="true"><Icon nombre="linkedin" size={16} /></span>
+        </a>
+      ) : (
+        <img
+          class="member__foto"
+          src={p.foto}
+          alt={`Retrato de ${p.nombre}`}
+          width="440"
+          height="440"
+          loading="lazy"
+          decoding="async"
+        />
+      )
+    ) : (
+      <p class="member__avatar" aria-hidden="true">{iniciales}</p>
+    )
+  }
+
+  <Titulo class="member__name">
+    {
+      p.linkedin ? (
+        <a href={p.linkedin} target="_blank" rel="noopener">{p.nombre}</a>
+      ) : (
+        p.nombre
+      )
+    }
+  </Titulo>
+  <p class="member__role">{p.cargo}</p>
+
+  {p.email && <a class="member__mail" href={`mailto:${p.email}`}>{p.email}</a>}
+</article>

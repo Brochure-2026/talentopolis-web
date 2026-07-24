@@ -1,0 +1,60 @@
+---
+import Base from "../layouts/Base.astro";
+import PageHero from "../components/PageHero.astro";
+import VideoFacade from "../components/VideoFacade.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import Member from "../components/Member.astro";
+import RedAliados from "../components/RedAliados.astro";
+import { equipo } from "../data/site.js";
+---
+
+<Base
+  titulo="Equipo — Talentópolis"
+  descripcion="Conoce al equipo de Talentópolis: dirección ejecutiva, producción comercial y dirección de contenidos de la productora audiovisual y medio multiplataforma."
+>
+  <PageHero
+    eyebrow="Nosotros"
+    titulo="Nuestro"
+    destacado="Equipo"
+    bajada="Un equipo pequeño y sin capas intermedias: hablas directamente con quien produce tu contenido."
+  />
+
+  <section class="section bg-deep">
+    <div class="wrap">
+      <div class="team team--grande stagger">
+        {equipo.map((m) => <Member persona={m} nivel={2} />)}
+      </div>
+
+      <RedAliados />
+
+      <div class="reveal" style="max-width:900px;margin:clamp(46px,6vw,72px) auto 0">
+        <VideoFacade
+          id="r9VHoOiBMPo"
+          titulo="Somos el Canal Talentópolis"
+          thumb="/assets/images/video-equipo.webp"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-mid">
+    <div class="wrap about__text reveal">
+      <p class="eyebrow" style="display:block;text-align:center">Cómo trabajamos</p>
+      <p>
+        Como medio de comunicación multiplataforma y productora audiovisual, no
+        solo grabamos: conceptualizamos, ordenamos editorialmente, producimos,
+        editamos y distribuimos.
+      </p>
+      <p>
+        Combinamos una mirada estratégica con la agilidad técnica necesaria para
+        el ecosistema digital actual.
+      </p>
+    </div>
+  </section>
+
+  <CtaBanner
+    titulo="¿Quieres trabajar con nosotros?"
+    texto="Escríbenos y coordinamos una conversación para entender qué necesitas."
+    mensaje="Hola, me gustaría conversar con el equipo de Talentópolis."
+  />
+</Base>

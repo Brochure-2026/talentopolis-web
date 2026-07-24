@@ -1,0 +1,137 @@
+---
+import { ClientRouter } from "astro:transitions";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Icon from "../components/Icon.astro";
+import { site, contacto, redes } from "../data/site.js";
+import "../styles/global.css";
+import "../styles/paginas.css";
+
+interface Props {
+  titulo: string;
+  descripcion: string;
+  imagen?: string;
+  tipo?: "website" | "article";
+  noindex?: boolean;
+}
+
+const {
+  titulo,
+  descripcion,
+  imagen = "/assets/images/og-talentopolis.jpg",
+  tipo = "website",
+  noindex = false,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site ?? site.dominio).href;
+const imagenAbs = new URL(imagen, Astro.site ?? site.dominio).href;
+const tituloCompleto = titulo.includes("Talentópolis")
+  ? titulo
+  : `${titulo} — Talentópolis`;
+
+const organizacion = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: site.nombre,
+  url: site.dominio,
+  logo: `${site.dominio}/assets/images/logo-talentopolis.webp`,
+  description: site.descripcion,
+  email: contacto.email,
+  telephone: `+${contacto.telefonoE164}`,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: contacto.direccion,
+    addressLocality: "Providencia",
+    addressRegion: "Región Metropolitana",
+    addressCountry: "CL",
+  },
+  sameAs: redes.map((r) => r.url),
+};
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{tituloCompleto}</title>
+    <meta name="description" content={descripcion} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+
+    <meta property="og:type" content={tipo} />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:site_name" content={site.nombre} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={tituloCompleto} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:image" content={imagenAbs} />
+    <meta property="og:image:alt" content={`${site.nombre} — ${titulo}`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={tituloCompleto} />
+    <meta name="twitter:description" content={descripcion} />
+    <meta name="twitter:image" content={imagenAbs} />
+
+    <meta name="theme-color" content="#000B42" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <link
+      rel="preload"
+      href="/assets/fonts/montserrat-800-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/assets/fonts/roboto-400-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(organizacion)} />
+
+    {/* Google Analytics 4 — configurado para contar también las navegaciones
+        internas (el sitio usa transiciones de página). */}
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PGP6XHMQCT" is:inline></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag("js", new Date());
+      // send_page_view:false — la vista se envía manualmente en cada página
+      // (incluida la inicial) para no depender del auto-tracking con transiciones.
+      gtag("config", "G-PGP6XHMQCT", { send_page_view: false });
+      if (!window.__gaBound) {
+        window.__gaBound = true;
+        document.addEventListener("astro:page-load", function () {
+          gtag("event", "page_view", {
+            page_title: document.title,
+            page_location: location.href,
+            page_path: location.pathname + location.search,
+          });
+        });
+      }
+    </script>
+
+    <ClientRouter />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#contenido">Ir al contenido</a>
+    <Header transition:persist />
+    <main id="contenido">
+      <slot />
+    </main>
+    <Footer />
+
+    <button class="to-top" type="button" data-top aria-label="Volver arriba" transition:persist>
+      <Icon nombre="arrow" size={20} />
+    </button>
+
+    <script src="/js/main.js" defer is:inline></script>
+  </body>
+</html>

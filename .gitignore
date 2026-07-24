@@ -1,0 +1,23 @@
+# dependencias
+node_modules/
+
+# build / salida generada
+dist/
+.astro/
+
+# clon estático original (no forma parte del sitio nuevo)
+_original/
+
+# variables de entorno / secretos
+.env
+.env.*
+!.env.example
+
+# sistema operativo / editor
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+
+# Vercel
+.vercel/

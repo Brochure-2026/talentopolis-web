@@ -1,0 +1,27 @@
+---
+/** Cabecera estándar de las páginas interiores. */
+interface Props {
+  eyebrow?: string;
+  titulo: string;
+  destacado?: string;
+  bajada?: string;
+}
+const { eyebrow, titulo, destacado, bajada } = Astro.props;
+---
+
+<section class="page-hero bg-glow">
+  <div class="wrap">
+    <nav class="migas" aria-label="Ruta de navegación">
+      <a href="/">Inicio</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{titulo}</span>
+    </nav>
+
+    {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+    <h1 class="page-hero__title">
+      {titulo}{destacado && <> <strong>{destacado}</strong></>}
+    </h1>
+    {bajada && <p class="page-hero__sub">{bajada}</p>}
+    <slot />
+  </div>
+</section>

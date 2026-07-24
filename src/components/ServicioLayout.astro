@@ -1,0 +1,154 @@
+---
+import Icon from "./Icon.astro";
+import PageHero from "./PageHero.astro";
+import CtaBanner from "./CtaBanner.astro";
+import { servicios } from "../data/servicios.js";
+import { site } from "../data/site.js";
+
+const { servicio: s } = Astro.props;
+const otros = servicios.filter((x) => x.slug !== s.slug).slice(0, 3);
+const base = site.dominio;
+
+const migas = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Inicio", item: `${base}/` },
+    { "@type": "ListItem", position: 2, name: "Servicios", item: `${base}/servicios/` },
+    { "@type": "ListItem", position: 3, name: s.nombre, item: `${base}/${s.slug}/` },
+  ],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(migas)} />
+
+<PageHero eyebrow="Servicio" titulo={s.titulo} bajada={s.intro} />
+
+{/* ---------- QUÉ INCLUYE ---------- */}
+<section class="section bg-deep" aria-labelledby="incluye-titulo">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 class="section-title" id="incluye-titulo">{s.incluyeTitulo}</h2>
+    </div>
+
+    <div class="cards stagger">
+      {
+        s.incluye.map(([titulo, texto]) => (
+          <article class="card card--static">
+            <span class="card__icon"><Icon nombre="check" size={20} /></span>
+            <h3 class="card__title">{titulo}</h3>
+            <p class="card__text">{texto}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+{/* ---------- POR QUÉ ---------- */}
+<section class="section bg-mid" aria-labelledby="porque-titulo">
+  <div class="wrap porque">
+    <div class="reveal">
+      <span class="porque__icon"><Icon nombre={s.icono} size={30} /></span>
+      <h2 class="section-title" id="porque-titulo">{s.porqueTitulo}</h2>
+    </div>
+
+    <ul class="lista-check lista-check--grande reveal">
+      {
+        s.porque.map((t) => (
+          <li>
+            <Icon nombre="check" size={20} />
+            {t}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+{/* ---------- PENDIENTE DE DATOS (solo si la página se redactó desde cero) ---------- */}
+{
+  s.pendiente && (
+    <section class="section--tight bg-deep">
+      <div class="wrap">
+        <aside class="aviso reveal">
+          <p class="aviso__t">Contenido pendiente de validación</p>
+          <p>
+            Esta página estaba vacía en el sitio actual. La estructura está lista;
+            falta incorporar:
+          </p>
+          <ul>
+            {s.pendiente.map((t) => <li>{t}</li>)}
+          </ul>
+        </aside>
+      </div>
+    </section>
+  )
+}
+
+{/* ---------- LUGARES DE GRABACIÓN (mapa) ---------- */}
+{
+  s.lugares && (
+    <section class="section bg-mid" aria-labelledby="lugares-titulo">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">En terreno</p>
+          <h2 class="section-title" id="lugares-titulo">{s.lugares.titulo}</h2>
+        </div>
+
+        <div class="lugares reveal">
+          {s.lugares.items.map((l) => (
+            <figure class="mapa">
+              <img class="mapa__img" src={l.mapa} alt={`Mapa de ${l.nombre}`} width="680" height="420" loading="lazy" decoding="async" />
+              <figcaption class="mapa__info">
+                <div class="mapa__txt">
+                  <strong>{l.nombre}</strong>
+                  <span>{l.direccion}</span>
+                </div>
+                <a class="mapa__ir" href={l.comollegar} target="_blank" rel="noopener" aria-label={`Cómo llegar a ${l.nombre}`}>
+                  <Icon nombre="arrow" size={20} />
+                </a>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+        <p class="mapa__attr">Mapa © OpenStreetMap · CARTO</p>
+      </div>
+    </section>
+  )
+}
+
+{/* ---------- CIERRE ---------- */}
+<section class="section bg-deep">
+  <div class="wrap cierre reveal">
+    <h2 class="section-title">{s.cierreTitulo}</h2>
+    <p>{s.cierre}</p>
+  </div>
+</section>
+
+{/* ---------- OTROS SERVICIOS ---------- */}
+<section class="section bg-mid">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">También ofrecemos</p>
+      <h2 class="section-title">Otros <strong>servicios</strong></h2>
+    </div>
+
+    <div class="cards stagger">
+      {
+        otros.map((o) => (
+          <a class="card" href={`/${o.slug}/`}>
+            <span class="card__icon"><Icon nombre={o.icono} size={22} /></span>
+            <h3 class="card__title">{o.nombre}</h3>
+            <p class="card__text">{o.resumen}</p>
+            <span class="card__go">
+              Ver servicio <Icon nombre="arrow" size={16} />
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<CtaBanner mensaje={`Hola, me interesa el servicio de ${s.nombre}.`} />

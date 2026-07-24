@@ -1,0 +1,33 @@
+---
+import Icon from "./Icon.astro";
+import { programas } from "../data/programas.js";
+
+interface Props {
+  excluir?: string;
+}
+const { excluir } = Astro.props;
+const lista = programas.filter((p) => p.slug !== excluir);
+---
+
+<div class="programs stagger">
+  {
+    lista.map((p) => (
+      <a class="program" href={p.url}>
+        <div class="program__media">
+          <img
+            src={p.portada}
+            alt={p.portadaAlt}
+            width="600"
+            height="600"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div class="program__body">
+          <span class="program__name">{p.nombre}</span>
+          <Icon nombre="arrow" size={18} class="program__go" />
+        </div>
+      </a>
+    ))
+  }
+</div>

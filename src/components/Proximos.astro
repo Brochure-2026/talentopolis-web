@@ -1,0 +1,158 @@
+---
+import { proximamente } from "../data/programas.js";
+
+const destacado = proximamente.find((p) => p.destacado) || proximamente[0];
+const otrosProximos = proximamente.filter((p) => !p.destacado);
+
+const getGuestInfo = (inv) => {
+  if (typeof inv === "object" && !Array.isArray(inv)) {
+    return {
+      nombre: inv.nombre,
+      cargo: inv.cargo,
+      thumb: inv.thumb,
+      youtubeUrl: inv.youtubeUrl,
+      tituloEpisodio: inv.tituloEpisodio,
+    };
+  }
+  return { nombre: inv[0], cargo: inv[1] };
+};
+---
+
+<section class="section bg-mid" aria-labelledby="proximos-titulo">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Estreno & En Emisión</p>
+      <h2 class="section-title" id="proximos-titulo">
+        Nuevo <strong>programa</strong>
+      </h2>
+      <p class="section-sub">Comunicación estratégica, cultura y pensamiento ejecutivo</p>
+    </div>
+
+    {/* --- DESTACADO: COMUNICARTE --- */}
+    {
+      destacado && (
+        <article class="proximo proximo--destacado reveal">
+          <div class="proximo__media">
+            <span class="badge-live">{destacado.badge || "NUEVO · EN EMISIÓN"}</span>
+            <img
+              src={destacado.portada}
+              alt={destacado.portadaAlt}
+              width="600"
+              height="600"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          <div class="proximo__body">
+            <h3 class="proximo__name">{destacado.nombre}</h3>
+            <p class="proximo__text">{destacado.descripcion}</p>
+
+            {destacado.invitados && (
+              <>
+                <p class="proximo__label">YA HAN PASADO POR EL PROGRAMA</p>
+                <ul class="invitados">
+                  {destacado.invitados.map((inv) => {
+                    const { nombre, cargo, thumb, youtubeUrl, tituloEpisodio } = getGuestInfo(inv);
+                    return (
+                      <li class="invitado-card">
+                        {youtubeUrl && thumb && (
+                          <a
+                            href={youtubeUrl}
+                            target="_blank"
+                            rel="noopener"
+                            class="invitado-card__media"
+                            title={`Ver capítulo en YouTube: ${tituloEpisodio || nombre}`}
+                          >
+                            <img src={thumb} alt={`Carátula capítulo con ${nombre}`} loading="lazy" decoding="async" />
+                            <span class="invitado-card__play" aria-hidden="true">
+                              <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                                <path d="M8 5v14l11-7z" />
+                              </svg>
+                            </span>
+                          </a>
+                        )}
+
+                        <div class="invitado-card__info">
+                          <strong>{nombre}</strong>
+                          <span>{cargo}</span>
+                          {youtubeUrl && (
+                            <a href={youtubeUrl} target="_blank" rel="noopener" class="invitado-card__link">
+                              Ver capítulo
+                              <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15" class="yt-brand-icon">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                              </svg>
+                            </a>
+                          )}
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </>
+            )}
+          </div>
+        </article>
+      )
+    }
+
+    {/* --- OTROS PRÓXIMOS LANZAMIENTOS --- */}
+    {
+      otrosProximos.length > 0 && (
+        <div class="proximos-sub reveal" style="margin-top: 48px;">
+          <h3 class="proximos-sub__title">Más próximos lanzamientos</h3>
+          <div class="proximos stagger" style="margin-top: 20px;">
+            {otrosProximos.map((p) => (
+              <article class="proximo">
+                <div class="proximo__media">
+                  <span class="badge-soon">Próximamente</span>
+                  <img
+                    src={p.portada}
+                    alt={p.portadaAlt}
+                    width="600"
+                    height="600"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+
+                <div class="proximo__body">
+                  <h3 class="proximo__name">{p.nombre}</h3>
+                  <p class="proximo__text">{p.descripcion}</p>
+
+                  {p.canalYoutube && (
+                    <div style="margin-top: 16px;">
+                      <a href={p.canalYoutube} target="_blank" rel="noopener" class="proximo__cta">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" class="yt-brand-icon">
+                          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                        Ir al Canal de YouTube
+                      </a>
+                    </div>
+                  )}
+
+                  {p.invitados && (
+                    <>
+                      <p class="proximo__label">YA HAN PASADO POR EL PROGRAMA</p>
+                      <ul class="invitados">
+                        {p.invitados.map((inv) => {
+                          const { nombre, cargo } = getGuestInfo(inv);
+                          return (
+                            <li>
+                              <strong>{nombre}</strong>
+                              <span>{cargo}</span>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      )
+    }
+  </div>
+</section>

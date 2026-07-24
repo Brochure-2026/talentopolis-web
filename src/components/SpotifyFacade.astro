@@ -1,0 +1,26 @@
+---
+import Icon from "./Icon.astro";
+
+/**
+ * Enlace directo a la playlist del programa en Spotify. No incrusta el
+ * reproductor (el embed pide sesión, va lento y solo da previews de 30 s):
+ * abre la app/web de Spotify, donde el usuario ya suele tener sesión y suena
+ * completo. La reproducción instantánea en la propia web la dan las tarjetas
+ * de YouTube.
+ */
+interface Props {
+  /** URL completa de Spotify (playlist, show/podcast, álbum…). */
+  url: string;
+  programa: string;
+}
+const { url, programa } = Astro.props;
+---
+
+<a class="spotify__cta" href={url} target="_blank" rel="noopener">
+  <span class="spotify__icon"><Icon nombre="spotify" size={30} /></span>
+  <span class="spotify__txt">
+    <strong>Escuchar {programa} en Spotify</strong>
+    <span>Se abre en la app de Spotify</span>
+  </span>
+  <Icon nombre="arrow" size={20} />
+</a>

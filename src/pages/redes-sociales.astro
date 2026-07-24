@@ -1,0 +1,53 @@
+---
+import Base from "../layouts/Base.astro";
+import Icon from "../components/Icon.astro";
+import PageHero from "../components/PageHero.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import { redes } from "../data/site.js";
+
+// Enfoque de cada canal. Texto REAL del sitio actual.
+const enfoque = {
+  LinkedIn: "Enfoque profesional",
+  Instagram: "Comunidad y cultura",
+  TikTok: "Innovación y cercanía",
+  Facebook: "Alcance masivo",
+  YouTube: "Todos nuestros programas y episodios completos",
+};
+---
+
+<Base
+  titulo="Redes Sociales — Talentópolis"
+  descripcion="Síguenos y conecta con la comunidad de Talentópolis en YouTube, LinkedIn e Instagram. Donde la innovación y el talento se encuentran."
+>
+  <PageHero
+    eyebrow="Contacto"
+    titulo="Síguenos y conecta con nuestra"
+    destacado="comunidad"
+    bajada="Donde la innovación y el talento se encuentran. Conéctate con nosotros en todas nuestras plataformas."
+  />
+
+  <section class="section bg-deep">
+    <div class="wrap">
+      <div class="cards cards--redes stagger">
+        {
+          redes.map((r) => (
+            <a class="card card--red" href={r.url} target="_blank" rel="noopener">
+              <span class="card__icon"><Icon nombre={r.icono} size={24} /></span>
+              <h2 class="card__title">{r.nombre}</h2>
+              <p class="card__text">{enfoque[r.nombre] ?? "Síguenos"}</p>
+              <span class="card__go">
+                Abrir perfil <Icon nombre="arrow" size={16} />
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    titulo="¡Hablemos! Estamos a un clic de distancia"
+    texto="Queremos escucharte. Tu opinión construye el futuro de Talentópolis."
+    mensaje="Hola, los sigo en redes y quiero contactarlos."
+  />
+</Base>

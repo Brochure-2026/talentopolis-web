@@ -1,0 +1,31 @@
+---
+import Icon from "./Icon.astro";
+import { entregables } from "../data/site.js";
+---
+
+<section class="section bg-deep" aria-labelledby="entregables-titulo">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Qué recibes</p>
+      <h2 class="section-title" id="entregables-titulo">
+        Los <strong>entregables</strong> que recibe tu marca
+      </h2>
+      <p class="section-sub">
+        Cada proyecto incluye un paquete completo de contenidos listo para publicar
+        en todos tus canales
+      </p>
+    </div>
+
+    <div class="cards cards--entregables stagger">
+      {
+        entregables.map((e) => (
+          <article class="card card--static">
+            <span class="card__icon"><Icon nombre={e.icono} size={22} /></span>
+            <h3 class="card__title">{e.titulo}</h3>
+            <p class="card__text">{e.texto}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

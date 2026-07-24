@@ -1,0 +1,27 @@
+---
+/**
+ * Fachada de vídeo: muestra la miniatura y solo carga el reproductor de
+ * YouTube cuando el usuario pulsa play. Evita arrastrar ~1 MB de scripts de
+ * terceros en la carga inicial de cada página.
+ */
+interface Props {
+  id: string;
+  titulo: string;
+  thumb?: string;
+  class?: string;
+}
+const { id, titulo, thumb, class: clase = "" } = Astro.props;
+const imagen = thumb ?? `/assets/images/ep/${id}.webp`;
+---
+
+<div
+  class={`video ${clase}`}
+  data-video={id}
+  data-video-title={titulo}
+  role="button"
+  tabindex="0"
+  aria-label={`Reproducir: ${titulo}`}
+>
+  <img src={imagen} alt="" width="480" height="270" loading="lazy" decoding="async" />
+  <span class="video__play" aria-hidden="true"></span>
+</div>

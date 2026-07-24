@@ -1,0 +1,1078 @@
+{
+ "organizaciones-del-manana-podcast": [
+  {
+   "temporada": "T1",
+   "videos": [
+    {
+     "id": "GOYeN1R2WZE",
+     "titulo": "T1-E1 Las GENERACIONES y su convivencia en el entorno laboral con Cristian Kolubakin",
+     "thumb": "/assets/images/ep/GOYeN1R2WZE.webp"
+    },
+    {
+     "id": "cuMO4uyPW1M",
+     "titulo": "T1-E2 Personal Branding y Employee Advocacy con Ignacio Ovalle",
+     "thumb": "/assets/images/ep/cuMO4uyPW1M.webp"
+    },
+    {
+     "id": "B4TZiuCQcAk",
+     "titulo": "T1-E3 LA MOTIVACIÓN PERSONAL para alcanzar tus OBJETIVOS | by HumanNet",
+     "thumb": "/assets/images/ep/B4TZiuCQcAk.webp"
+    },
+    {
+     "id": "i9kA_VrfXpA",
+     "titulo": "T1-E4 CLAVES para un LIDERAZGO conectado con las EMOCIONES| By #humannet",
+     "thumb": "/assets/images/ep/i9kA_VrfXpA.webp"
+    },
+    {
+     "id": "RsQoIt_tdVg",
+     "titulo": "T1-E5 SALUD y BIENESTAR en el trabajo con Dra Francisca Valdivieso Undurraga",
+     "thumb": "/assets/images/ep/RsQoIt_tdVg.webp"
+    },
+    {
+     "id": "Br2Bx0MPhrM",
+     "titulo": "T1-E6 La INCLUSIÓN de las MASCOTAS como un factor de BIENESTAR",
+     "thumb": "/assets/images/ep/Br2Bx0MPhrM.webp"
+    },
+    {
+     "id": "Um1MSyZboLE",
+     "titulo": "T1-E7 \"CONECTAR\" para lograr una #comunicación que ATRAE",
+     "thumb": "/assets/images/ep/Um1MSyZboLE.webp"
+    },
+    {
+     "id": "OcdiAQki34k",
+     "titulo": "T1-E8 Liderazgo y Servicio al Cliente: CLAVES para superar los DESAFIOS",
+     "thumb": "/assets/images/ep/OcdiAQki34k.webp"
+    },
+    {
+     "id": "IQwdujh4tNQ",
+     "titulo": "T1-E9 La Educación Técnica Superior: VENTAJAS Y CLAVES para triunfar ✨",
+     "thumb": "/assets/images/ep/IQwdujh4tNQ.webp"
+    },
+    {
+     "id": "lTqNwt22k5A",
+     "titulo": "T1-E10 Descubre ¿CÓMO encontrar el EQUILIBRIO entre EL TRABAJO y LA FAMILIA?",
+     "thumb": "/assets/images/ep/lTqNwt22k5A.webp"
+    },
+    {
+     "id": "sXBheIPukqs",
+     "titulo": "T1-E11 ¿Cómo MANEJAR y ENFRENTAR una CRISIS a través de una Comunicación Estratégica?",
+     "thumb": "/assets/images/ep/sXBheIPukqs.webp"
+    },
+    {
+     "id": "9oQ-jSPY5Sc",
+     "titulo": "T1-E12 EDUCACIÓN ESCOLAR y el FUTURO DEL TRABAJO",
+     "thumb": "/assets/images/ep/9oQ-jSPY5Sc.webp"
+    }
+   ]
+  },
+  {
+   "temporada": "T2",
+   "videos": [
+    {
+     "id": "4r-0zExiFcI",
+     "titulo": "T2-E1 La SOSTENIBILIDAD como CULTURA Empresarial con Aldo Illardi",
+     "thumb": "/assets/images/ep/4r-0zExiFcI.webp"
+    },
+    {
+     "id": "6XUAtnch_IQ",
+     "titulo": "T2-E2 Nuevas ESTRATEGIAS para Atraer el MEJOR TALENTO 💼 | Matías Sánchez y Andrés Cardemil",
+     "thumb": "/assets/images/ep/6XUAtnch_IQ.webp"
+    },
+    {
+     "id": "gzZvAMF52XE",
+     "titulo": "T2-E3 Nuevos CONSUMIDORES Nuevos DESAFÍOS | Soledad Cáceres - Andrés Cardemil",
+     "thumb": "/assets/images/ep/gzZvAMF52XE.webp"
+    },
+    {
+     "id": "vDiGOTIT0Vo",
+     "titulo": "T2-E4 La OIT y el Futuro Laboral: el Trabajo NO es una Mercancía | Fabio Bertranou - A.Cardemil",
+     "thumb": "/assets/images/ep/vDiGOTIT0Vo.webp"
+    },
+    {
+     "id": "RsH-F15cLxs",
+     "titulo": "T2-E5 MARKETING 360: ESTRATEGIAS para el ÉXITO | Pablo Chávez - Andrés Cardemil",
+     "thumb": "/assets/images/ep/RsH-F15cLxs.webp"
+    },
+    {
+     "id": "S7p_P77HyNI",
+     "titulo": "T2-E6 METAVERSO: La Nueva Frontera Empresarial  | Rodrigo González - Andrés Cardemil",
+     "thumb": "/assets/images/ep/S7p_P77HyNI.webp"
+    },
+    {
+     "id": "omV-DpKxHlc",
+     "titulo": "T2-E7 SOSTENIBILIDAD y ÉXITO: La Fórmula para Empresas Conscientes | Inv: Claudia Papić",
+     "thumb": "/assets/images/ep/omV-DpKxHlc.webp"
+    },
+    {
+     "id": "7cQrgd-XiOA",
+     "titulo": "T2-E8 CÁMARAS DE COMERCIO y el Networking como factor de ÉXITO | A.Cardemil - José Palma Tagle",
+     "thumb": "/assets/images/ep/7cQrgd-XiOA.webp"
+    },
+    {
+     "id": "Fs4kGC1oT2w",
+     "titulo": "T2-E9 Energías Renovables: CONCIENCIA y BALANCE en la Transición Energética",
+     "thumb": "/assets/images/ep/Fs4kGC1oT2w.webp"
+    },
+    {
+     "id": "BS1SvcAcWa4",
+     "titulo": "T2-E10 CLAVES para el ÉXITO Profesional FEMENINO |  Iarhemy Figueroa -  Andrés Cardemil",
+     "thumb": "/assets/images/ep/BS1SvcAcWa4.webp"
+    },
+    {
+     "id": "DsY2x9JnC5A",
+     "titulo": "T2-E11 TRANSFORMACIÓN TECNOLÓGICA: Innovación Disruptiva en La Empresa | Clery Neyra A.Cardemil",
+     "thumb": "/assets/images/ep/DsY2x9JnC5A.webp"
+    },
+    {
+     "id": "Cok1aIBpvko",
+     "titulo": "T2-E12 Nuevas GENERACIONES en Biotecnología: Contribución al futuro de la Ciencia",
+     "thumb": "/assets/images/ep/Cok1aIBpvko.webp"
+    }
+   ]
+  },
+  {
+   "temporada": "T3",
+   "videos": [
+    {
+     "id": "RZzjFumxas4",
+     "titulo": "T3-E1 El Futuro de La INNOVACIÓN: Colaboración y Sustentabilidad con Catalina Petric Araos",
+     "thumb": "/assets/images/ep/RZzjFumxas4.webp"
+    },
+    {
+     "id": "7rvuARDSfdo",
+     "titulo": "T3-E2 TRANSPORTE y TELECOMUNICACIONES: Claves para el Crecimiento Futuro con Gloria Hutt",
+     "thumb": "/assets/images/ep/7rvuARDSfdo.webp"
+    },
+    {
+     "id": "c4GbY8EwyPI",
+     "titulo": "T3-E3 ¡DESCUBRE el Futuro de las TELECOMUNICACIONES! con Fernando Gana #GTD",
+     "thumb": "/assets/images/ep/c4GbY8EwyPI.webp"
+    },
+    {
+     "id": "hhKPNsaP4Xs",
+     "titulo": "T3-E4 CIBERSEGURIDAD, ¿Cómo Protegernos en la Era Digital? con Carolina Pizarro Díaz",
+     "thumb": "/assets/images/ep/hhKPNsaP4Xs.webp"
+    },
+    {
+     "id": "AvAg-TxoonA",
+     "titulo": "T3-E5 EL AGUA: cómo GESTIONAR este elemento vital. Con Orlando Acosta Lancellotti",
+     "thumb": "/assets/images/ep/AvAg-TxoonA.webp"
+    },
+    {
+     "id": "1fjm4wmCGDo",
+     "titulo": "T3-E6 EMPRENDIMIENTO: Desafíos y Oportunidades en la Nueva Economía con Inti Núñez",
+     "thumb": "/assets/images/ep/1fjm4wmCGDo.webp"
+    },
+    {
+     "id": "uhIAXwshaqQ",
+     "titulo": "T3-E7 El poder de la IA: ¿Hasta dónde llegaremos? con Carmen Gloria Cárcamo",
+     "thumb": "/assets/images/ep/uhIAXwshaqQ.webp"
+    },
+    {
+     "id": "CT8a36D6kdU",
+     "titulo": "T3-E8 LOGÍSTICA hoy: LA CADENA DE SUMINISTRO y su Futuro con Álvaro Román - T3-Ep #8",
+     "thumb": "/assets/images/ep/CT8a36D6kdU.webp"
+    },
+    {
+     "id": "SAro6O13s4o",
+     "titulo": "La EVOLUCIÓN del CINE y la producción AUDIOVISUAL, en la era Digital con David Albala",
+     "thumb": "/assets/images/ep/SAro6O13s4o.webp"
+    },
+    {
+     "id": "bkvX8pQcrqg",
+     "titulo": "Cine, Tecnología y Emociones: ¿Qué Nos Espera en los Próximos Años?",
+     "thumb": "/assets/images/ep/bkvX8pQcrqg.webp"
+    },
+    {
+     "id": "6tc4otr4XaM",
+     "titulo": "T3-E10 El MINDFULNESS como ESTRATEGIA clave para el bienestar organizacional con Daniela Morel",
+     "thumb": "/assets/images/ep/6tc4otr4XaM.webp"
+    },
+    {
+     "id": "K0oL39L_Nik",
+     "titulo": "T3-E11 Espectáculos de MAGIA: Asombro y Emociones para conectar con Ignacio DeJourdan",
+     "thumb": "/assets/images/ep/K0oL39L_Nik.webp"
+    },
+    {
+     "id": "F_vQGr2WG2Y",
+     "titulo": "T3-E12 FUTURO de la ASTRONOMÍA hoy: Observando el Universo desde Chile con Andrea Mejías",
+     "thumb": "/assets/images/ep/F_vQGr2WG2Y.webp"
+    },
+    {
+     "id": "ybba47A7q4Q",
+     "titulo": "*¡El Futuro del Trabajo es Hoy! ¿Estás Preparado?",
+     "thumb": "/assets/images/ep/ybba47A7q4Q.webp"
+    },
+    {
+     "id": "65rBZcuPCSY",
+     "titulo": "*De la INTELIGENCIA ARTIFICIAL  al COSMOS: Tendencias que Marcan la Diferencia.",
+     "thumb": "/assets/images/ep/65rBZcuPCSY.webp"
+    }
+   ]
+  },
+  {
+   "temporada": "T4",
+   "videos": [
+    {
+     "id": "586k8t_V65Y",
+     "titulo": "\"Ciencia Ficción y futuros posibles con Julio Rojas\"",
+     "thumb": "/assets/images/ep/586k8t_V65Y.webp"
+    },
+    {
+     "id": "uL6BFyoD030",
+     "titulo": "\"Democratizando la economía con plataformas digitales\"",
+     "thumb": "/assets/images/ep/uL6BFyoD030.webp"
+    },
+    {
+     "id": "03is3ue8YGg",
+     "titulo": "\"Hacer que las cosas pasen\": el super poder de Bárbara Silva",
+     "thumb": "/assets/images/ep/03is3ue8YGg.webp"
+    },
+    {
+     "id": "eXjOMvc4uk0",
+     "titulo": "Robótica y Futuro del Trabajo: Impacto Global y Local con el Dr. Miguel Solís",
+     "thumb": "/assets/images/ep/eXjOMvc4uk0.webp"
+    },
+    {
+     "id": "V26N3IrnoSA",
+     "titulo": "Innovación, Tecnología, Educación y Liderazgo, para el Futuro del Trabajo con Martín Padulla",
+     "thumb": "/assets/images/ep/V26N3IrnoSA.webp"
+    },
+    {
+     "id": "kC0qwR7gIMA",
+     "titulo": "Una Nueva economía: Digital Assets y #MundoCripto",
+     "thumb": "/assets/images/ep/kC0qwR7gIMA.webp"
+    },
+    {
+     "id": "rGWSLJhIvHY",
+     "titulo": "Chile en la industria Minera: un Desarrollo en equilibrio",
+     "thumb": "/assets/images/ep/rGWSLJhIvHY.webp"
+    },
+    {
+     "id": "qJl8qoekSbQ",
+     "titulo": "Modernizar al Estado desde una Normativa Liberal con el Diputado Agustín Romero",
+     "thumb": "/assets/images/ep/qJl8qoekSbQ.webp"
+    },
+    {
+     "id": "F3U9BjxhP8k",
+     "titulo": "T4 E9 Futuro cuántico con Paulina Assmann",
+     "thumb": "/assets/images/ep/F3U9BjxhP8k.webp"
+    },
+    {
+     "id": "6jbV0IKmof4",
+     "titulo": "T4 E10 Producción Musical y Espectáculos./ Retos para el Futuro: Creatividad, IA y Derechos de Autor",
+     "thumb": "/assets/images/ep/6jbV0IKmof4.webp"
+    },
+    {
+     "id": "2XvwSWpjnrU",
+     "titulo": "Poner a las Personas en el Centro de la Estrategia Empresarial, con Ilia González",
+     "thumb": "/assets/images/ep/2XvwSWpjnrU.webp"
+    },
+    {
+     "id": "G0BPkV7Ja6I",
+     "titulo": "Prepararte para el futuro laboral con Denisse Goldfarb",
+     "thumb": "/assets/images/ep/G0BPkV7Ja6I.webp"
+    },
+    {
+     "id": "fGI6H1R4bsE",
+     "titulo": "Resumen 4ta temporada Organizaciones del Mañana (1era parte)",
+     "thumb": "/assets/images/ep/fGI6H1R4bsE.webp"
+    },
+    {
+     "id": "wvdpBCcQR7o",
+     "titulo": "Resumen 4ta temporada Organizaciones del Mañana (2da parte)",
+     "thumb": "/assets/images/ep/wvdpBCcQR7o.webp"
+    },
+    {
+     "id": "JppJmF1_Vfw",
+     "titulo": "Resumen 4ta temporada Organizaciones del Mañana (1era parte)",
+     "thumb": "/assets/images/ep/JppJmF1_Vfw.webp"
+    }
+   ]
+  },
+  {
+   "temporada": "T5",
+   "videos": [
+    {
+     "id": "VcoQTkRWMec",
+     "titulo": "El Bienestar como una nueva estrategia de La Productividad - con Paulina Calfucoy",
+     "thumb": "/assets/images/ep/VcoQTkRWMec.webp"
+    },
+    {
+     "id": "uAhqLhcuJSc",
+     "titulo": "¿Se puede generar millones, hacer una película y cuidar el planeta? con  Charlie Clark",
+     "thumb": "/assets/images/ep/uAhqLhcuJSc.webp"
+    },
+    {
+     "id": "0DeS4xmLVH0",
+     "titulo": "“Las personas deben estar al centro de toda transformación”, Ricardo Mewes",
+     "thumb": "/assets/images/ep/0DeS4xmLVH0.webp"
+    },
+    {
+     "id": "5nXr9mrTt7k",
+     "titulo": "Periodismo en 2025: emoción, ética e IA — con Francesco Gazzella",
+     "thumb": "/assets/images/ep/5nXr9mrTt7k.webp"
+    },
+    {
+     "id": "MXnZdkYt8RE",
+     "titulo": "Chile, capital de la astronomía: ALMA, ELT, GMT y más con Dra. Mónica Rubio",
+     "thumb": "/assets/images/ep/MXnZdkYt8RE.webp"
+    },
+    {
+     "id": "v93qhI3vEio",
+     "titulo": "Equipos de trabajo de alto rendimiento",
+     "thumb": "/assets/images/ep/v93qhI3vEio.webp"
+    },
+    {
+     "id": "C3cv7OTFJ5w",
+     "titulo": "Nada es Imposible: Paciencia, Garra y Propósito | Entrevista con Javiera Quiroga",
+     "thumb": "/assets/images/ep/C3cv7OTFJ5w.webp"
+    },
+    {
+     "id": "f6z8vQXpm5I",
+     "titulo": "Energías renovables para el chile del futuro",
+     "thumb": "/assets/images/ep/f6z8vQXpm5I.webp"
+    },
+    {
+     "id": "z6Do683hHvg",
+     "titulo": "Imaginar y escribir en tiempos de la IA | Escritores del futuro con Francisco Ortega",
+     "thumb": "/assets/images/ep/z6Do683hHvg.webp"
+    },
+    {
+     "id": "Mfq_J-fo1_0",
+     "titulo": "Equipos motivados: un camino hacia el éxito",
+     "thumb": "/assets/images/ep/Mfq_J-fo1_0.webp"
+    },
+    {
+     "id": "gnv4BipM77k",
+     "titulo": "Retoma el control si eres un profesional TI",
+     "thumb": "/assets/images/ep/gnv4BipM77k.webp"
+    },
+    {
+     "id": "IIq-1LPK0e4",
+     "titulo": "Neuro aprendizaje en acción: Enfocar , Reaprender y liderar con Joaquín Triandafilide.",
+     "thumb": "/assets/images/ep/IIq-1LPK0e4.webp"
+    },
+    {
+     "id": "hqGYccI1xXY",
+     "titulo": "Seguir siendo humano en la era de los agentes de IA",
+     "thumb": "/assets/images/ep/hqGYccI1xXY.webp"
+    },
+    {
+     "id": "5865-v5unx4",
+     "titulo": "Liderazgo comunicativo y resiliencia: cuidando a los colaboradores",
+     "thumb": "/assets/images/ep/5865-v5unx4.webp"
+    },
+    {
+     "id": "fm6CPhYbA3E",
+     "titulo": "Start-Up Chile: El experimento vanguardista que potencia el emprendimiento global",
+     "thumb": "/assets/images/ep/fm6CPhYbA3E.webp"
+    },
+    {
+     "id": "aZHI5djBIoU",
+     "titulo": "Mejores empresas para el chile del futuro",
+     "thumb": "/assets/images/ep/aZHI5djBIoU.webp"
+    },
+    {
+     "id": "IQB4A93ondI",
+     "titulo": "Entendiendo el futuro: Historia, humanidades y trabajo con Magdalena Merbilháa",
+     "thumb": "/assets/images/ep/IQB4A93ondI.webp"
+    },
+    {
+     "id": "wjBHBT0Li88",
+     "titulo": "Define que es lo que te hace diferente | Innovación y coraje para emprender con Tadashi",
+     "thumb": "/assets/images/ep/wjBHBT0Li88.webp"
+    },
+    {
+     "id": "7swtkR1xMRw",
+     "titulo": "Sorpréndete! con la Parte 1 del Compilado T5: ideas que cambiarán tu trabajo",
+     "thumb": "/assets/images/ep/7swtkR1xMRw.webp"
+    },
+    {
+     "id": "yMiR5ZsfO_k",
+     "titulo": "Parte 2 del Compilado T5: Las ideas que están redefiniendo el futuro del trabajo en Chile",
+     "thumb": "/assets/images/ep/yMiR5ZsfO_k.webp"
+    }
+   ]
+  }
+ ],
+ "delaulaalacancha-podcast": [
+  {
+   "temporada": "T1",
+   "videos": [
+    {
+     "id": "rzcOiS7TIKM",
+     "titulo": "🎓\"Del Aula a la Cancha\" | Ep #1: Derribando Mitos: La Educación TP como oportunidad Laboral",
+     "thumb": "/assets/images/ep/rzcOiS7TIKM.webp"
+    },
+    {
+     "id": "VUTg8x6Vaeo",
+     "titulo": "🎓Del Aula a la Cancha | Ep #2: Empresas y el mundo Técnico Profesional: Rol de los Profesionales TP",
+     "thumb": "/assets/images/ep/VUTg8x6Vaeo.webp"
+    },
+    {
+     "id": "tHdGbBpaBBs",
+     "titulo": "🎓Del Aula a la Cancha | Ep #3: INNOVA TP: Reimaginando la formación técnica desde sus bases.",
+     "thumb": "/assets/images/ep/tHdGbBpaBBs.webp"
+    },
+    {
+     "id": "_NiIzrf47ro",
+     "titulo": "🎓Ep #4 l DEL AULA A LA CANCHA: Protagonistas y sus historias en la Formación Técnica Profesional",
+     "thumb": "/assets/images/ep/_NiIzrf47ro.webp"
+    },
+    {
+     "id": "LUctBmLtR4c",
+     "titulo": "🎓Ep #5 l SUSTENTABILIDAD: Oportunidades desde de la Ingeniería y la construcción",
+     "thumb": "/assets/images/ep/LUctBmLtR4c.webp"
+    },
+    {
+     "id": "jKQkGMeajv0",
+     "titulo": "🎓Ep #6 l CAPACITACIÓN Y FORMACIÓN para La Productividad.",
+     "thumb": "/assets/images/ep/jKQkGMeajv0.webp"
+    },
+    {
+     "id": "nIiMnWjkSiY",
+     "titulo": "🎓Ep #7 l INSERCIÓN LABORAL: aprende y muévete para empoderarte en el MERCADO LABORAL",
+     "thumb": "/assets/images/ep/nIiMnWjkSiY.webp"
+    },
+    {
+     "id": "Ekpf_Dx7YEI",
+     "titulo": "🎙⏳️Compilado Ep. 1 al Ep. 4 de la Temporada 1 Podcast \"Del Aula a La Cancha\"",
+     "thumb": "/assets/images/ep/Ekpf_Dx7YEI.webp"
+    },
+    {
+     "id": "8DKwMsp3rFM",
+     "titulo": "El Impacto de la INNOVACIÓN y la TECNOLOGÍA en el área de RECURSOS NATURALES",
+     "thumb": "/assets/images/ep/8DKwMsp3rFM.webp"
+    },
+    {
+     "id": "EC9gFfqncFs",
+     "titulo": "INNOVACION en ADMINISTRACION: optimizando la gestión y mejoran la toma de decisiones estratégicas",
+     "thumb": "/assets/images/ep/EC9gFfqncFs.webp"
+    },
+    {
+     "id": "FhFacEALPAI",
+     "titulo": "INNOVACIÓN en INFORMATICA: Impactando en la calidad de vida de las personas y organizaciones",
+     "thumb": "/assets/images/ep/FhFacEALPAI.webp"
+    },
+    {
+     "id": "_IvgxaLZ5Ow",
+     "titulo": "COMUNICACIÓN DIGITAL: narrativas innovadoras que generen impacto en audiencias",
+     "thumb": "/assets/images/ep/_IvgxaLZ5Ow.webp"
+    },
+    {
+     "id": "fpghV_HhfcA",
+     "titulo": "INNOVACIÓN en CIENCIAS SOCIALES: Integrando enfoques multidisciplinarios con herramientas modernas.",
+     "thumb": "/assets/images/ep/fpghV_HhfcA.webp"
+    },
+    {
+     "id": "-8LTpuxAx9Y",
+     "titulo": "El IMPACTO de la INNOVACIÓN en el área de INGENIERÍA",
+     "thumb": "/assets/images/ep/-8LTpuxAx9Y.webp"
+    },
+    {
+     "id": "MaS_MUTL0E4",
+     "titulo": "INNOVACIÓN, DESARROLLO Y DESAFÍOS en las carreras de Gastronomía y Turismo",
+     "thumb": "/assets/images/ep/MaS_MUTL0E4.webp"
+    },
+    {
+     "id": "UmLpWulagPo",
+     "titulo": "INNOVACIÓN DIGITAL que impulsa el futuro de la SALUD",
+     "thumb": "/assets/images/ep/UmLpWulagPo.webp"
+    },
+    {
+     "id": "kLMAeqnvTw4",
+     "titulo": "Formación TP en EDUCACION: conectando con el conocimiento, inclusiva y desafíos",
+     "thumb": "/assets/images/ep/kLMAeqnvTw4.webp"
+    }
+   ]
+  }
+ ],
+ "mujeres-sin-pausa-podcast": [
+  {
+   "temporada": "Sin Límites",
+   "videos": [
+    {
+     "id": "f3rL1YaTMaA",
+     "titulo": "Vivir para contar: una historia inspiradora con Magdalena Urzúa",
+     "thumb": "/assets/images/ep/f3rL1YaTMaA.webp"
+    },
+    {
+     "id": "Xaud_aFnLFI",
+     "titulo": "¿Cómo proteger la salud mental de tus adolescentes? | Paulina Ramírez en Mujer Hoy Sin Limites",
+     "thumb": "/assets/images/ep/Xaud_aFnLFI.webp"
+    },
+    {
+     "id": "PerE8rbIiNc",
+     "titulo": "Transforma tu cuerpo y tu vida: Daniela Fuentes revela el método Figurella",
+     "thumb": "/assets/images/ep/PerE8rbIiNc.webp"
+    },
+    {
+     "id": "bEstVJePXWU",
+     "titulo": "Explora el Bienestar Emocional con Caballos #SpiritEcC",
+     "thumb": "/assets/images/ep/bEstVJePXWU.webp"
+    },
+    {
+     "id": "J0ZLfzgsElc",
+     "titulo": "Hipopresivos, adopción y amor propio, con Carla Jiménez",
+     "thumb": "/assets/images/ep/J0ZLfzgsElc.webp"
+    },
+    {
+     "id": "uRVPFc7v3CU",
+     "titulo": "¿Quién soy cuando ya no soy mamá? — El renacer femenino",
+     "thumb": "/assets/images/ep/uRVPFc7v3CU.webp"
+    },
+    {
+     "id": "w48ucCO9jHI",
+     "titulo": "Mujeres en movimiento: más allá del gimnasio y las hormonas #ejercicio #figurella",
+     "thumb": "/assets/images/ep/w48ucCO9jHI.webp"
+    },
+    {
+     "id": "FzORlfC4TKs",
+     "titulo": "De la banca a los pijamas: reinvención después de los 40 #evaki #mujeremprendedora",
+     "thumb": "/assets/images/ep/FzORlfC4TKs.webp"
+    },
+    {
+     "id": "Ngr8bkUcOos",
+     "titulo": "Congelar óvulos: ¿Cuándo y por qué hacerlo?",
+     "thumb": "/assets/images/ep/Ngr8bkUcOos.webp"
+    },
+    {
+     "id": "g0aQZSLsx44",
+     "titulo": "Transformar la pérdida en aprendizaje: Inspiración de vida",
+     "thumb": "/assets/images/ep/g0aQZSLsx44.webp"
+    },
+    {
+     "id": "nm-08Nlq0Sc",
+     "titulo": "Nutrición femenina y salud ósea: Lo que toda mujer activa debe saber",
+     "thumb": "/assets/images/ep/nm-08Nlq0Sc.webp"
+    },
+    {
+     "id": "UURqm3Y7guk",
+     "titulo": "Ser mamá con una cardiopatía: la historia de Alejandra Tironi #mama #cardiopatia",
+     "thumb": "/assets/images/ep/UURqm3Y7guk.webp"
+    }
+   ]
+  },
+  {
+   "temporada": "T2",
+   "videos": [
+    {
+     "id": "jyY8fiS1GEM",
+     "titulo": "Nunca es tarde para comenzar de nuevo: La increíble vida de Patricia Peña",
+     "thumb": "/assets/images/ep/jyY8fiS1GEM.webp"
+    },
+    {
+     "id": "3WagGSmia4M",
+     "titulo": "Niebla mental en la menopausia: causas, soluciones y verdades que nadie te dice",
+     "thumb": "/assets/images/ep/3WagGSmia4M.webp"
+    },
+    {
+     "id": "2zyL3YwCK4M",
+     "titulo": "Música que sana el alma: La historia inspiradora de Patricia Abarca",
+     "thumb": "/assets/images/ep/2zyL3YwCK4M.webp"
+    },
+    {
+     "id": "u5wF4C4Kdkw",
+     "titulo": "El valor de ser profesora hoy con Marilú Matte B.",
+     "thumb": "/assets/images/ep/u5wF4C4Kdkw.webp"
+    },
+    {
+     "id": "pnE5DLJO7ik",
+     "titulo": "Mujeres en televisión: machismo, propósito y reinvención a los 40+",
+     "thumb": "/assets/images/ep/pnE5DLJO7ik.webp"
+    },
+    {
+     "id": "u3F67UOTC0s",
+     "titulo": "Magdalena Lira (ACN Chile): Liderar con esperanza donde la fe se pone a prueba",
+     "thumb": "/assets/images/ep/u3F67UOTC0s.webp"
+    },
+    {
+     "id": "N9okqg0Sd3s",
+     "titulo": "Menopausia sin miedo: el mapa real para tu segunda mitad",
+     "thumb": "/assets/images/ep/N9okqg0Sd3s.webp"
+    },
+    {
+     "id": "sZxaVSPqsyM",
+     "titulo": "Autoconocimiento para mujeres 40+: vuelve a tu verdad sin perderte en el ruido",
+     "thumb": "/assets/images/ep/sZxaVSPqsyM.webp"
+    },
+    {
+     "id": "G8cnOO4PG8E",
+     "titulo": "A los 50, vuelvo a volar: deporte, salud y humanidad con la Dra. Verónica Larrea Euler",
+     "thumb": "/assets/images/ep/G8cnOO4PG8E.webp"
+    },
+    {
+     "id": "EEJ5I8qor-s",
+     "titulo": "Del “tengo que” al “quiero”: reinventarte después de los 40 | Catalina Viel, Coach PNL",
+     "thumb": "/assets/images/ep/EEJ5I8qor-s.webp"
+    },
+    {
+     "id": "CmeVqyA6OcQ",
+     "titulo": "Fe que sana, no que culpa: la propuesta de María Loreto Cruz",
+     "thumb": "/assets/images/ep/CmeVqyA6OcQ.webp"
+    },
+    {
+     "id": "OvUSwRSSvKU",
+     "titulo": "“Duelo perinatal y amor que sostiene: cómo acompañar cuando duele” – con Sylvia Díaz Araya",
+     "thumb": "/assets/images/ep/OvUSwRSSvKU.webp"
+    }
+   ]
+  }
+ ],
+ "coffebreak-con-talento": [
+  {
+   "temporada": "T1",
+   "videos": [
+    {
+     "id": "Q26lTDQAWQU",
+     "titulo": "¿Tu EMPRESA Está SEGURA? Descubre Cómo Blindar tus DATOS con Alejandro González Spencer",
+     "thumb": "/assets/images/ep/Q26lTDQAWQU.webp"
+    },
+    {
+     "id": "kN5yjinPhvo",
+     "titulo": "INNOVACIÓN, NEGOCIOS , CLIENTES: la conexión emocional que se necesita para dar un salto de valor",
+     "thumb": "/assets/images/ep/kN5yjinPhvo.webp"
+    },
+    {
+     "id": "P8ldV6JzPzY",
+     "titulo": "\"Liderazgo y formación continua, la clave del Éxito\"",
+     "thumb": "/assets/images/ep/P8ldV6JzPzY.webp"
+    },
+    {
+     "id": "thUo9HnjybM",
+     "titulo": "Soft landing: una clave para la internacionalización exitosa con Felipe Leigh",
+     "thumb": "/assets/images/ep/thUo9HnjybM.webp"
+    }
+   ]
+  }
+ ],
+ "capsulas-para-el-exito": [
+  {
+   "temporada": "Cápsulas",
+   "videos": [
+    {
+     "id": "JHYZmTMU3LA",
+     "titulo": "¿QUIERES TRIUNFAR? Aquí Están las 10 LEYES que Te Llevarán al ÉXITO",
+     "thumb": "/assets/images/ep/JHYZmTMU3LA.webp"
+    },
+    {
+     "id": "nGLORYo-ktQ",
+     "titulo": "¡DESCUBRE los TRABAJOS que DESAPARECERÁN esta década! con Andrés Cardemil",
+     "thumb": "/assets/images/ep/nGLORYo-ktQ.webp"
+    },
+    {
+     "id": "JD0ait0ZqX4",
+     "titulo": "LAS EMPRESAS FAMILIARES: Cultura organizacional, desafíos y oportunidades con Andrés Cardemil",
+     "thumb": "/assets/images/ep/JD0ait0ZqX4.webp"
+    },
+    {
+     "id": "3KLruNTzwfQ",
+     "titulo": "La IMPACTANTE TRANSFORMACIÓN de los espacios laborales con Andrés Cardemil",
+     "thumb": "/assets/images/ep/3KLruNTzwfQ.webp"
+    },
+    {
+     "id": "ZRTeXsNECwc",
+     "titulo": "12 Oficios Olvidados del Siglo XX: Historias de un Mundo que ya no Existe",
+     "thumb": "/assets/images/ep/ZRTeXsNECwc.webp"
+    },
+    {
+     "id": "_yzu_uIS7lM",
+     "titulo": "Los Robots Están transformando Tu Vida y el Mundo Laboral",
+     "thumb": "/assets/images/ep/_yzu_uIS7lM.webp"
+    },
+    {
+     "id": "2NQYJhJQDiA",
+     "titulo": "Seis Tecnologías que transformarán el Mundo Laboral",
+     "thumb": "/assets/images/ep/2NQYJhJQDiA.webp"
+    },
+    {
+     "id": "iZE8LwQkLd0",
+     "titulo": "La Domótica: Tecnología y Bienestar",
+     "thumb": "/assets/images/ep/iZE8LwQkLd0.webp"
+    },
+    {
+     "id": "I2ql8Bu5RaA",
+     "titulo": "Agentes IA: La Clave para Automatizar y Escalar tu Empresa",
+     "thumb": "/assets/images/ep/I2ql8Bu5RaA.webp"
+    },
+    {
+     "id": "0t5EsQ5kaco",
+     "titulo": "¿Estamos listos para convivir con robots humanoides?",
+     "thumb": "/assets/images/ep/0t5EsQ5kaco.webp"
+    },
+    {
+     "id": "QxyCBUQnRlI",
+     "titulo": "Exocortex: ¿Estamos listos para fusionar nuestra mente con la tecnología? 🧠",
+     "thumb": "/assets/images/ep/QxyCBUQnRlI.webp"
+    },
+    {
+     "id": "vsJgaj9jvkY",
+     "titulo": "Transhumanismo: ¿La revolución tecnológica ya está aquí?",
+     "thumb": "/assets/images/ep/vsJgaj9jvkY.webp"
+    },
+    {
+     "id": "71b248lyrQ0",
+     "titulo": "El Futuro de la IA: ¿China o EE.UU. Ganará la Carrera Tecnológica?",
+     "thumb": "/assets/images/ep/71b248lyrQ0.webp"
+    },
+    {
+     "id": "o0ewzmzCSRY",
+     "titulo": "El futuro de la energía ya está en marcha",
+     "thumb": "/assets/images/ep/o0ewzmzCSRY.webp"
+    },
+    {
+     "id": "ssMLZf2EDuA",
+     "titulo": "¿Puede la IA ser imparcial y mas justa que los humanos?",
+     "thumb": "/assets/images/ep/ssMLZf2EDuA.webp"
+    },
+    {
+     "id": "VEv2WznHJ-k",
+     "titulo": "¿Quién liderará en la era digital? ¿Los Líderes humanos tradicionales o la influencia algorítmica?",
+     "thumb": "/assets/images/ep/VEv2WznHJ-k.webp"
+    },
+    {
+     "id": "zo-HQenv2Qc",
+     "titulo": "Fatiga Digital Colectiva: El Cansancio de Estar Siempre Conectados  @talentopolis ​",
+     "thumb": "/assets/images/ep/zo-HQenv2Qc.webp"
+    },
+    {
+     "id": "FTyOZMn36FE",
+     "titulo": "Nómades Digitales: beneficios de una vida laboral digital #nómadesdigitales",
+     "thumb": "/assets/images/ep/FTyOZMn36FE.webp"
+    },
+    {
+     "id": "o0GB6G6MgHs",
+     "titulo": "La IA y la comunicación con otras inteligencias No-Humanas",
+     "thumb": "/assets/images/ep/o0GB6G6MgHs.webp"
+    },
+    {
+     "id": "wNoUpjGLlNY",
+     "titulo": "¿Quiénes somos cuando trabajamos online? Tribu, identidad y control en el trabajo remoto",
+     "thumb": "/assets/images/ep/wNoUpjGLlNY.webp"
+    },
+    {
+     "id": "X5C1kTdAS6s",
+     "titulo": "La automatización en el gobierno: ¿eficiencia o deshumanización?",
+     "thumb": "/assets/images/ep/X5C1kTdAS6s.webp"
+    },
+    {
+     "id": "yrLN-5gmcw0",
+     "titulo": "¿La felicidad es una meta distante o una habilidad que se entrena? #felicidad",
+     "thumb": "/assets/images/ep/yrLN-5gmcw0.webp"
+    },
+    {
+     "id": "FjLiVTtshF4",
+     "titulo": "BURNOUT Laboral: ¿Agotado aunque no sea por Esfuerzo físico?",
+     "thumb": "/assets/images/ep/FjLiVTtshF4.webp"
+    },
+    {
+     "id": "ES3tqlrG3fM",
+     "titulo": "Ojos Biónicos: ¿Veremos mejor que nunca? - El futuro de los implantes visuales #ojosbionicos",
+     "thumb": "/assets/images/ep/ES3tqlrG3fM.webp"
+    },
+    {
+     "id": "ibCEAaR1ieY",
+     "titulo": "¿Veremos mejor que nunca? La revolución de los ojos biónicos (parte 1)",
+     "thumb": "/assets/images/ep/ibCEAaR1ieY.webp"
+    },
+    {
+     "id": "wh0EAIRUOxk",
+     "titulo": "¿Veremos mejor que nunca? La revolución de los ojos biónicos (parte 2)",
+     "thumb": "/assets/images/ep/wh0EAIRUOxk.webp"
+    },
+    {
+     "id": "w40u5s62Qok",
+     "titulo": "Tu mente te engaña todos los días y tú ni siquiera te das cuenta",
+     "thumb": "/assets/images/ep/w40u5s62Qok.webp"
+    },
+    {
+     "id": "OyugiZFEGRY",
+     "titulo": "Realidad Aumentada: Lo Que Está Cambiando Tu Mundo y Aún No Lo Sabes",
+     "thumb": "/assets/images/ep/OyugiZFEGRY.webp"
+    },
+    {
+     "id": "dKMuESEv7z4",
+     "titulo": "Realidad Mixta: El Futuro Que Ya Está Entre Nosotros",
+     "thumb": "/assets/images/ep/dKMuESEv7z4.webp"
+    },
+    {
+     "id": "qqMn2-V6W7s",
+     "titulo": "Gamificación: Cómo usar el juego para trabajar mejor (sin perder el control)",
+     "thumb": "/assets/images/ep/qqMn2-V6W7s.webp"
+    },
+    {
+     "id": "E21XFV3llWU",
+     "titulo": "Exoesqueletos ligeros: innovación, ética y futuro del trabajo",
+     "thumb": "/assets/images/ep/E21XFV3llWU.webp"
+    },
+    {
+     "id": "PvuDBX89k34",
+     "titulo": "Educación sin muros: cómo transformar tu clase con tecnología y propósito",
+     "thumb": "/assets/images/ep/PvuDBX89k34.webp"
+    },
+    {
+     "id": "E8AQ49ZlkQg",
+     "titulo": "Ropa inteligente que activa salud y rendimiento - Tejidos que piensan",
+     "thumb": "/assets/images/ep/E8AQ49ZlkQg.webp"
+    },
+    {
+     "id": "Zhf2yvDseNU",
+     "titulo": "Tu publicidad puede estar dañando tu marca sin saberlo",
+     "thumb": "/assets/images/ep/Zhf2yvDseNU.webp"
+    },
+    {
+     "id": "NnsDdgd3Pn8",
+     "titulo": "Trabajo sin fronteras: ¿Por qué la oficina ya no es el centro?",
+     "thumb": "/assets/images/ep/NnsDdgd3Pn8.webp"
+    },
+    {
+     "id": "dzh85C_Cu4g",
+     "titulo": "Conoce el Kit de Herramientas del Marketing Digital",
+     "thumb": "/assets/images/ep/dzh85C_Cu4g.webp"
+    },
+    {
+     "id": "mNpGELk6aZA",
+     "titulo": "Cultivos verticales hoy: Del campo a la ciudad",
+     "thumb": "/assets/images/ep/mNpGELk6aZA.webp"
+    },
+    {
+     "id": "DgQslo7bR9U",
+     "titulo": "Modelado 3D — La nueva forma de “ver” el mundo",
+     "thumb": "/assets/images/ep/DgQslo7bR9U.webp"
+    },
+    {
+     "id": "HOVFanprHGM",
+     "titulo": "AC Tratamientos inteligentes Cómo la biomedicina mejora tu piel y tu vista",
+     "thumb": "/assets/images/ep/HOVFanprHGM.webp"
+    },
+    {
+     "id": "f6zla_Vxs7Q",
+     "titulo": "Energías limpias y futuro del trabajo | Conocimiento Encapsulado con Andrés Cardemil",
+     "thumb": "/assets/images/ep/f6zla_Vxs7Q.webp"
+    },
+    {
+     "id": "rVQaYDr8BM0",
+     "titulo": "4 pasos ultra-específicos para dominar LinkedIn y tu marca personal",
+     "thumb": "/assets/images/ep/rVQaYDr8BM0.webp"
+    },
+    {
+     "id": "ZisqzSqCevc",
+     "titulo": "Seguridad física ya no basta: autocuidado 360° para el entorno laboral",
+     "thumb": "/assets/images/ep/ZisqzSqCevc.webp"
+    },
+    {
+     "id": "3x5OH-_DeAg",
+     "titulo": "Aprende a desaprender hoy para liderar mañana",
+     "thumb": "/assets/images/ep/3x5OH-_DeAg.webp"
+    },
+    {
+     "id": "pADCXrCNAmw",
+     "titulo": "Cómo la IA realmente reestructura tu cerebro hoy",
+     "thumb": "/assets/images/ep/pADCXrCNAmw.webp"
+    },
+    {
+     "id": "jJoOuoKojI0",
+     "titulo": "Educación Adaptativa Hoy: Cómo la IA Cambia Tu Forma de Aprender",
+     "thumb": "/assets/images/ep/jJoOuoKojI0.webp"
+    },
+    {
+     "id": "0241KD8cc5M",
+     "titulo": "IA y Sostenibilidad: La Alianza Que Está Cambiando el Futuro del Planeta",
+     "thumb": "/assets/images/ep/0241KD8cc5M.webp"
+    },
+    {
+     "id": "dxZNWXD8NrA",
+     "titulo": "La Paradoja de la IA que Nadie Quiere Mirar",
+     "thumb": "/assets/images/ep/dxZNWXD8NrA.webp"
+    },
+    {
+     "id": "LHLdcVS4tzs",
+     "titulo": "La sorprendente verdad sobre IA y sostenibilidad que nadie te contó",
+     "thumb": "/assets/images/ep/LHLdcVS4tzs.webp"
+    },
+    {
+     "id": "tzki42l216o",
+     "titulo": "Propósito real vs discurso vacío",
+     "thumb": "/assets/images/ep/tzki42l216o.webp"
+    },
+    {
+     "id": "p6SnCBhWO8s",
+     "titulo": "Evita Burnout YA: Lo que todo líder debe saber",
+     "thumb": "/assets/images/ep/p6SnCBhWO8s.webp"
+    },
+    {
+     "id": "sIuMPhNUIzs",
+     "titulo": "El liderazgo que elimina el miedo en tu equipo",
+     "thumb": "/assets/images/ep/sIuMPhNUIzs.webp"
+    },
+    {
+     "id": "mY89ym_kQrI",
+     "titulo": "Serie EP00 | Employee Journey: El mapa estratégico para retener a los mejores",
+     "thumb": "/assets/images/ep/mY89ym_kQrI.webp"
+    },
+    {
+     "id": "D5zNZ8SUjiY",
+     "titulo": "Serie EP01 | Reclutamiento 4.0: Cómo la Inteligencia Artificial elige al candidato ideal",
+     "thumb": "/assets/images/ep/D5zNZ8SUjiY.webp"
+    },
+    {
+     "id": "O1U-fgvDPdU",
+     "titulo": "Serie EP02 | Onboarding de Clase Mundial: Cómo enamorar al talento desde el primer café",
+     "thumb": "/assets/images/ep/O1U-fgvDPdU.webp"
+    },
+    {
+     "id": "4C1acAXs6uw",
+     "titulo": "Serie EP03 | Compensaciones Estratégicas: Cómo aumentar el compromiso un 30%",
+     "thumb": "/assets/images/ep/4C1acAXs6uw.webp"
+    },
+    {
+     "id": "KjeoKo4rBqQ",
+     "titulo": "Serie EP04 | Más que cursos de capacitación: Cómo el aprendizaje continuo reduce la rotación un 34%",
+     "thumb": "/assets/images/ep/KjeoKo4rBqQ.webp"
+    },
+    {
+     "id": "FprMi-ihTV4",
+     "titulo": "Serie EP05 | Bienestar: Ignorar la salud mental de tus empleados está destruyendo tu rentabilidad",
+     "thumb": "/assets/images/ep/FprMi-ihTV4.webp"
+    }
+   ]
+  }
+ ],
+ "kolumnalaboral-podcast": [
+  {
+   "temporada": "T1",
+   "videos": [
+    {
+     "id": "DvgjgI60Fho",
+     "titulo": "CLAVES y Estrategias Infalibles para una Negociación Colectiva Óptima con Cristian Kolubakin",
+     "thumb": "/assets/images/ep/DvgjgI60Fho.webp"
+    }
+   ]
+  }
+ ],
+ "cisos-club": [
+  {
+   "temporada": "Club",
+   "videos": [
+    {
+     "id": "q_4D_oIbxT0",
+     "titulo": "Ciberseguridad en la Era Digital: Claves para el Futuro con Ramón Heredia.",
+     "thumb": "/assets/images/ep/q_4D_oIbxT0.webp"
+    },
+    {
+     "id": "LlI8PPGmPo8",
+     "titulo": "Colaboración y diversidad en la era digital con Carolina Pizarro Díaz",
+     "thumb": "/assets/images/ep/LlI8PPGmPo8.webp"
+    },
+    {
+     "id": "hXjtDBgIFcI",
+     "titulo": "Prepárate para la nueva Ley de Ciberseguridad con Andrés Muñoz de Agunsa, exclusivo para Club Cisos",
+     "thumb": "/assets/images/ep/hXjtDBgIFcI.webp"
+    },
+    {
+     "id": "D8Ut_Vvr_Rw",
+     "titulo": "Computación Cuántica y Ciberseguridad: ¿Qué Debes Saber? con  Claude Frésard | Podcast Club CISOs",
+     "thumb": "/assets/images/ep/D8Ut_Vvr_Rw.webp"
+    },
+    {
+     "id": "k88Ljph7z9g",
+     "titulo": "¿Y si te dijeran que tú eres el nuevo firewall? #ciberseguridad #ciso",
+     "thumb": "/assets/images/ep/k88Ljph7z9g.webp"
+    },
+    {
+     "id": "djCgqlfleAQ",
+     "titulo": "CISO 2.0: ¿Guardianes de datos o arquitectos de continuidad?",
+     "thumb": "/assets/images/ep/djCgqlfleAQ.webp"
+    },
+    {
+     "id": "wPw_Rkye22A",
+     "titulo": "Equipos de alto impacto: el arma secreta del nuevo CISO",
+     "thumb": "/assets/images/ep/wPw_Rkye22A.webp"
+    },
+    {
+     "id": "KZczM5c1sOk",
+     "titulo": "¿Puede la Inteligencia Emocional vencer a la IA en ciberseguridad?",
+     "thumb": "/assets/images/ep/KZczM5c1sOk.webp"
+    },
+    {
+     "id": "g5zLMmY7PKo",
+     "titulo": "Ciberinteligencia en tiempos de IA: ¿quién vigila al vigilante?",
+     "thumb": "/assets/images/ep/g5zLMmY7PKo.webp"
+    },
+    {
+     "id": "1V8d_M7q2z8",
+     "titulo": "El Compendio Final: Brechas de Ciberseguridad y Retos de la IA",
+     "thumb": "/assets/images/ep/1V8d_M7q2z8.webp"
+    }
+   ]
+  }
+ ],
+ "finanzas-del-futuro": [
+  {
+   "temporada": "T1",
+   "videos": [
+    {
+     "id": "8JT3J8ND5gc",
+     "titulo": "Bitcoin a largo plazo y Stablecoins en la vida diaria | con Guillermo Torrealba | Buda.com",
+     "thumb": "/assets/images/ep/8JT3J8ND5gc.webp"
+    },
+    {
+     "id": "nQ5cOxGURSY",
+     "titulo": "¿Tus criptos son tuyas? La verdad sobre llaves privadas y seguridad en blockchain",
+     "thumb": "/assets/images/ep/nQ5cOxGURSY.webp"
+    },
+    {
+     "id": "qQDKX2fFvkg",
+     "titulo": "¿Está regulado el mundo cripto en Chile? Lo que cambia con la Ley Fintech con Felipe Godoy",
+     "thumb": "/assets/images/ep/qQDKX2fFvkg.webp"
+    },
+    {
+     "id": "F-Vau1whgks",
+     "titulo": "Préstamos, liquidez y riesgos: la guía real para entrar a DeFi con cabeza fría",
+     "thumb": "/assets/images/ep/F-Vau1whgks.webp"
+    },
+    {
+     "id": "lxyBWiUy0E4",
+     "titulo": "Bitcoin, diversificación y riesgo: cómo pensar un portafolio inteligente | Tomás Claro",
+     "thumb": "/assets/images/ep/lxyBWiUy0E4.webp"
+    },
+    {
+     "id": "0hb4NxpRiRo",
+     "titulo": "Tokenización de activos: cómo bonos e inmuebles están cambiando con blockchain | con Andrés Carey",
+     "thumb": "/assets/images/ep/0hb4NxpRiRo.webp"
+    },
+    {
+     "id": "-F-fFQJg9Pw",
+     "titulo": "Activos digitales: Mitos y realidades, riesgos y oportunidades reales",
+     "thumb": "/assets/images/ep/-F-fFQJg9Pw.webp"
+    },
+    {
+     "id": "DR7i1io39Qc",
+     "titulo": "NFTs 2.0: del hype a los negocios reales en Latinoamérica | Rocío Bravo",
+     "thumb": "/assets/images/ep/DR7i1io39Qc.webp"
+    },
+    {
+     "id": "_g8q2I0_z8M",
+     "titulo": "¿El nuevo SWIFT? Blockchain, stablecoins y pagos internacionales en LatAm",
+     "thumb": "/assets/images/ep/_g8q2I0_z8M.webp"
+    },
+    {
+     "id": "qVKZEO076mU",
+     "titulo": "¿El fin de la banca tradicional? Inclusión financiera y Cripto con Beatriz Cereced",
+     "thumb": "/assets/images/ep/qVKZEO076mU.webp"
+    },
+    {
+     "id": "gwlJ-ebWoOE",
+     "titulo": "Cómo invertir con beneficios tributarios en Chile: El secreto de los ETF | con Cristian Allende",
+     "thumb": "/assets/images/ep/gwlJ-ebWoOE.webp"
+    },
+    {
+     "id": "-KcuznsZWyU",
+     "titulo": "Inteligencia Financiera: Cómo las empresas están ahorrando miles de dólares con Koywe",
+     "thumb": "/assets/images/ep/-KcuznsZWyU.webp"
+    }
+   ]
+  }
+ ]
+}

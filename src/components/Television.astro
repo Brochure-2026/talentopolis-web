@@ -1,0 +1,40 @@
+---
+import { television as tv } from "../data/site.js";
+---
+
+<section class="section bg-glow" aria-labelledby="tv-titulo">
+  <div class="wrap tv">
+    <div class="tv__texto reveal">
+      <p class="eyebrow">Distribución</p>
+      <h2 class="section-title" id="tv-titulo">
+        No solo producimos: <strong>distribuimos</strong>
+      </h2>
+      <p class="section-sub" style="margin-inline:0">{tv.texto}</p>
+
+      <p class="tv__cifra">
+        <span>{tv.titular}</span>
+        {tv.bajada}
+      </p>
+    </div>
+
+    <div class="tv__marcas reveal">
+      <img
+        class="tv__principal"
+        src={tv.principal.img}
+        alt={tv.principal.nombre}
+        width="255"
+        height="200"
+        loading="lazy"
+      />
+      <ul class="tv__ops">
+        {
+          tv.operadores.map((o) => (
+            <li>
+              <img src={o.img} alt={o.nombre} width="200" height="60" loading="lazy" />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

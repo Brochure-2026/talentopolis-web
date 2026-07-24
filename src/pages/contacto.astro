@@ -1,0 +1,146 @@
+---
+import Base from "../layouts/Base.astro";
+import Icon from "../components/Icon.astro";
+import PageHero from "../components/PageHero.astro";
+import { contacto, whatsappUrl } from "../data/site.js";
+import { servicios } from "../data/servicios.js";
+---
+
+<Base
+  titulo="Contacto — Talentópolis"
+  descripcion="Escríbenos por WhatsApp o correo. Productora audiovisual y medio multiplataforma en Providencia, Santiago de Chile."
+>
+  <PageHero
+    eyebrow="Hablemos"
+    titulo="Contacto"
+    bajada="Cuéntanos qué necesitas y te respondemos con una propuesta concreta."
+  />
+
+  <section class="section bg-deep">
+    <div class="wrap contacto__grid">
+      {/* ---------- FORMULARIO ---------- */}
+      <div class="reveal">
+        <h2 class="section-title" style="font-size:clamp(1.6rem,2.6vw,2.1rem)">
+          Cuéntanos tu <strong>proyecto</strong>
+        </h2>
+        <p class="section-sub" style="margin-inline:0">
+          Completa los datos y elige cómo prefieres enviarlo. Se abrirá tu WhatsApp
+          o tu correo con el mensaje ya redactado.
+        </p>
+
+        <form class="form" id="form-contacto" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <input type="hidden" name="access_key" value="0069f34b-783c-42da-94fd-7b91319af0f1" />
+          <input type="hidden" name="subject" value="Nuevo mensaje desde talentopolis.cl" />
+          <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <div class="form__row">
+            <label class="campo">
+              <span>Nombre <b aria-hidden="true">*</b></span>
+              <input type="text" name="nombre" required autocomplete="name" />
+            </label>
+            <label class="campo">
+              <span>Empresa u organización</span>
+              <input type="text" name="empresa" autocomplete="organization" />
+            </label>
+          </div>
+
+          <div class="form__row">
+            <label class="campo">
+              <span>Correo <b aria-hidden="true">*</b></span>
+              <input type="email" name="email" required autocomplete="email" />
+            </label>
+            <label class="campo">
+              <span>Teléfono</span>
+              <input type="tel" name="telefono" autocomplete="tel" />
+            </label>
+          </div>
+
+          <label class="campo">
+            <span>¿Qué te interesa? <b aria-hidden="true">*</b></span>
+            <select name="interes" required>
+              <option value="">Selecciona una opción…</option>
+              {servicios.map((s) => <option value={s.nombre}>{s.nombre}</option>)}
+              <option value="Otro">Otro / no estoy seguro</option>
+            </select>
+          </label>
+
+          <label class="campo">
+            <span>Cuéntanos más <b aria-hidden="true">*</b></span>
+            <textarea name="mensaje" rows="5" required
+              placeholder="Qué necesitas, para cuándo y cualquier detalle que nos ayude a entenderlo."></textarea>
+          </label>
+
+          <p class="form__error" id="form-error" role="alert" hidden></p>
+          <p class="form__ok" id="form-ok" role="status" hidden>
+            ✅ ¡Mensaje enviado! Te responderemos pronto al correo que nos dejaste.
+          </p>
+
+          <div class="ctas">
+            <button class="btn btn--primary" type="submit">
+              <Icon nombre="arrow" size={18} />
+              <span data-label>Enviar mensaje</span>
+            </button>
+            <a class="btn btn--ghost" href={whatsappUrl()} target="_blank" rel="noopener">
+              <Icon nombre="whatsapp" size={18} />
+              O por WhatsApp
+            </a>
+          </div>
+
+          <p class="form__nota">
+            Te responderemos al correo que nos dejes. Tus datos solo se usan para contactarte.
+          </p>
+        </form>
+      </div>
+
+      {/* ---------- DATOS DIRECTOS ---------- */}
+      <aside class="reveal">
+        <div class="qr-card">
+          <div class="qr-card__head">
+            <p class="qr-card__title">Contacto directo</p>
+            <span class="qr-card__dot" aria-hidden="true"></span>
+          </div>
+
+          <ul class="footer__contact" style="margin-bottom:22px">
+            <li>
+              <a href={whatsappUrl()} target="_blank" rel="noopener">
+                <Icon nombre="whatsapp" size={17} />
+                {contacto.telefono}
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${contacto.email}`}>
+                <Icon nombre="mail" size={17} />
+                {contacto.email}
+              </a>
+            </li>
+            <li>
+              <a href={contacto.mapa} target="_blank" rel="noopener">
+                <Icon nombre="pin" size={17} />
+                <span>{contacto.direccion}<br />{contacto.comuna}</span>
+              </a>
+            </li>
+          </ul>
+
+          <div class="qrs">
+            <figure class="qr">
+              <a href={whatsappUrl()} target="_blank" rel="noopener">
+                <img src="/assets/images/qr-whatsapp.webp"
+                  alt={`Código QR para escribirnos por WhatsApp al ${contacto.telefono}`}
+                  width="200" height="200" loading="lazy" />
+              </a>
+              <figcaption>QR WhatsApp</figcaption>
+            </figure>
+            <figure class="qr">
+              <a href={`mailto:${contacto.email}`}>
+                <img src="/assets/images/qr-email.webp"
+                  alt={`Código QR para escribirnos a ${contacto.email}`}
+                  width="200" height="200" loading="lazy" />
+              </a>
+              <figcaption>QR Correo</figcaption>
+            </figure>
+          </div>
+          <p class="qr-note">Toca o escanea para escribirnos.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,24 @@
+---
+import { plataformas } from "../data/site.js";
+// Se multiplica la lista 4 veces para garantizar desplazamiento infinito y fluido sin huecos en cualquier pantalla.
+const cinta = [...plataformas, ...plataformas, ...plataformas, ...plataformas];
+---
+
+<section class="platforms bg-mid" aria-label="Plataformas donde escucharnos">
+  <h2 class="visually-hidden">Disponibles en las principales plataformas</h2>
+  <div class="platforms__track">
+    {
+      cinta.map((p, i) => (
+        <img
+          src={p.img}
+          alt={i < plataformas.length ? p.nombre : ""}
+          aria-hidden={i >= plataformas.length ? "true" : undefined}
+          width="300"
+          height="143"
+          loading="eager"
+          decoding="async"
+        />
+      ))
+    }
+  </div>
+</section>

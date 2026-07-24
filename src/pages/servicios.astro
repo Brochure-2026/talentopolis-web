@@ -1,0 +1,57 @@
+---
+import Base from "../layouts/Base.astro";
+import Icon from "../components/Icon.astro";
+import PageHero from "../components/PageHero.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import { servicios } from "../data/servicios.js";
+---
+
+<Base
+  titulo="Servicios — Talentópolis"
+  descripcion="Producción de podcast, producción audiovisual, cobertura de eventos, media partner, auspicios, canjes y estudio de grabación. Todos los servicios de Talentópolis."
+>
+  <PageHero
+    eyebrow="Qué hacemos"
+    titulo="Servicios"
+    bajada="De la idea al episodio publicado. Elige por dónde quieres empezar y te acompañamos en el resto del camino."
+  />
+
+  <section class="section bg-deep">
+    <div class="wrap">
+      <div class="cards cards--2 stagger">
+        {
+          servicios.map((s) => (
+            <a class="card card--grande" href={`/${s.slug}/`}>
+              <span class="card__icon"><Icon nombre={s.icono} size={24} /></span>
+              <h2 class="card__title">{s.nombre}</h2>
+              <p class="card__text">{s.resumen}</p>
+              <span class="card__go">
+                Ver servicio <Icon nombre="arrow" size={16} />
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-mid">
+    <div class="wrap cierre reveal">
+      <p class="eyebrow">Súmate</p>
+      <h2 class="section-title">
+        ¿Quieres ser parte del nuevo talento que <strong>crea impacto</strong>?
+      </h2>
+      <p>
+        Cuéntanos en menos de dos minutos cómo te gustaría participar en
+        Talentópolis. Nosotros nos encargamos del resto.
+      </p>
+      <p style="margin-top:26px">
+        <a class="btn btn--primary" href="/contacto/">
+          Ir al formulario <Icon nombre="arrow" size={18} />
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <CtaBanner mensaje="Hola, quiero conocer los servicios de Talentópolis." />
+</Base>

@@ -1,0 +1,19 @@
+---
+import { metricas } from "../data/site.js";
+---
+
+<section class="section--tight bg-deep" aria-labelledby="metricas-titulo">
+  <div class="wrap">
+    <h2 class="visually-hidden" id="metricas-titulo">Nuestra audiencia en cifras</h2>
+    <dl class="metricas stagger">
+      {
+        metricas.map((m) => (
+          <div class="metrica">
+            <dt class="metrica__valor" data-count={m.valor}>{m.valor}</dt>
+            <dd class="metrica__etq">{m.etiqueta}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>
