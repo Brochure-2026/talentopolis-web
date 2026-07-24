@@ -107,6 +107,24 @@ body::before {
     linear-gradient(180deg, #080b15 0%, #06080f 55%, #070a13 100%);
 }
 
+/* Acentos cálidos repartidos por TODA la página. A diferencia de ::before (que
+   es fija), esta capa hace scroll con el contenido, así van apareciendo glows
+   naranjos en distintas secciones a medida que bajas. Se desvanecen a
+   transparente: suman ese brillo que gusta, sin crear cortes de color. */
+body::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(880px 600px at 94% 18%, rgba(255, 111, 44, .16), transparent 60%),
+    radial-gradient(820px 560px at 4% 39%, rgba(255, 111, 44, .11), transparent 60%),
+    radial-gradient(940px 640px at 96% 58%, rgba(255, 111, 44, .15), transparent 60%),
+    radial-gradient(780px 560px at 6% 78%, rgba(23, 184, 166, .08), transparent 62%),
+    radial-gradient(900px 620px at 93% 95%, rgba(255, 111, 44, .14), transparent 60%);
+}
+
 img,
 svg,
 video { display: block; max-width: 100%; }
