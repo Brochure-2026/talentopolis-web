@@ -355,7 +355,14 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 /* --- Fondo: trama de puntos con máscara + halos de marca --- */
-.hero__bg { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+/* La máscara inferior funde toda la capa (grilla + halos) hacia transparente,
+   para que el halo teal no se corte en seco contra el borde del hero
+   (overflow:hidden) y el fondo siga siendo continuo hacia la sección de abajo. */
+.hero__bg {
+  position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  -webkit-mask: linear-gradient(180deg, #000 74%, transparent 100%);
+          mask: linear-gradient(180deg, #000 74%, transparent 100%);
+}
 .hero__grid {
   position: absolute; inset: 0;
   background-image: radial-gradient(rgba(255, 255, 255, .05) 1px, transparent 1px);
