@@ -55,7 +55,10 @@
       if (!destino) return;
       e.preventDefault();
       const header = document.querySelector(".site-header")?.offsetHeight || 0;
-      lenis.scrollTo(destino, { offset: -(header + 8) });
+      // data-scroll-nudge: px extra hacia abajo, para enmarcar el contenido de
+      // la sección (p. ej. "Ver programas" baja hasta ver los cards completos).
+      const nudge = Number(a.dataset.scrollNudge) || 0;
+      lenis.scrollTo(destino, { offset: -(header + 8) + nudge });
       history.pushState(null, "", url.hash);
     });
 
