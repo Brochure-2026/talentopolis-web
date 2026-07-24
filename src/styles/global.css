@@ -1000,6 +1000,16 @@ html.lenis body { height: auto; }
    posicionamiento absoluto ni la animación de entrada de .hero__stage. */
 .hero__parallax { position: absolute; inset: 0; will-change: transform; }
 
+/* Micrófono 3D: oculto por defecto (queda la portada). Solo se muestra cuando
+   el script confirma que el equipo es capaz y lo monta (.is-3d). */
+.hero3d {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  display: none; touch-action: pan-y;
+}
+.hero__stage.is-3d .hero3d { display: block; }
+.hero__stage.is-3d .hero__parallax { display: none; }
+
 /* Barra de progreso de lectura (arriba del todo). */
 .scroll-progress {
   position: fixed; inset: 0 0 auto 0; height: 3px;
