@@ -6,7 +6,13 @@
 /* ==========================================================================
    CABECERA DE PÁGINA
    ========================================================================== */
-.page-hero { padding: clamp(38px, 6vw, 68px) 0 clamp(44px, 6vw, 72px); }
+.page-hero { position: relative; padding: clamp(38px, 6vw, 68px) 0 clamp(44px, 6vw, 72px); }
+/* Glow cálido que se desvanece a transparente: da énfasis al encabezado de la
+   página sin crear un bloque con bordes (nada de cortes de color). */
+.page-hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(900px 460px at 14% -20%, rgba(255, 111, 44, .09), transparent 60%);
+}
 
 .migas {
   display: flex;
@@ -553,6 +559,14 @@
 /* ==========================================================================
    BANNER CTA
    ========================================================================== */
+.cta-banner { position: relative; }
+/* Glow difuminado para destacar la llamada a la acción, sin bloque ni bordes. */
+.cta-banner::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(760px 380px at 22% -10%, rgba(255, 111, 44, .10), transparent 62%),
+    radial-gradient(680px 360px at 90% 120%, rgba(23, 184, 166, .07), transparent 64%);
+}
 .cta-banner__inner {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;

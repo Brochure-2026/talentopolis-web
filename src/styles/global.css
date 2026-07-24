@@ -90,8 +90,10 @@ body {
   position: relative;
 }
 
-/* Atmósfera cinematográfica: dos halos fijos, uno cálido y uno teal, muy
-   tenues, que dan profundidad al fondo sin robar protagonismo al contenido. */
+/* Atmósfera cinematográfica: UNA sola capa fija y continua para todo el sitio.
+   Al ser fija (position:fixed) no tiene bordes por sección → el fondo se ve
+   como una sola pieza de arriba a abajo, sin cortes de color. Los halos cálido
+   y teal dan profundidad; el brillo central y el degradado vertical, cuerpo. */
 body::before {
   content: "";
   position: fixed;
@@ -99,8 +101,10 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(900px 620px at 88% -6%, rgba(255, 111, 44, .10), transparent 60%),
-    radial-gradient(760px 560px at 4% 106%, rgba(23, 184, 166, .07), transparent 62%);
+    radial-gradient(1100px 720px at 86% -8%, rgba(255, 111, 44, .11), transparent 60%),
+    radial-gradient(920px 660px at 4% 108%, rgba(23, 184, 166, .08), transparent 62%),
+    radial-gradient(1500px 1050px at 50% 45%, rgba(26, 34, 52, .26), transparent 72%),
+    linear-gradient(180deg, #080b15 0%, #06080f 55%, #070a13 100%);
 }
 
 img,
@@ -196,17 +200,13 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: var(--text-muted);
 }
 
-/* Fondos de sección: la mayoría transparentes para dejar ver la atmósfera del
-   body; solo dan un matiz de profundidad. Se acabaron los bloques planos. */
+/* Fondos de sección: TODAS transparentes. La atmósfera vive en una sola capa
+   fija del body (arriba), así el fondo es continuo y no aparecen cortes de
+   color entre secciones. El énfasis puntual (page-hero, cta-banner) se logra
+   con glows difuminados propios que se desvanecen a transparente (sin borde). */
 .bg-deep { background: transparent; }
-.bg-mid  { background: rgba(17, 23, 37, .5); }
-.bg-glow {
-  position: relative;
-  background:
-    radial-gradient(1200px 640px at 14% -12%, rgba(255, 111, 44, .12), transparent 60%),
-    radial-gradient(900px 560px at 92% 112%, rgba(23, 184, 166, .08), transparent 62%),
-    linear-gradient(180deg, rgba(10, 14, 26, .7), rgba(17, 23, 37, .7));
-}
+.bg-mid  { background: transparent; }
+.bg-glow { position: relative; background: transparent; }
 
 /* ==========================================================================
    BOTONES
