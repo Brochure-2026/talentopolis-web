@@ -350,7 +350,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 .hero {
   position: relative;
   overflow: hidden;
-  padding: clamp(48px, 9vw, 104px) 0 clamp(56px, 8vw, 96px);
+  /* Padding superior reducido para que el hero suba y los CTAs entren en
+     pantalla sin scroll en portátiles. */
+  padding: clamp(16px, 3vw, 40px) 0 clamp(40px, 6vw, 72px);
   isolation: isolate;
 }
 
@@ -390,7 +392,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* --- Columna de texto --- */
 .badge {
   display: inline-flex; align-items: center; gap: 9px;
-  padding: 8px 15px; margin-bottom: 22px;
+  padding: 8px 15px; margin-bottom: 16px;
   border: 1px solid var(--border-bright); border-radius: 999px;
   background: rgba(255, 255, 255, .04); backdrop-filter: blur(6px);
   font-family: var(--font-display);
@@ -403,9 +405,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .hero h1 {
-  font-size: clamp(2.3rem, 5vw, 3.9rem);
+  font-size: clamp(2.2rem, 4.6vw, 3.5rem);
   font-weight: 900;
-  line-height: 1.04;
+  line-height: 1.03;
   letter-spacing: -.02em;
   max-width: 16ch;
 }
@@ -415,7 +417,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .hero__sub {
-  margin: 20px 0 28px;
+  margin: 16px 0 22px;
   max-width: 54ch;
   font-size: clamp(1rem, 1.4vw, 1.16rem);
   color: var(--text-muted);
