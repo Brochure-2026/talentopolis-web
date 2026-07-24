@@ -99,17 +99,19 @@
   display: flex;
   flex-direction: column;
   padding: 28px 26px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius);
-  background: var(--glass);
-  backdrop-filter: blur(8px);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+          backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-shine), 0 10px 32px rgba(0, 0, 0, .3);
   transition: transform .3s var(--ease), border-color .3s, box-shadow .3s, background-color .3s;
 }
 .card:not(.card--static):hover {
   transform: translateY(-5px);
   border-color: rgba(255, 111, 44, .55);
   background: var(--surface-hover);
-  box-shadow: 0 22px 46px rgba(0, 0, 0, .45), 0 0 40px -12px var(--orange-glow);
+  box-shadow: var(--glass-shine), 0 22px 46px rgba(0, 0, 0, .45), 0 0 40px -12px var(--orange-glow);
 }
 .card--grande { padding: 34px 30px; }
 
@@ -500,9 +502,12 @@
 .campo textarea {
   width: 100%;
   padding: 13px 15px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--glass-border);
   border-radius: 12px;
-  background: rgba(255, 255, 255, .05);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+          backdrop-filter: blur(10px) saturate(140%);
+  box-shadow: var(--glass-shine);
   color: var(--text);
   font-family: var(--font-body);
   /* 16px evita que iOS haga zoom automático al enfocar el campo */
