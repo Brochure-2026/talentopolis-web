@@ -985,6 +985,31 @@ ul { margin: 0; padding: 0; list-style: none; }
 .stagger.is-visible > *:nth-child(n+10) { transition-delay: .45s; }
 
 /* ==========================================================================
+   CAPA PREMIUM — smooth-scroll (Lenis) + parallax (GSAP) + progreso
+   ========================================================================== */
+/* Lenis: se activa por JS. Mientras esté activo, el smooth-scroll nativo se
+   desactiva para no pelear con el suyo (más fino y sincronizado con GSAP). */
+html.lenis,
+html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-smooth iframe { pointer-events: none; }
+
+/* Contenedor del parallax del hero: envuelve las portadas sin afectar su
+   posicionamiento absoluto ni la animación de entrada de .hero__stage. */
+.hero__parallax { position: absolute; inset: 0; will-change: transform; }
+
+/* Barra de progreso de lectura (arriba del todo). */
+.scroll-progress {
+  position: fixed; inset: 0 0 auto 0; height: 3px;
+  transform: scaleX(0); transform-origin: 0 50%;
+  background: var(--grad-brand);
+  box-shadow: 0 0 12px var(--orange-glow);
+  z-index: 200; pointer-events: none;
+}
+
+/* ==========================================================================
    RESPONSIVE
    ========================================================================== */
 @media (max-width: 1024px) {
@@ -1084,6 +1109,9 @@ ul { margin: 0; padding: 0; list-style: none; }
   .stagger > * { opacity: 1; transform: none; }
   .platforms__track { animation: none; }
   .hero__cover { animation: none !important; }
+  /* Sin movimiento por scroll: el parallax y la barra de progreso se anulan. */
+  .hero__parallax { transform: none !important; }
+  .scroll-progress { display: none; }
 }
 
 @media print {

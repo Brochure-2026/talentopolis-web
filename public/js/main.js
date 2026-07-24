@@ -13,7 +13,9 @@
   window.__tpBooted = true;
 
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const soporteGSAP = () => window.gsap && window.ScrollTrigger;
   let globalesListos = false;
+  let smoothIniciado = false;
 
   /* ------------------------------------------------------------------------
      Listeners globales (window/document): se registran UNA vez. Consultan el
@@ -28,11 +30,34 @@
       const y = scrollY;
       document.querySelector(".site-header")?.classList.toggle("is-scrolled", y > 24);
       document.querySelector("[data-top]")?.classList.toggle("is-shown", y > 700);
+      const bar = document.querySelector("[data-progress]");
+      if (bar) {
+        const h = document.documentElement.scrollHeight - innerHeight;
+        bar.style.transform = "scaleX(" + (h > 0 ? Math.min(y / h, 1) : 0) + ")";
+      }
       ticking = false;
     };
     addEventListener("scroll", () => {
       if (!ticking) { ticking = true; requestAnimationFrame(alScroll); }
     }, { passive: true });
+
+    // Anclas de la misma página → scroll suave con Lenis (descontando el header).
+    addEventListener("click", (e) => {
+      const lenis = window.__lenis;
+      if (!lenis) return;
+      const a = e.target.closest("a");
+      const href = a?.getAttribute("href");
+      if (!href || href === "#") return;
+      let url;
+      try { url = new URL(a.href); } catch { return; }
+      if (url.pathname !== location.pathname || !url.hash) return;
+      const destino = document.querySelector(url.hash);
+      if (!destino) return;
+      e.preventDefault();
+      const header = document.querySelector(".site-header")?.offsetHeight || 0;
+      lenis.scrollTo(destino, { offset: -(header + 8) });
+      history.pushState(null, "", url.hash);
+    });
 
     addEventListener("keydown", (e) => {
       if (e.key !== "Escape") return;
@@ -252,12 +277,65 @@
   }
 
   /* ------------------------------------------------------------------------
+     Smooth-scroll premium (Lenis) + sincronía con GSAP. Se monta UNA vez:
+     Lenis envuelve el scroll de la ventana, que persiste entre navegaciones.
+     ---------------------------------------------------------------------- */
+  function iniciarSmooth() {
+    if (smoothIniciado) return;
+    smoothIniciado = true;
+
+    if (soporteGSAP()) gsap.registerPlugin(ScrollTrigger);
+
+    // Respeta reduce-motion: sin smooth-scroll (scroll nativo instantáneo).
+    if (reducedMotion || !window.Lenis) return;
+
+    const lenis = new Lenis({ duration: 1.05, smoothWheel: true });
+    window.__lenis = lenis;
+
+    if (soporteGSAP()) {
+      // Un solo bucle: GSAP mueve el reloj de Lenis y ScrollTrigger se sincroniza.
+      lenis.on("scroll", ScrollTrigger.update);
+      gsap.ticker.add((t) => lenis.raf(t * 1000));
+      gsap.ticker.lagSmoothing(0);
+    } else {
+      const raf = (t) => { lenis.raf(t); requestAnimationFrame(raf); };
+      requestAnimationFrame(raf);
+    }
+  }
+
+  /* ------------------------------------------------------------------------
+     Parallax cinematográfico del hero (GSAP + ScrollTrigger). Se reconstruye
+     en cada página: primero mata los triggers de la anterior (evita fugas con
+     las transiciones de Astro), luego crea los de la página actual.
+     ---------------------------------------------------------------------- */
+  function parallaxHero() {
+    if (!soporteGSAP()) return;
+    ScrollTrigger.getAll().forEach((t) => t.kill());
+    if (reducedMotion) { ScrollTrigger.refresh(); return; }
+
+    const hero = document.querySelector(".hero");
+    if (!hero) { ScrollTrigger.refresh(); return; }
+
+    const st = { trigger: hero, start: "top top", end: "bottom top", scrub: true };
+    const mover = (sel, y) => {
+      const el = hero.querySelector(sel);
+      if (el) gsap.to(el, { yPercent: y, ease: "none", scrollTrigger: st });
+    };
+    mover("[data-parallax]", 12); // portadas apiladas
+    mover(".hero__halo--o", 22);  // halo naranjo (profundidad)
+    mover(".hero__halo--t", -16); // halo teal (contrasentido)
+
+    ScrollTrigger.refresh();
+  }
+
+  /* ------------------------------------------------------------------------
      Botón "volver arriba"
      ---------------------------------------------------------------------- */
   function volverArriba() {
     const btn = document.querySelector("[data-top]");
     btn?.addEventListener("click", () => {
-      scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
+      if (window.__lenis) window.__lenis.scrollTo(0);
+      else scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
     });
   }
 
@@ -266,6 +344,7 @@
      ---------------------------------------------------------------------- */
   function init() {
     registrarGlobales();
+    iniciarSmooth();
     document.querySelector(".site-header")?.classList.toggle("is-scrolled", scrollY > 24);
     navMovil();
     reveals();
@@ -274,6 +353,7 @@
     episodiosUI();
     formulario();
     volverArriba();
+    parallaxHero();
     const year = document.querySelector("[data-year]");
     if (year) year.textContent = new Date().getFullYear();
   }

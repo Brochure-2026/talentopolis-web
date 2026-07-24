@@ -122,6 +122,7 @@ const organizacion = {
 
   <body>
     <a class="skip-link" href="#contenido">Ir al contenido</a>
+    <div class="scroll-progress" data-progress aria-hidden="true"></div>
     <Header transition:persist />
     <main id="contenido">
       <slot />
@@ -132,6 +133,12 @@ const organizacion = {
       <Icon nombre="arrow" size={20} />
     </button>
 
+    {/* Capa de animación premium — self-hosted (sin CDN). Se cargan una vez;
+        con las transiciones de Astro persisten entre páginas. main.js orquesta
+        el smooth-scroll (Lenis) y el parallax (GSAP) respetando reduce-motion. */}
+    <script src="/js/vendor/gsap.min.js" defer is:inline></script>
+    <script src="/js/vendor/ScrollTrigger.min.js" defer is:inline></script>
+    <script src="/js/vendor/lenis.min.js" defer is:inline></script>
     <script src="/js/main.js" defer is:inline></script>
   </body>
 </html>
