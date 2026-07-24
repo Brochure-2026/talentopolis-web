@@ -58,7 +58,7 @@
   /* --- Texto --- */
   --text: #F4F6FF;
   --text-muted: #AEB6D4;
-  --text-dim: #6E7699;
+  --text-dim: #868FB2; /* AA en fondo y tarjetas (≥4.5:1) — antes #6E7699 reprobaba sobre vidrio */
 
   /* --- Tipografía --- */
   --font-display: "Montserrat", system-ui, sans-serif;
@@ -983,7 +983,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .social a {
   display: grid;
   place-items: center;
-  width: 42px; height: 42px;
+  width: 44px; height: 44px; /* mínimo táctil Apple/WCAG (44x44) */
   border: 1px solid var(--border);
   border-radius: 50%;
   background: var(--surface);
