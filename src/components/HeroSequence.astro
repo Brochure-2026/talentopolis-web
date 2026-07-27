@@ -1,0 +1,117 @@
+---
+/*
+  HeroSequence.astro — Intro cinematográfica: secuencia de frames scrubbeada
+  por el scroll (técnica tipo Apple). Va ANTES del hero, no lo reemplaza.
+
+  Progressive enhancement:
+   - Desktop con movimiento permitido → canvas que anima los frames con el scroll.
+   - Móvil / prefers-reduced-motion → un solo frame estático (poster), sin cargar
+     los ~5 MB de la secuencia.
+*/
+const FRAMES = 150;
+const PATH = "/assets/images/hero-seq/frame-";
+const poster = `${PATH}001.webp`;
+---
+
+<section class="seq" data-seq data-seq-frames={FRAMES} data-seq-path={PATH} aria-label="Introducción Talentópolis">
+  <div class="seq__sticky">
+    <img class="seq__poster" src={poster} alt="" width="1280" height="720" fetchpriority="high" decoding="async" />
+    <canvas class="seq__canvas" aria-hidden="true"></canvas>
+    <div class="seq__veil" aria-hidden="true"></div>
+    <div class="seq__hint" data-seq-hint aria-hidden="true">
+      <span class="seq__hint-txt">Desliza para comenzar</span>
+      <span class="seq__hint-mouse"></span>
+    </div>
+  </div>
+</section>
+
+<script>
+  function bootSeq() {
+    const seq = document.querySelector("[data-seq]");
+    if (!seq || seq.dataset.booted) return;
+    const canvas = seq.querySelector(".seq__canvas");
+    if (!canvas) return;
+    seq.dataset.booted = "1";
+
+    const total = Number(seq.dataset.seqFrames);
+    const base = seq.dataset.seqPath;
+    const path = (i) => `${base}${String(i + 1).padStart(3, "0")}.webp`;
+
+    // Móvil o reduce-motion: se queda el poster estático, no cargamos la secuencia.
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const small = matchMedia("(max-width: 860px)").matches;
+    if (reduce || small) return;
+
+    const ctx = canvas.getContext("2d");
+    const frames = new Array(total);
+    let current = -1, raf = 0;
+
+    const nearest = (idx) => {
+      if (frames[idx]?.complete && frames[idx].naturalWidth) return idx;
+      for (let d = 1; d < total; d++) {
+        if (frames[idx - d]?.complete && frames[idx - d].naturalWidth) return idx - d;
+        if (frames[idx + d]?.complete && frames[idx + d].naturalWidth) return idx + d;
+      }
+      return -1;
+    };
+
+    function draw(idx) {
+      const img = frames[idx];
+      if (!img || !img.complete || !img.naturalWidth) return;
+      const cw = canvas.width, ch = canvas.height;
+      const ir = img.naturalWidth / img.naturalHeight, cr = cw / ch;
+      let dw, dh, dx, dy;
+      if (ir > cr) { dh = ch; dw = ch * ir; dx = (cw - dw) / 2; dy = 0; }
+      else { dw = cw; dh = cw / ir; dx = 0; dy = (ch - dh) / 2; }
+      ctx.drawImage(img, dx, dy, dw, dh);
+      current = idx;
+    }
+
+    function resize() {
+      const dpr = Math.min(devicePixelRatio || 1, 2);
+      canvas.width = Math.round(innerWidth * dpr);
+      canvas.height = Math.round(innerHeight * dpr);
+      const n = current >= 0 ? current : nearest(0);
+      if (n >= 0) draw(n);
+    }
+
+    function update() {
+      const rect = seq.getBoundingClientRect();
+      const scrollable = seq.offsetHeight - innerHeight;
+      const p = scrollable > 0 ? Math.min(Math.max(-rect.top / scrollable, 0), 1) : 0;
+      const idx = Math.min(total - 1, Math.floor(p * total));
+      const use = nearest(idx);
+      if (use >= 0 && use !== current) draw(use);
+      // Oculta la pista de scroll apenas empieza el movimiento.
+      if (p > 0.02) seq.classList.add("seq--moving");
+    }
+
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(() => { raf = 0; update(); }); };
+
+    seq.classList.add("is-scroll");
+    resize();
+
+    // Precarga progresiva (no bloquea): el poster ya se ve; los frames van llegando.
+    for (let i = 0; i < total; i++) {
+      const img = new Image();
+      img.decoding = "async";
+      img.onload = () => { if (current < 0 || nearest(current) !== current) update(); };
+      img.src = path(i);
+      frames[i] = img;
+    }
+
+    addEventListener("scroll", onScroll, { passive: true });
+    addEventListener("resize", resize);
+    update();
+
+    const cleanup = () => {
+      cancelAnimationFrame(raf);
+      removeEventListener("scroll", onScroll);
+      removeEventListener("resize", resize);
+      document.removeEventListener("astro:before-swap", cleanup);
+    };
+    document.addEventListener("astro:before-swap", cleanup);
+  }
+
+  document.addEventListener("astro:page-load", bootSeq);
+</script>
