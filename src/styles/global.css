@@ -1114,6 +1114,13 @@ html.lenis body { height: auto; }
   100% { opacity: 0; transform: translate(-50%, 13px); }
 }
 
+/* En móvil la intro de la cámara se ve mal (recorte vertical): se elimina y
+   la página arranca directo en el hero. El poster es loading=lazy, así en
+   móvil (oculto) ni siquiera se descarga. */
+@media (max-width: 860px) {
+  .seq { display: none; }
+}
+
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
