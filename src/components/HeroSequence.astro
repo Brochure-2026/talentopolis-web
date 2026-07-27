@@ -79,9 +79,11 @@ const poster = `${PATH}001.webp`;
     }
 
     function update() {
-      const rect = seq.getBoundingClientRect();
       const scrollable = seq.offsetHeight - innerHeight;
-      const p = scrollable > 0 ? Math.min(Math.max(-rect.top / scrollable, 0), 1) : 0;
+      // Progreso atado al scroll desde el tope de la página (la intro es lo
+      // primero): la animación arranca de inmediato, sin el pequeño scroll
+      // muerto que provocaba el alto del header.
+      const p = scrollable > 0 ? Math.min(Math.max(scrollY / scrollable, 0), 1) : 0;
       const idx = Math.min(total - 1, Math.floor(p * total));
       const use = nearest(idx);
       if (use >= 0 && use !== current) draw(use);
