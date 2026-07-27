@@ -1057,7 +1057,15 @@ html.lenis body { height: auto; }
 /* ==========================================================================
    INTRO CINEMATOGRÁFICA — secuencia de frames scrubbeada por scroll
    ========================================================================== */
-.seq { position: relative; height: 100vh; background: #05070d; }
+/* margin-top negativo: la intro arranca bajo el header (que es sticky y ocupa
+   ~84px de flujo). Así el canvas queda FIJO desde el scroll 0, sin el
+   reacomodo inicial que hacía "bajar" la imagen antes de animar. */
+.seq {
+  position: relative;
+  height: 100vh;
+  margin-top: calc(-1 * var(--header-h));
+  background: #05070d;
+}
 .seq.is-scroll { height: 300vh; }        /* desktop: alto para scrubbear */
 .seq__sticky {
   position: sticky; top: 0;
