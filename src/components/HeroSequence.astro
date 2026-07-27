@@ -3,17 +3,23 @@
   HeroSequence.astro — Intro cinematográfica: secuencia de frames scrubbeada
   por el scroll (técnica tipo Apple). Va ANTES del hero, no lo reemplaza.
 
-  Progressive enhancement:
-   - Desktop con movimiento permitido → canvas que anima los frames con el scroll.
-   - Móvil / prefers-reduced-motion → un solo frame estático (poster), sin cargar
-     los ~5 MB de la secuencia.
+  Dos sets de frames según dispositivo (progressive enhancement):
+   - Desktop → set de máxima calidad (1920x1080, 180 frames, ~26 MB).
+   - Móvil   → set liviano (1280x720, 50 frames, ~3 MB) para no castigar datos.
+   - prefers-reduced-motion → frame estático (poster), sin cargar la secuencia.
 */
-const FRAMES = 180;
-const PATH = "/assets/images/hero-seq/frame-";
-const poster = `${PATH}001.webp`;
+const D_FRAMES = 180, D_PATH = "/assets/images/hero-seq/frame-";
+const M_FRAMES = 50,  M_PATH = "/assets/images/hero-seq-m/frame-";
+const poster = `${M_PATH}001.webp`; // poster liviano (set móvil) → LCP rápido
 ---
 
-<section class="seq" data-seq data-seq-frames={FRAMES} data-seq-path={PATH} aria-label="Introducción Talentópolis">
+<section
+  class="seq"
+  data-seq
+  data-d-frames={D_FRAMES} data-d-path={D_PATH}
+  data-m-frames={M_FRAMES} data-m-path={M_PATH}
+  aria-label="Introducción Talentópolis"
+>
   <div class="seq__sticky">
     <img class="seq__poster" src={poster} alt="" width="1280" height="720" fetchpriority="high" decoding="async" />
     <canvas class="seq__canvas" aria-hidden="true"></canvas>
@@ -33,14 +39,15 @@ const poster = `${PATH}001.webp`;
     if (!canvas) return;
     seq.dataset.booted = "1";
 
-    const total = Number(seq.dataset.seqFrames);
-    const base = seq.dataset.seqPath;
-    const path = (i) => `${base}${String(i + 1).padStart(3, "0")}.webp`;
-
-    // Móvil o reduce-motion: se queda el poster estático, no cargamos la secuencia.
+    // reduce-motion: se queda el poster estático en cualquier dispositivo.
     const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+
+    // Set según dispositivo: liviano en móvil, máxima calidad en desktop.
     const small = matchMedia("(max-width: 860px)").matches;
-    if (reduce || small) return;
+    const total = Number(small ? seq.dataset.mFrames : seq.dataset.dFrames);
+    const base = small ? seq.dataset.mPath : seq.dataset.dPath;
+    const path = (i) => `${base}${String(i + 1).padStart(3, "0")}.webp`;
 
     const ctx = canvas.getContext("2d");
     const frames = new Array(total);
