@@ -1066,7 +1066,7 @@ html.lenis body { height: auto; }
   margin-top: calc(-1 * var(--header-h));
   background: #05070d;
 }
-.seq.is-scroll { height: 300vh; }        /* desktop: alto para scrubbear */
+.seq.is-scroll { height: 240vh; }        /* desktop: alto para scrubbear (recortado el final sin movimiento) */
 .seq__sticky {
   position: sticky; top: 0;
   height: 100vh; overflow: hidden;
