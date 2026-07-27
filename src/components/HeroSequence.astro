@@ -58,6 +58,9 @@ const poster = `${PATH}001.webp`;
     function draw(idx) {
       const img = frames[idx];
       if (!img || !img.complete || !img.naturalWidth) return;
+      // Interpolación de alta calidad al reescalar (mejora el upscaling del canvas).
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = "high";
       const cw = canvas.width, ch = canvas.height;
       const ir = img.naturalWidth / img.naturalHeight, cr = cw / ch;
       let dw, dh, dx, dy;
