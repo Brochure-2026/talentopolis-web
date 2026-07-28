@@ -343,6 +343,81 @@
   }
 
   /* ------------------------------------------------------------------------
+     Micro-interacciones (solo puntero fino, sin reduce-motion):
+     · Botones primarios "magnéticos": siguen sutilmente al cursor.
+     · Tarjetas: un brillo naranjo sigue al cursor por encima.
+     ---------------------------------------------------------------------- */
+  function microInteracciones() {
+    if (reducedMotion || !matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+
+    document.querySelectorAll(".btn--primary").forEach((btn) => {
+      if (btn.dataset.mag) return;
+      btn.dataset.mag = "1";
+      btn.classList.add("is-magnetic");
+      btn.addEventListener("pointermove", (e) => {
+        const r = btn.getBoundingClientRect();
+        const x = (e.clientX - (r.left + r.width / 2)) * 0.3;
+        const y = (e.clientY - (r.top + r.height / 2)) * 0.45;
+        btn.style.transform = `translate(${x}px, ${y}px)`;
+      });
+      btn.addEventListener("pointerleave", () => { btn.style.transform = ""; });
+    });
+
+    document.querySelectorAll(".card").forEach((card) => {
+      if (card.dataset.glow) return;
+      card.dataset.glow = "1";
+      card.addEventListener("pointermove", (e) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty("--mx", `${e.clientX - r.left}px`);
+        card.style.setProperty("--my", `${e.clientY - r.top}px`);
+      });
+    });
+  }
+
+  /* ------------------------------------------------------------------------
+     Titular cinético: el h1 del hero se revela palabra por palabra (máscara +
+     deslizamiento). Solo si hay GSAP y movimiento permitido; si no, queda el
+     h1 normal (nunca se rompe ni se oculta). Preserva el degradado del <em>.
+     ---------------------------------------------------------------------- */
+  function titularCinetico() {
+    if (reducedMotion || !soporteGSAP()) return;
+    const h1 = document.querySelector(".hero h1");
+    if (!h1 || h1.dataset.kin) return;
+    h1.dataset.kin = "1";
+
+    // Divide en palabras conservando qué palabras iban dentro del <em>.
+    const tokens = [];
+    h1.childNodes.forEach((node) => {
+      const em = node.nodeType === 1 && node.tagName === "EM";
+      const texto = node.textContent || "";
+      texto.split(/(\s+)/).forEach((t) => {
+        if (!t) return;
+        if (t.trim()) tokens.push({ t, em });
+        else tokens.push({ space: true });
+      });
+    });
+
+    h1.innerHTML = tokens
+      .map((w) =>
+        w.space
+          ? " "
+          : `<span class="kin"><i class="kin__in${w.em ? " kin--em" : ""}">${w.t}</i></span>`
+      )
+      .join("");
+
+    const inners = h1.querySelectorAll(".kin__in");
+    gsap.set(inners, { yPercent: 115 });
+    gsap.to(inners, {
+      yPercent: 0,
+      duration: 0.9,
+      ease: "power3.out",
+      stagger: 0.06,
+      // Se revela cuando el hero entra en vista (está debajo de la intro).
+      scrollTrigger: { trigger: h1, start: "top 88%", once: true },
+    });
+  }
+
+  /* ------------------------------------------------------------------------
      Arranque: se ejecuta en la carga inicial y tras cada transición de página.
      ---------------------------------------------------------------------- */
   function init() {
@@ -357,6 +432,8 @@
     formulario();
     volverArriba();
     parallaxHero();
+    microInteracciones();
+    titularCinetico();
     const year = document.querySelector("[data-year]");
     if (year) year.textContent = new Date().getFullYear();
   }

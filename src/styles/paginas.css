@@ -17,8 +17,8 @@
 .migas {
   display: flex;
   flex-wrap: wrap;
-  gap: 9px;
-  margin-bottom: 22px;
+  gap: 8px; /* Taste-Skill 4px scale (was 9px) */
+  margin-bottom: 24px; /* Taste-Skill 4px scale (was 22px) */
   font-size: 14px;
   color: var(--text-dim);
 }
@@ -33,8 +33,8 @@
 .page-hero__title strong { color: var(--orange); font-weight: 900; }
 
 .page-hero__sub {
-  margin-top: 18px;
-  max-width: 68ch;
+  margin-top: 16px; /* Taste-Skill 4px scale (was 18px) */
+  max-width: 68ch; /* Good readability measure */
   font-size: clamp(1rem, 1.5vw, 1.16rem);
   color: var(--text-muted);
 }
@@ -64,7 +64,7 @@
   gap: 14px;
 }
 .cards--redes .card {
-  padding: 22px 18px;
+  padding: 24px 16px; /* Taste-Skill 4px scale (was 22px 18px) */
 }
 .cards--redes .card__title {
   font-size: 1.1rem;
@@ -75,7 +75,7 @@
 }
 .cards--redes .card__go {
   margin-top: auto;
-  padding-top: 14px;
+  padding-top: 16px; /* Taste-Skill 4px scale (was 14px) */
   font-size: 12.5px;
 }
 
@@ -113,6 +113,18 @@
   background: var(--surface-hover);
   box-shadow: var(--glass-shine), 0 22px 46px rgba(0, 0, 0, .45), 0 0 40px -12px var(--orange-glow);
 }
+
+/* Brillo naranjo que sigue al cursor por encima de la tarjeta (JS actualiza
+   --mx/--my). El contenido queda por encima del brillo. */
+.card { position: relative; overflow: hidden; }
+.card::after {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 111, 44, .16), transparent 62%);
+  opacity: 0; transition: opacity .3s var(--ease);
+}
+.card:hover::after { opacity: 1; }
+.card > * { position: relative; z-index: 1; }
 .card--grande { padding: 34px 30px; }
 
 .card__icon {

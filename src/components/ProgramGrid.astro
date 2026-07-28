@@ -21,6 +21,7 @@ const lista = programas.filter((p) => p.slug !== excluir);
             height="600"
             loading="lazy"
             decoding="async"
+            transition:name={`portada-${p.slug}`}
           />
         </div>
         <div class="program__body">
