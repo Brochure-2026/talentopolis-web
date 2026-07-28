@@ -11,7 +11,7 @@ import Television from "../components/Television.astro";
 import Entregables from "../components/Entregables.astro";
 import Member from "../components/Member.astro";
 import RedAliados from "../components/RedAliados.astro";
-import { equipo, whatsappUrl, contacto, metricas } from "../data/site.js";
+import { equipo, whatsappUrl, contacto } from "../data/site.js";
 import { servicios } from "../data/servicios.js";
 
 const pasos = [
@@ -57,18 +57,6 @@ const pasos = [
           </a>
           <a class="btn btn--ghost" href="/contacto/">Trabajemos juntos</a>
         </div>
-
-        {/* Cifras reales para dar autoridad apenas se abre la página */}
-        <ul class="hero__stats reveal" aria-label="Nuestra audiencia en cifras">
-          {
-            metricas.slice(0, 3).map((m) => (
-              <li>
-                <span class="hero__stat-num" data-count={m.valor}>{m.valor}</span>
-                <span class="hero__stat-lbl">{m.etiqueta}</span>
-              </li>
-            ))
-          }
-        </ul>
       </div>
 
       <div class="hero__stage reveal" aria-hidden="true">
