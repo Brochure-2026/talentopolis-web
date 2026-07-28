@@ -115,7 +115,7 @@ export const metricas = [
  */
 export const television = {
   titular: "+100",
-  bajada: "cableoperadores locales e internacionales, de Arica a Punta Arenas",
+  bajada: "cableoperadores locales e internacionales",
   texto:
     "Nuestros contenidos no solo se producen: se distribuyen estratégicamente " +
     "en canales digitales y televisivos, maximizando visibilidad, alcance y " +
