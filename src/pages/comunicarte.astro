@@ -1,0 +1,138 @@
+---
+import Base from "../layouts/Base.astro";
+import PageHero from "../components/PageHero.astro";
+import CtaBanner from "../components/CtaBanner.astro";
+import Plataformas from "../components/Plataformas.astro";
+import { proximamente } from "../data/programas.js";
+import { site } from "../data/site.js";
+
+const ca = proximamente.find((p) => p.nombre === "ComunicArte");
+const base = site.dominio;
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "PodcastSeries",
+    name: ca.nombre,
+    description: ca.descripcion,
+    url: `${base}/comunicarte/`,
+    image: `${base}${ca.portada}`,
+    inLanguage: "es-CL",
+    author: { "@type": "Organization", name: site.nombre, url: base },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: `${base}/` },
+      { "@type": "ListItem", position: 2, name: "ComunicArte", item: `${base}/comunicarte/` },
+    ],
+  },
+];
+---
+
+<Base titulo="ComunicArte — Talentópolis" descripcion={ca.descripcion}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <PageHero eyebrow="Programa · En emisión" titulo="ComunicArte" bajada={ca.descripcion} />
+
+  {/* ---------- FICHA ---------- */}
+  <section class="section bg-deep">
+    <div class="wrap ficha">
+      <div class="ficha__media reveal">
+        <img
+          src={ca.portada}
+          alt={ca.portadaAlt}
+          width="800"
+          height="800"
+          fetchpriority="high"
+          transition:name="portada-comunicarte"
+        />
+      </div>
+
+      <div class="ficha__body reveal">
+        <h2 class="section-title" style="font-size:clamp(1.6rem,2.6vw,2.2rem)">
+          Sobre el <strong>programa</strong>
+        </h2>
+        <p class="ficha__p">
+          Conversaciones sobre comunicación, liderazgo, cultura y el arte de expresar
+          ideas con impacto. Cada episodio, una invitada o invitado que ha marcado la
+          conversación pública en Chile, en un formato cercano y de alto nivel editorial.
+        </p>
+        <p class="ficha__p">
+          Un espacio donde la conversación fluye entre la cultura, el arte y el
+          pensamiento ejecutivo — con la mirada estratégica de <strong>Macarena Saavedra</strong>.
+        </p>
+
+        <dl class="meta">
+          <div>
+            <dt>Conduce</dt>
+            <dd>Macarena Saavedra</dd>
+          </div>
+          <div>
+            <dt>Estado</dt>
+            <dd>En emisión</dd>
+          </div>
+          <div>
+            <dt>Episodios</dt>
+            <dd>{ca.invitados.length} publicados</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  {/* ---------- INVITADOS / EPISODIOS EN YOUTUBE ---------- */}
+  <section class="section bg-mid" aria-labelledby="ca-invitados">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Míralos en YouTube</p>
+        <h2 class="section-title" id="ca-invitados">
+          Ya han pasado por el <strong>programa</strong>
+        </h2>
+      </div>
+
+      <ul class="invitados stagger">
+        {
+          ca.invitados.map((inv) => (
+            <li class="invitado-card">
+              <a
+                href={inv.youtubeUrl}
+                target="_blank"
+                rel="noopener"
+                class="invitado-card__media"
+                title={`Ver capítulo en YouTube: ${inv.tituloEpisodio || inv.nombre}`}
+              >
+                <img src={inv.thumb} alt={`Carátula capítulo con ${inv.nombre}`} loading="lazy" decoding="async" />
+                <span class="invitado-card__play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </span>
+              </a>
+
+              <div class="invitado-card__info">
+                <strong>{inv.nombre}</strong>
+                <span>{inv.cargo}</span>
+                <a href={inv.youtubeUrl} target="_blank" rel="noopener" class="invitado-card__link">
+                  Ver capítulo
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15" class="yt-brand-icon">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                  </svg>
+                </a>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <Plataformas />
+
+  <CtaBanner
+    titulo="¿Quieres tu propio programa?"
+    texto="Producimos podcast y video podcast llave en mano, como ComunicArte. Tú hablas, nosotros hacemos el resto."
+    mensaje="Hola, vi ComunicArte y me interesa crear mi propio podcast con Talentópolis."
+  />
+</Base>

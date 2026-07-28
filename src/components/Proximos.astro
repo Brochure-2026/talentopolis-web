@@ -1,4 +1,5 @@
 ---
+import Icon from "./Icon.astro";
 import { proximamente } from "../data/programas.js";
 
 const destacado = proximamente.find((p) => p.destacado) || proximamente[0];
@@ -32,21 +33,29 @@ const getGuestInfo = (inv) => {
     {
       destacado && (
         <article class="proximo proximo--destacado reveal">
-          <div class="proximo__media">
+          <a class="proximo__media proximo__media--link" href="/comunicarte/" aria-label="Ver el programa ComunicArte">
             <span class="badge-live">{destacado.badge || "NUEVO · EN EMISIÓN"}</span>
             <img
               src={destacado.portada}
               alt={destacado.portadaAlt}
-              width="600"
-              height="600"
+              width="800"
+              height="800"
               loading="lazy"
               decoding="async"
+              transition:name="portada-comunicarte"
             />
-          </div>
+          </a>
 
           <div class="proximo__body">
-            <h3 class="proximo__name">{destacado.nombre}</h3>
+            <h3 class="proximo__name">
+              <a href="/comunicarte/" class="proximo__name-link">{destacado.nombre}</a>
+            </h3>
             <p class="proximo__text">{destacado.descripcion}</p>
+
+            <a href="/comunicarte/" class="proximo__cta">
+              Ver el programa
+              <Icon nombre="arrow" size={16} />
+            </a>
 
             {destacado.invitados && (
               <>
