@@ -7,6 +7,13 @@ dist/
 
 # clon estático original (no forma parte del sitio nuevo)
 _original/
+/assets/
+
+# skills/herramientas de agentes IA (locales, no forman parte del sitio)
+.agents/
+agent/
+.claude/skills/
+skills-lock.json
 
 # variables de entorno / secretos
 .env
