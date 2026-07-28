@@ -5,6 +5,7 @@ import CtaBanner from "../components/CtaBanner.astro";
 import Plataformas from "../components/Plataformas.astro";
 import { proximamente } from "../data/programas.js";
 import { site } from "../data/site.js";
+import { truncarMeta } from "../utils/seo.js";
 
 const ca = proximamente.find((p) => p.nombre === "ComunicArte");
 const base = site.dominio;
@@ -18,7 +19,7 @@ const schema = [
     url: `${base}/comunicarte/`,
     image: `${base}${ca.portada}`,
     inLanguage: "es-CL",
-    author: { "@type": "Organization", name: site.nombre, url: base },
+    author: { "@id": `${base}/#organization` },
   },
   {
     "@context": "https://schema.org",
@@ -31,7 +32,7 @@ const schema = [
 ];
 ---
 
-<Base titulo="ComunicArte — Talentópolis" descripcion={ca.descripcion}>
+<Base titulo="ComunicArte — Talentópolis" descripcion={truncarMeta(ca.descripcion)}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
   <PageHero eyebrow="Programa · En emisión" titulo="ComunicArte" bajada={ca.descripcion} />

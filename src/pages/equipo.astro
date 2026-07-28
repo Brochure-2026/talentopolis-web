@@ -5,13 +5,29 @@ import VideoFacade from "../components/VideoFacade.astro";
 import CtaBanner from "../components/CtaBanner.astro";
 import Member from "../components/Member.astro";
 import RedAliados from "../components/RedAliados.astro";
-import { equipo } from "../data/site.js";
+import { equipo, site } from "../data/site.js";
+
+// Person schema por integrante (entity SEO): identidad reconocible en el
+// grafo de conocimiento, afiliada a la Organization con @id estable.
+const base = site.dominio;
+const personas = equipo.map((m) => ({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": `${base}/equipo/#${m.nombre.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-")}`,
+  name: m.nombre,
+  jobTitle: m.cargo,
+  image: `${base}${m.foto}`,
+  email: m.email,
+  affiliation: { "@id": `${base}/#organization` },
+  sameAs: [m.linkedin],
+}));
 ---
 
 <Base
   titulo="Equipo — Talentópolis"
   descripcion="Conoce al equipo de Talentópolis: dirección ejecutiva, producción comercial y dirección de contenidos de la productora audiovisual y medio multiplataforma."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(personas)} />
   <PageHero
     eyebrow="Nosotros"
     titulo="Nuestro"

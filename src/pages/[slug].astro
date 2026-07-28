@@ -9,6 +9,7 @@ import ProgramaLayout from "../components/ProgramaLayout.astro";
 import ServicioLayout from "../components/ServicioLayout.astro";
 import { programas } from "../data/programas.js";
 import { servicios } from "../data/servicios.js";
+import { truncarMeta } from "../utils/seo.js";
 
 export function getStaticPaths() {
   const dePrograma = programas.map((p) => ({
@@ -17,7 +18,7 @@ export function getStaticPaths() {
       tipo: "programa",
       dato: p,
       titulo: `${p.nombre} — Podcast de Talentópolis`,
-      descripcion: p.descripcion[0].slice(0, 180),
+      descripcion: truncarMeta(p.descripcion[0]),
       imagen: p.portada,
     },
   }));
@@ -28,7 +29,7 @@ export function getStaticPaths() {
       tipo: "servicio",
       dato: s,
       titulo: `${s.nombre} — Talentópolis`,
-      descripcion: s.intro.slice(0, 180),
+      descripcion: truncarMeta(s.intro),
     },
   }));
 

@@ -29,9 +29,12 @@ const tituloCompleto = titulo.includes("Talentópolis")
   ? titulo
   : `${titulo} — Talentópolis`;
 
+// @id estable: permite enlazar otras entidades (Person del equipo, WebSite)
+// a esta misma Organization en el grafo de conocimiento (entity SEO).
 const organizacion = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${site.dominio}/#organization`,
   name: site.nombre,
   url: site.dominio,
   logo: `${site.dominio}/assets/images/logo-talentopolis.webp`,
@@ -46,6 +49,19 @@ const organizacion = {
     addressCountry: "CL",
   },
   sameAs: redes.map((r) => r.url),
+};
+
+// WebSite enlazado a la Organization: refuerza la identidad de la entidad
+// sitio-marca en el grafo de conocimiento (sin SearchAction: el sitio no
+// tiene buscador interno, y declarar uno inexistente sería datos falsos).
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${site.dominio}/#website`,
+  name: site.nombre,
+  url: site.dominio,
+  inLanguage: "es-CL",
+  publisher: { "@id": `${site.dominio}/#organization` },
 };
 ---
 
@@ -94,6 +110,7 @@ const organizacion = {
     />
 
     <script type="application/ld+json" set:html={JSON.stringify(organizacion)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
 
     {/* Google Analytics 4 — configurado para contar también las navegaciones
         internas (el sitio usa transiciones de página). */}

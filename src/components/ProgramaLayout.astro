@@ -22,7 +22,7 @@ const schema = [
     image: `${base}${p.portada}`,
     inLanguage: "es-CL",
     ...(p.spotify ? { sameAs: [p.spotify] } : {}),
-    author: { "@type": "Organization", name: site.nombre, url: base },
+    author: { "@id": `${base}/#organization` },
   },
   {
     "@context": "https://schema.org",
