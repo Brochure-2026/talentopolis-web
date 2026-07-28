@@ -237,7 +237,7 @@ const pasos = [
 
           {/* Formulario de contacto directo — misma estructura y estilos que la
               página /contacto/, con validación y envío por el mismo manejador JS. */}
-          <form class="form form--compacta" id="form-contacto" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <form class="form form--compacta" id="form-contacto-home" action="https://api.web3forms.com/submit" method="POST" novalidate>
             <input type="hidden" name="access_key" value="0069f34b-783c-42da-94fd-7b91319af0f1" />
             <input type="hidden" name="subject" value="Nuevo mensaje desde talentopolis.cl" />
             <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
@@ -274,8 +274,8 @@ const pasos = [
                 placeholder="Cuéntanos sobre tu proyecto, fechas estimadas o requerimientos."></textarea>
             </label>
 
-            <p class="form__error" id="form-error" role="alert" hidden></p>
-            <p class="form__ok" id="form-ok" role="status" hidden>
+            <p class="form__error" id="form-error-home" role="alert" hidden></p>
+            <p class="form__ok" id="form-ok-home" role="status" hidden>
               ✅ ¡Mensaje enviado! Te responderemos pronto.
             </p>
 

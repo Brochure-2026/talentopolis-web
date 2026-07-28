@@ -165,7 +165,6 @@ export const proximamente = [
       {
         nombre: "Mónica Rincón",
         cargo: "Periodista y conductora, CNN Chile",
-        youtubeId: "cMhtzgrF0Xk",
         thumb: "/assets/images/ep/cMhtzgrF0Xk.webp",
         youtubeUrl: "https://www.youtube.com/watch?v=cMhtzgrF0Xk",
         tituloEpisodio: "¿Cómo superar el miedo a comunicar? Con Mónica Rincón"
@@ -173,7 +172,6 @@ export const proximamente = [
       {
         nombre: "Francisco Melo",
         cargo: "Actor y conductor: cine, teatro y TV",
-        youtubeId: "xxHRFgUiSqg",
         thumb: "/assets/images/ep/xxHRFgUiSqg.webp",
         youtubeUrl: "https://www.youtube.com/watch?v=xxHRFgUiSqg",
         tituloEpisodio: "Vencer el miedo y comunicar con impacto con Pancho Melo"
@@ -181,7 +179,6 @@ export const proximamente = [
       {
         nombre: "Francisco Vidal",
         cargo: "Ex vocero de gobierno",
-        youtubeId: "BPgiid8rdQY",
         thumb: "/assets/images/ep/BPgiid8rdQY.webp",
         youtubeUrl: "https://www.youtube.com/watch?v=BPgiid8rdQY",
         tituloEpisodio: "El método de Francisco Vidal para perder el miedo, hablar en público y dominar la escena"
@@ -189,7 +186,6 @@ export const proximamente = [
       {
         nombre: "Dra. Paula Daza",
         cargo: "Médica cirujana y exsubsecretaria de Salud Pública",
-        youtubeId: "Srb0CR1WKl0",
         thumb: "/assets/images/ep/Srb0CR1WKl0.webp",
         youtubeUrl: "https://www.youtube.com/watch?v=Srb0CR1WKl0",
         tituloEpisodio: "¿Liderazgo duro o empático? La reveladora entrevista a la Dra. Paula Daza"

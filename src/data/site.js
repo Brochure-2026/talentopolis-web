@@ -13,8 +13,6 @@ export const site = {
 };
 
 export const contacto = {
-  // PENDIENTE DE CONFIRMAR: el QR de la web actual apuntaba a +56 9 4047 8605,
-  // que no coincide con este número (usado en el pie y en el botón de WhatsApp).
   telefono: "+56 9 4740 4142",
   telefonoE164: "56947404142",
   email: "contacto@talentopolis.cl",

@@ -218,64 +218,74 @@
      WhatsApp o en el correo del propio usuario. No almacena nada.
      ---------------------------------------------------------------------- */
   function formulario() {
-    const form = document.getElementById("form-contacto");
-    if (!form) return;
-    const error = document.getElementById("form-error");
-    const ok = document.getElementById("form-ok");
-    const boton = form.querySelector('button[type="submit"]');
-    const label = boton?.querySelector("[data-label]");
+    document.querySelectorAll("form[action*='web3forms']").forEach(form => {
+      // Evita registrar eventos múltiples si la función se llama varias veces y la forma ya existe
+      if (form.dataset.initialized) return;
+      form.dataset.initialized = "true";
 
-    const marcar = (campo, malo) =>
-      malo ? campo.setAttribute("aria-invalid", "true") : campo.removeAttribute("aria-invalid");
+      const error = form.querySelector(".form__error");
+      const ok = form.querySelector(".form__ok");
+      const boton = form.querySelector('button[type="submit"]');
+      const label = boton?.querySelector("[data-label]");
 
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
+      const marcar = (campo, malo) =>
+        malo ? campo.setAttribute("aria-invalid", "true") : campo.removeAttribute("aria-invalid");
 
-      // Validación de los campos obligatorios.
-      let primerFallo = null;
-      ["nombre", "email", "interes", "mensaje"].forEach((n) => {
-        const campo = form.elements[n];
-        if (!campo) return;
-        const vacio = !String(campo.value || "").trim();
-        const emailMalo = n === "email" && !campo.checkValidity();
-        marcar(campo, vacio || emailMalo);
-        if ((vacio || emailMalo) && !primerFallo) primerFallo = campo;
-      });
-      if (primerFallo) {
-        error.textContent = "Revisa los campos marcados: faltan datos obligatorios o el correo no es válido.";
-        error.hidden = false;
-        if (ok) ok.hidden = true;
-        primerFallo.focus();
-        return;
-      }
-      error.hidden = true;
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-      // Envío a Web3Forms (llega al correo de Talentópolis). Sin recargar.
-      const texto = label ? label.textContent : null;
-      if (boton) boton.disabled = true;
-      if (label) label.textContent = "Enviando…";
-
-      try {
-        const r = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify(Object.fromEntries(new FormData(form))),
+        // Validación de los campos obligatorios.
+        let primerFallo = null;
+        ["nombre", "email", "interes", "mensaje"].forEach((n) => {
+          const campo = form.elements[n];
+          if (!campo) return;
+          const vacio = !String(campo.value || "").trim();
+          const emailMalo = n === "email" && !campo.checkValidity();
+          marcar(campo, vacio || emailMalo);
+          if ((vacio || emailMalo) && !primerFallo) primerFallo = campo;
         });
-        const res = await r.json();
-        if (res.success) {
-          form.reset();
-          if (ok) { ok.hidden = false; ok.scrollIntoView({ block: "nearest", behavior: reducedMotion ? "auto" : "smooth" }); }
-        } else {
-          error.textContent = "No se pudo enviar. Inténtalo de nuevo o escríbenos por WhatsApp.";
-          error.hidden = false;
+        if (primerFallo) {
+          if (error) {
+            error.textContent = "Revisa los campos marcados: faltan datos obligatorios o el correo no es válido.";
+            error.hidden = false;
+          }
+          if (ok) ok.hidden = true;
+          primerFallo.focus();
+          return;
         }
-      } catch {
-        error.textContent = "Sin conexión. Inténtalo de nuevo o escríbenos por WhatsApp.";
-        error.hidden = false;
-      } finally {
-        if (boton) boton.disabled = false;
-        if (label && texto) label.textContent = texto;
-      }
+        if (error) error.hidden = true;
+
+        // Envío a Web3Forms (llega al correo de Talentópolis). Sin recargar.
+        const texto = label ? label.textContent : null;
+        if (boton) boton.disabled = true;
+        if (label) label.textContent = "Enviando…";
+
+        try {
+          const r = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json", Accept: "application/json" },
+            body: JSON.stringify(Object.fromEntries(new FormData(form))),
+          });
+          const res = await r.json();
+          if (res.success) {
+            form.reset();
+            if (ok) { ok.hidden = false; ok.scrollIntoView({ block: "nearest", behavior: reducedMotion ? "auto" : "smooth" }); }
+          } else {
+            if (error) {
+              error.textContent = "No se pudo enviar. Inténtalo de nuevo o escríbenos por WhatsApp.";
+              error.hidden = false;
+            }
+          }
+        } catch {
+          if (error) {
+            error.textContent = "Sin conexión. Inténtalo de nuevo o escríbenos por WhatsApp.";
+            error.hidden = false;
+          }
+        } finally {
+          if (boton) boton.disabled = false;
+          if (label && texto) label.textContent = texto;
+        }
+      });
     });
   }
 
