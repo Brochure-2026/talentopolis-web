@@ -1070,6 +1070,16 @@ ul { margin: 0; padding: 0; list-style: none; }
 .stagger.is-visible > *:nth-child(9)  { transition-delay: .40s; }
 .stagger.is-visible > *:nth-child(n+10) { transition-delay: .45s; }
 
+/* Cuando GSAP anima ".stagger" (tarjetasPremium en main.js) se apaga esta
+   transición CSS de respaldo: si ambas quedaran activas competirían por las
+   mismas propiedades (opacity/transform) y el movimiento se vería tembloroso. */
+html.gsap-boot .stagger > * { transition: none; }
+
+/* Línea generada por GSAP SplitText (titulosCineticos): la máscara que
+   recorta cada línea del título mientras se revela. */
+.section-title .linea-titulo,
+.page-hero__title .linea-titulo { padding-bottom: .08em; }
+
 /* ==========================================================================
    CAPA PREMIUM — smooth-scroll (Lenis) + parallax (GSAP) + progreso
    ========================================================================== */

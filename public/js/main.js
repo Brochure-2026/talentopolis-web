@@ -113,7 +113,11 @@
      Revelado al scroll (.reveal y grillas .stagger)
      ---------------------------------------------------------------------- */
   function reveals() {
-    const els = document.querySelectorAll(".reveal, .stagger");
+    // Cuando GSAP está disponible, tarjetasPremium() se hace cargo de
+    // ".stagger" con una animación más marcada; aquí solo queda ".reveal"
+    // (y ".stagger" como red de seguridad si GSAP no cargó).
+    const gsapControlaStagger = soporteGSAP() && !reducedMotion;
+    const els = document.querySelectorAll(gsapControlaStagger ? ".reveal" : ".reveal, .stagger");
     if (!els.length) return;
 
     if (reducedMotion || !("IntersectionObserver" in window)) {
@@ -428,6 +432,71 @@
   }
 
   /* ------------------------------------------------------------------------
+     Títulos cinéticos (sitio completo): cada línea del título de sección se
+     revela con una máscara al entrar en vista (GSAP SplitText). autoSplit
+     re-divide solo si cambian las fuentes/el ancho, así los saltos de línea
+     siempre son correctos.
+     ---------------------------------------------------------------------- */
+  function titulosCineticos() {
+    if (reducedMotion || !soporteGSAP() || !window.SplitText) return;
+    gsap.registerPlugin(SplitText);
+
+    document.querySelectorAll(".section-title, .page-hero__title").forEach((el) => {
+      if (el.dataset.split) return;
+      el.dataset.split = "1";
+
+      SplitText.create(el, {
+        type: "lines",
+        mask: "lines",
+        linesClass: "linea-titulo",
+        autoSplit: true,
+        onSplit(self) {
+          return gsap.from(self.lines, {
+            yPercent: 112,
+            opacity: 0,
+            duration: 0.85,
+            ease: "power4.out",
+            stagger: 0.09,
+            scrollTrigger: { trigger: el, start: "top 90%", once: true },
+          });
+        },
+      });
+    });
+  }
+
+  /* ------------------------------------------------------------------------
+     Tarjetas premium (sitio completo): reemplaza el fundido plano de
+     ".stagger" por una entrada más marcada (GSAP + ScrollTrigger.batch) con
+     un ease de rebote sutil. reveals() deja de tocar ".stagger" cuando esta
+     función toma el control (ver la clase "gsap-boot", que apaga la
+     transición CSS de respaldo para que no compita con las tweens).
+     ---------------------------------------------------------------------- */
+  function tarjetasPremium() {
+    if (reducedMotion || !soporteGSAP()) return;
+    document.documentElement.classList.add("gsap-boot");
+
+    document.querySelectorAll(".stagger").forEach((grupo) => {
+      const items = [...grupo.children];
+      if (!items.length) return;
+      gsap.set(items, { opacity: 0, y: 44, scale: 0.94 });
+      ScrollTrigger.batch(items, {
+        start: "top 90%",
+        once: true,
+        onEnter: (batch) =>
+          gsap.to(batch, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.7,
+            ease: "back.out(1.6)",
+            stagger: 0.08,
+            overwrite: true,
+          }),
+      });
+    });
+  }
+
+  /* ------------------------------------------------------------------------
      Arranque: se ejecuta en la carga inicial y tras cada transición de página.
      ---------------------------------------------------------------------- */
   function init() {
@@ -444,6 +513,8 @@
     parallaxHero();
     microInteracciones();
     titularCinetico();
+    titulosCineticos();
+    tarjetasPremium();
     const year = document.querySelector("[data-year]");
     if (year) year.textContent = new Date().getFullYear();
   }
