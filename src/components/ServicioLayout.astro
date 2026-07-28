@@ -9,18 +9,28 @@ const { servicio: s } = Astro.props;
 const otros = servicios.filter((x) => x.slug !== s.slug).slice(0, 3);
 const base = site.dominio;
 
-const migas = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Inicio", item: `${base}/` },
-    { "@type": "ListItem", position: 2, name: "Servicios", item: `${base}/servicios/` },
-    { "@type": "ListItem", position: 3, name: s.nombre, item: `${base}/${s.slug}/` },
-  ],
-};
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: `${base}/` },
+      { "@type": "ListItem", position: 2, name: "Servicios", item: `${base}/servicios/` },
+      { "@type": "ListItem", position: 3, name: s.nombre, item: `${base}/${s.slug}/` },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: s.nombre,
+    description: s.resumen,
+    url: `${base}/${s.slug}/`,
+    provider: { "@id": `${base}/#organization` }
+  }
+];
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(migas)} />
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
 <PageHero eyebrow="Servicio" titulo={s.titulo} bajada={s.intro} />
 
