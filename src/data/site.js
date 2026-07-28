@@ -53,6 +53,7 @@ export const menu = [
     texto: "Programas",
     url: "/#programas",
     hijos: [
+      { texto: "ComunicArte", url: "/comunicarte/" },
       { texto: "Organizaciones del Mañana", url: "/organizaciones-del-manana-podcast/" },
       { texto: "Del Aula a la Cancha", url: "/delaulaalacancha-podcast/" },
       { texto: "Mujer Hoy: Sin Límites", url: "/mujeres-sin-pausa-podcast/" },
