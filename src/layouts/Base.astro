@@ -90,6 +90,9 @@ const websiteSchema = {
     <meta name="twitter:image" content={imagenAbs} />
 
     <meta name="theme-color" content="#000B42" />
+    {/* Evita que el modo oscuro automático de Samsung Internet / Chrome Android
+        altere los colores: el sitio ya está diseñado en esquema oscuro. */}
+    <meta name="color-scheme" content="dark" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />

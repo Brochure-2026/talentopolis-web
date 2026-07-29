@@ -23,6 +23,12 @@
    ========================================================================== */
 
 :root {
+  /* Declara que el sitio YA está diseñado en oscuro. Sin esto, el modo oscuro
+     automático de Samsung Internet / Chrome Android reinterpreta y altera los
+     colores (el naranja y los fondos se ven mal). Con esto, esos navegadores
+     respetan la paleta original y no aplican su transformación. */
+  color-scheme: dark;
+
   /* --- Escala de oscuros (base cinematográfica) --- */
   --navy-900: #06080F;   /* base de página, casi negro */
   --navy-800: #0A0E1A;   /* secciones profundas */
