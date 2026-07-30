@@ -194,9 +194,7 @@ export const equipo = [
     // confirmado -> se muestra pero no es clicable (emailClickable: false).
     email: "ssayago@talentopolis.cl",
     emailClickable: false,
-    // Foto pendiente: Lucas la envía luego -> reemplazar null por la ruta
-    // (ej. "/assets/images/equipo/sergio.webp") cuando llegue.
-    foto: null,
+    foto: "/assets/images/equipo/sergio.webp",
     linkedin: "https://www.linkedin.com/in/sayago/",
   },
 ];
