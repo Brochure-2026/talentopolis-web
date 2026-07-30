@@ -193,7 +193,7 @@ export const proximamente = [
     ],
   },
   {
-    nombre: "Resility El Podcast",
+    nombre: "Resility: Un PodCast de Ciberseguridad, IA y Tech",
     portada: "/assets/images/prog-resility-600.webp",
     portadaAlt: "Portada del próximo podcast Resility",
     canalYoutube: "https://www.youtube.com/@resilitypodcast",
