@@ -134,7 +134,7 @@ export const entregables = [
   { icono: "mic", titulo: "Cápsulas verticales", texto: "Reels, TikTok y Shorts a partir del episodio." },
   { icono: "swap", titulo: "Pauta editorial y guiones", texto: "La estructura narrativa de cada entrega." },
   { icono: "star", titulo: "Piezas gráficas y miniaturas", texto: "Identidad visual coherente en cada canal." },
-  { icono: "studio", titulo: "Grabación y postproducción", texto: "Dirección técnica y edición profesional." },
+  { icono: "studio", titulo: "Grabación y postproducción", texto: "Dirección técnica, periodística y edición profesional." },
   { icono: "event", titulo: "Publicación y distribución", texto: "Lanzamiento en los canales que correspondan." },
 ];
 
