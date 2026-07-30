@@ -88,9 +88,39 @@ const poster = `${PATH}001.webp`;
       if (use >= 0 && use !== current) draw(use);
       // Oculta la pista de scroll apenas empieza el movimiento.
       if (p > 0.02) seq.classList.add("seq--moving");
+      progreso = p;
     }
 
-    const onScroll = () => { if (!raf) raf = requestAnimationFrame(() => { raf = 0; update(); }); };
+    /* --- Snap al terminar la animación -------------------------------------
+       Cuando el usuario deja de scrollear con la secuencia ya completa, la
+       página salta sola hasta el hero en vez de dejarlo a medio camino.
+       Solo hacia adelante y solo tras soltar el scroll, para no pelear con
+       quien está recorriendo la animación a su ritmo. */
+    const UMBRAL = 0.92;   // desde qué progreso se considera "terminada"
+    const ESPERA = 140;    // ms sin scrollear antes de saltar
+    let progreso = 0, snapTimer = 0, yaSalto = false, ultimaY = scrollY;
+
+    function intentarSnap() {
+      const bajando = scrollY > ultimaY;
+      ultimaY = scrollY;
+      if (progreso < UMBRAL) { yaSalto = false; return; } // volvió atrás: rearma
+      if (yaSalto || !bajando) return;
+
+      // Fin de la sección = inicio del hero: dejarlo pegado arriba del viewport.
+      const destino = Math.round(seq.getBoundingClientRect().bottom + scrollY);
+      if (scrollY >= destino - 2) return; // ya está donde corresponde
+
+      yaSalto = true;
+      const lenis = window.__lenis;
+      if (lenis) lenis.scrollTo(destino, { duration: 0.9 });
+      else scrollTo({ top: destino, behavior: "smooth" });
+    }
+
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(() => { raf = 0; update(); });
+      clearTimeout(snapTimer);
+      snapTimer = setTimeout(intentarSnap, ESPERA);
+    };
 
     seq.classList.add("is-scroll");
     resize();
@@ -110,6 +140,7 @@ const poster = `${PATH}001.webp`;
 
     const cleanup = () => {
       cancelAnimationFrame(raf);
+      clearTimeout(snapTimer);
       removeEventListener("scroll", onScroll);
       removeEventListener("resize", resize);
       document.removeEventListener("astro:before-swap", cleanup);
