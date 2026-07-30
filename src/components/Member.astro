@@ -55,6 +55,17 @@ const iniciales = p.nombre
           decoding="async"
         />
       )
+    ) : p.linkedin ? (
+      <a
+        class="member__photo-link"
+        href={p.linkedin}
+        target="_blank"
+        rel="noopener"
+        aria-label={`Ver el LinkedIn de ${p.nombre}`}
+      >
+        <p class="member__avatar" aria-hidden="true">{iniciales}</p>
+        <span class="member__li" aria-hidden="true"><Icon nombre="linkedin" size={16} /></span>
+      </a>
     ) : (
       <p class="member__avatar" aria-hidden="true">{iniciales}</p>
     )

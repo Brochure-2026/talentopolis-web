@@ -715,13 +715,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* ==========================================================================
    EQUIPO
    ========================================================================== */
-/* Los 4 en una fila (como el brochure); baja a 2 y luego a 1 en pantallas
-   pequeñas. */
+/* 6 integrantes en 2 filas de 3; baja a 2 y luego a 1 en pantallas pequeñas. */
 .team {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: clamp(16px, 2vw, 24px);
-  max-width: 1040px;
+  max-width: 860px;
   margin-inline: auto;
 }
 
@@ -745,7 +744,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 .member__avatar {
   display: grid;
   place-items: center;
-  width: 86px; height: 86px;
+  /* Mismo tamaño que .member__foto (118px): así la burbuja de LinkedIn queda
+     igual de posicionada en ambos casos y el grid se ve parejo. */
+  width: 118px; height: 118px;
   margin: 0 auto 18px;
   border-radius: 50%;
   background: linear-gradient(140deg, var(--orange), var(--orange-soft));
