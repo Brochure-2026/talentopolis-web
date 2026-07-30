@@ -182,9 +182,7 @@ export const equipo = [
     // confirmado -> se muestra pero no es clicable (emailClickable: false).
     email: "coyarzun@talentopolis.cl",
     emailClickable: false,
-    // Foto pendiente: Lucas la envía luego -> reemplazar null por la ruta
-    // (ej. "/assets/images/equipo/claudio.webp") cuando llegue.
-    foto: null,
+    foto: "/assets/images/equipo/claudio.webp",
     linkedin: "https://www.linkedin.com/in/claudiooyarzunfracei/",
   },
   {
