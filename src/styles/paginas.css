@@ -994,7 +994,7 @@
 .member__foto {
   width: 118px;
   height: 118px;
-  margin: 0 auto 18px;
+  margin: 0 auto;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--border);

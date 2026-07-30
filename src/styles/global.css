@@ -747,7 +747,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   /* Mismo tamaño que .member__foto (118px): así la burbuja de LinkedIn queda
      igual de posicionada en ambos casos y el grid se ve parejo. */
   width: 118px; height: 118px;
-  margin: 0 auto 18px;
+  margin: 0 auto;
   border-radius: 50%;
   background: linear-gradient(140deg, var(--orange), var(--orange-soft));
   color: #2A1000;
@@ -756,8 +756,17 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-weight: 900;
 }
 
-/* Foto enlazada a LinkedIn, con badge en la esquina */
-.member__photo-link { position: relative; display: inline-block; }
+/* Foto enlazada a LinkedIn, con badge en la esquina. El margen que separa la
+   foto/avatar del nombre vive en ESTE contenedor (no en la foto/avatar) para
+   que el espacio sea idéntico sin importar si adentro hay una <img> o un
+   <p> (su caja se comporta distinto y desalineaba el texto entre tarjetas). */
+/* vertical-align:bottom evita el espacio "fantasma" de alineación a línea
+   base que un inline-block reserva por defecto — y que variaba según si el
+   contenido era una <img> o un <p> (display:grid), desalineando el texto
+   entre tarjetas con foto y tarjetas con avatar de iniciales. */
+.member__photo-link { position: relative; display: inline-block; vertical-align: bottom; margin-bottom: 18px; }
+/* Mismo espaciado cuando no hay LinkedIn y la foto/avatar queda sin envolver. */
+.member > .member__foto, .member > .member__avatar { margin-bottom: 18px; }
 .member__li {
   position: absolute;
   right: calc(50% - 59px);
