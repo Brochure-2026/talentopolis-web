@@ -202,20 +202,23 @@ export const equipo = [
 ];
 
 /**
- * Red de aliados audiovisuales. Fuente: brochure B2B 2026, banner bajo el
- * equipo. Son los logotipos de los programas propios, presentados como la
- * red de producción audiovisual de Talentópolis.
+ * Red de aliados audiovisuales: los oficios y el equipamiento que componen la
+ * red de producción. Antes eran los logos de los programas propios, pero se
+ * repetían con la grilla de programas y no ilustraban el mensaje; ahora son
+ * iconos del mundo audiovisual (personas + equipamiento) que sí le dan sentido
+ * a la frase "red de partners y aliados del mundo audiovisual".
  */
+// Son 8 a propósito: entran en una sola fila en escritorio (el contenedor da
+// para 8 fichas) y evitan que una quede suelta en una segunda línea.
 export const aliados = [
-  { nombre: "Organizaciones del Mañana", img: "/assets/images/red/odm.webp" },
-  { nombre: "Del Aula a la Cancha", img: "/assets/images/red/aula.webp" },
-  { nombre: "CoffeeBreak con Talento", img: "/assets/images/red/coffee.webp" },
-  { nombre: "Mujer Hoy: Sin Límites", img: "/assets/images/red/mujer.webp" },
-  { nombre: "CISO's Club", img: "/assets/images/red/cisos.webp" },
-  { nombre: "Finanzas del Futuro", img: "/assets/images/red/finanzas.webp" },
-  { nombre: "ComunicArte", img: "/assets/images/red/comunicarte.webp" },
-  { nombre: "Conocimiento Encapsulado", img: "/assets/images/red/encapsulado.webp" },
-  { nombre: "Kolumna Laboral", img: "/assets/images/red/kolumna.webp" },
+  { nombre: "Conductores e invitados", icono: "personas" },
+  { nombre: "Podcast y locución", icono: "micro" },
+  { nombre: "Cámaras y video", icono: "camara" },
+  { nombre: "Iluminación de estudio", icono: "luces" },
+  { nombre: "Producción audiovisual", icono: "claqueta" },
+  { nombre: "Audio y postproducción", icono: "audifonos" },
+  { nombre: "Diseño sonoro", icono: "onda" },
+  { nombre: "Equipamiento técnico", icono: "cable" },
 ];
 
 /** Auspiciadores verificados en las páginas de programa del sitio actual. */

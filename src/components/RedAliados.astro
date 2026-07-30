@@ -1,4 +1,5 @@
 ---
+import Icon from "./Icon.astro";
 import { aliados } from "../data/site.js";
 ---
 
@@ -13,7 +14,8 @@ import { aliados } from "../data/site.js";
     {
       aliados.map((a) => (
         <li>
-          <img src={a.img} alt={a.nombre} title={a.nombre} height="30" loading="lazy" decoding="async" />
+          <Icon nombre={a.icono} size={26} />
+          <span>{a.nombre}</span>
         </li>
       ))
     }

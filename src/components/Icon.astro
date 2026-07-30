@@ -60,6 +60,48 @@ const paths: Record<string, { d: string[]; modo?: "relleno"; extra?: string }> =
     d: ["M12 2a10 10 0 100 20 10 10 0 000-20zm4.6 14.4a.8.8 0 01-1.1.3c-3-1.8-6.7-2.2-11.1-1.2a.8.8 0 11-.3-1.5c4.8-1.1 8.9-.6 12.2 1.4.4.2.5.7.3 1zm1.2-2.7a1 1 0 01-1.3.3c-3.4-2.1-8.6-2.7-12.6-1.5a1 1 0 11-.6-1.9c4.6-1.4 10.3-.7 14.2 1.7.5.3.6.9.3 1.4zm.1-2.8C14.8 8.5 8.5 8.3 5 9.4a1.2 1.2 0 11-.7-2.3C8.4 5.9 15.3 6.1 19.6 8.7a1.2 1.2 0 11-1.2 2.1z"],
     modo: "relleno",
   },
+
+  /* --- Mundo audiovisual: oficios y equipamiento de producción --- */
+  micro: {
+    d: ["M6 11v1a6 6 0 0 0 12 0v-1", "M12 18v3", "M8.5 21h7"],
+    extra: '<rect x="9" y="2" width="6" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>',
+  },
+  camara: {
+    d: ["M8.5 7l1.6-2.6h3.8L15.5 7"],
+    extra:
+      '<rect x="2.5" y="7" width="19" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/>' +
+      '<circle cx="12" cy="13.5" r="3.8" fill="none" stroke="currentColor" stroke-width="2"/>',
+  },
+  audifonos: {
+    d: ["M4 14.5v-2.8a8 8 0 0 1 16 0v2.8"],
+    extra:
+      '<rect x="2" y="13.5" width="4.6" height="7" rx="2.3" fill="none" stroke="currentColor" stroke-width="2"/>' +
+      '<rect x="17.4" y="13.5" width="4.6" height="7" rx="2.3" fill="none" stroke="currentColor" stroke-width="2"/>',
+  },
+  claqueta: {
+    d: ["M2.5 9h19", "M8 4L5.5 9", "M13.5 4L11 9", "M19 4l-2.5 5"],
+    extra: '<rect x="2.5" y="4" width="19" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>',
+  },
+  luces: {
+    d: ["M11.5 4.7l6-1.7v9l-6-1.7", "M7 10.5v5", "M3.5 20.5L7 15.5l3.5 5"],
+    extra: '<rect x="2.5" y="3" width="9" height="7.5" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/>',
+  },
+  personas: {
+    d: [
+      "M3.5 20v-1.2A4.8 4.8 0 0 1 8.3 14h2.4a4.8 4.8 0 0 1 4.8 4.8V20",
+      "M17 14.2h.7a3.8 3.8 0 0 1 3.8 3.8V20",
+    ],
+    extra:
+      '<circle cx="9.5" cy="8" r="3.2" fill="none" stroke="currentColor" stroke-width="2"/>' +
+      '<circle cx="17.6" cy="9" r="2.4" fill="none" stroke="currentColor" stroke-width="2"/>',
+  },
+  onda: {
+    d: ["M4 10v4", "M8 6.5v11", "M12 3.5v17", "M16 6.5v11", "M20 10v4"],
+  },
+  cable: {
+    d: ["M10.6 2.5V1", "M13.4 2.5V1", "M12 8.5v3c0 3.2-6 2.2-6 5.8V21"],
+    extra: '<rect x="8.5" y="2.5" width="7" height="6" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>',
+  },
 };
 
 const icono = paths[nombre] ?? paths.arrow;
