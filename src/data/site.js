@@ -178,6 +178,10 @@ export const equipo = [
   {
     nombre: "Claudio Oyarzún",
     cargo: "Gerente General",
+    // Correo estimado (mismo patrón que el resto: inicial + apellido), no
+    // confirmado -> se muestra pero no es clicable (emailClickable: false).
+    email: "coyarzun@talentopolis.cl",
+    emailClickable: false,
     // Foto pendiente: Lucas la envía luego -> reemplazar null por la ruta
     // (ej. "/assets/images/equipo/claudio.webp") cuando llegue.
     foto: null,
@@ -186,6 +190,10 @@ export const equipo = [
   {
     nombre: "Sergio Sayago",
     cargo: "Publicista",
+    // Correo estimado (mismo patrón que el resto: inicial + apellido), no
+    // confirmado -> se muestra pero no es clicable (emailClickable: false).
+    email: "ssayago@talentopolis.cl",
+    emailClickable: false,
     // Foto pendiente: Lucas la envía luego -> reemplazar null por la ruta
     // (ej. "/assets/images/equipo/sergio.webp") cuando llegue.
     foto: null,

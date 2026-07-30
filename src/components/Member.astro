@@ -6,6 +6,8 @@ interface Props {
     nombre: string;
     cargo: string;
     email?: string | null;
+    /** false = correo estimado/no confirmado: se muestra como texto, sin mailto. */
+    emailClickable?: boolean;
     foto?: string | null;
     linkedin?: string | null;
   };
@@ -82,5 +84,13 @@ const iniciales = p.nombre
   </Titulo>
   <p class="member__role">{p.cargo}</p>
 
-  {p.email && <a class="member__mail" href={`mailto:${p.email}`}>{p.email}</a>}
+  {
+    p.email && (
+      p.emailClickable === false ? (
+        <span class="member__mail">{p.email}</span>
+      ) : (
+        <a class="member__mail" href={`mailto:${p.email}`}>{p.email}</a>
+      )
+    )
+  }
 </article>
