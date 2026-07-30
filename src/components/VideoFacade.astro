@@ -9,8 +9,10 @@ interface Props {
   titulo: string;
   thumb?: string;
   class?: string;
+  /** Etiqueta flotante sobre la miniatura (mismo estilo que el destacado de programas). */
+  badge?: string;
 }
-const { id, titulo, thumb, class: clase = "" } = Astro.props;
+const { id, titulo, thumb, class: clase = "", badge } = Astro.props;
 const imagen = thumb ?? `/assets/images/ep/${id}.webp`;
 ---
 
@@ -22,6 +24,7 @@ const imagen = thumb ?? `/assets/images/ep/${id}.webp`;
   tabindex="0"
   aria-label={`Reproducir: ${titulo}`}
 >
+  {badge && <span class="badge-live">{badge}</span>}
   <img src={imagen} alt="" width="480" height="270" loading="lazy" decoding="async" />
   <span class="video__play" aria-hidden="true"></span>
 </div>
