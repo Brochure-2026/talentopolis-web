@@ -175,6 +175,22 @@ export const equipo = [
     foto: "/assets/images/equipo/freddy.webp",
     linkedin: "https://www.linkedin.com/in/freddy-alexis-166873118/",
   },
+  {
+    nombre: "Claudio Oyarzún",
+    cargo: "Gerente General",
+    // Foto pendiente: Lucas la envía luego -> reemplazar null por la ruta
+    // (ej. "/assets/images/equipo/claudio.webp") cuando llegue.
+    foto: null,
+    linkedin: "https://www.linkedin.com/in/claudiooyarzunfracei/",
+  },
+  {
+    nombre: "Sergio Sayago",
+    cargo: "Publicista",
+    // Foto pendiente: Lucas la envía luego -> reemplazar null por la ruta
+    // (ej. "/assets/images/equipo/sergio.webp") cuando llegue.
+    foto: null,
+    linkedin: "https://www.linkedin.com/in/sayago/",
+  },
 ];
 
 /**
