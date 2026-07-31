@@ -1,0 +1,13 @@
+# Cabeceras para Cloudflare Pages (y Netlify). Vercel NO lee este archivo:
+# allí las mismas cabeceras se definen en vercel.json. Se mantienen los dos
+# para que el sitio quede protegido en cualquiera de los dos hosts.
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# Los assets que Astro genera llevan un hash en el nombre: si cambia el
+# contenido cambia la URL, así que se pueden cachear para siempre sin riesgo.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
