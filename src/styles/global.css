@@ -1322,3 +1322,22 @@ html.lenis body { height: auto; }
   .site-header, .hero, .platforms, .video__play { display: none; }
   body { background: #fff; color: #000; }
 }
+
+/* ==========================================================================
+   COMPATIBILIDAD — Samsung Internet
+   Su "modo oscuro de páginas web" ignora color-scheme: dark y oscurece los
+   fondos. Los titulares de marca toman su color de un degradado de fondo
+   recortado al texto (background-clip: text), así que ahí el naranjo se
+   renderizaba rojo oscuro y casi ilegible.
+   Solución: en ese navegador (marcado con .samsung desde Base.astro) se
+   sustituye el degradado por naranjo sólido, que el algoritmo respeta. El
+   resto de navegadores conserva el degradado.
+   ========================================================================== */
+html.samsung .section-title strong,
+html.samsung .hero h1 em,
+html.samsung .kin--em,
+html.samsung .aliados__lead strong {
+  background: none;
+  color: var(--orange);
+  -webkit-text-fill-color: var(--orange);
+}

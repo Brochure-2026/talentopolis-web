@@ -93,6 +93,17 @@ const websiteSchema = {
     {/* Evita que el modo oscuro automático de Samsung Internet / Chrome Android
         altere los colores: el sitio ya está diseñado en esquema oscuro. */}
     <meta name="color-scheme" content="dark" />
+
+    {/* Samsung Internet aplica su propio "modo oscuro" que ignora color-scheme y
+        OSCURECE los fondos. Como los titulares toman su color de un degradado de
+        fondo (background-clip: text), ahí el naranjo se volvía rojo oscuro. Se
+        marca el navegador para servirle un naranjo sólido (ver global.css).
+        Va en línea y antes de pintar para que no haya parpadeo. */}
+    <script is:inline>
+      if (/SamsungBrowser/i.test(navigator.userAgent)) {
+        document.documentElement.classList.add("samsung");
+      }
+    </script>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
