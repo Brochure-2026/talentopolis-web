@@ -185,16 +185,6 @@ export const equipo = [
     foto: "/assets/images/equipo/claudio.webp",
     linkedin: "https://www.linkedin.com/in/claudiooyarzunfracei/",
   },
-  {
-    nombre: "Sergio Sayago",
-    cargo: "Publicista",
-    // Correo estimado (mismo patrón que el resto: inicial + apellido), no
-    // confirmado -> se muestra pero no es clicable (emailClickable: false).
-    email: "ssayago@talentopolis.cl",
-    emailClickable: false,
-    foto: "/assets/images/equipo/sergio.webp",
-    linkedin: "https://www.linkedin.com/in/sayago/",
-  },
 ];
 
 /**
