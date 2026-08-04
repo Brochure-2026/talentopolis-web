@@ -1290,7 +1290,7 @@ html.lenis body { height: auto; }
 @media (max-width: 520px) {
   body { font-size: 16px; }
   .programs > * { flex-basis: 150px; }
-  .team { grid-template-columns: repeat(2, 1fr); }
+  .team { grid-template-columns: 1fr; max-width: 320px; }
   .aliados__logos { gap: 8px; }
   .aliados__logos li { width: 92px; padding: 13px 8px 11px; }
   .aliados__logos li span { font-size: 10.5px; }
