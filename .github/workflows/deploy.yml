@@ -34,23 +34,31 @@ jobs:
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
-          set -e
           cd dist
 
           echo "Creando directorios remotos..."
           find . -type d ! -name "." | sed 's|^\./||' | while read -r dir; do
             curl -s --ssl-reqd -k --user "$FTP_USERNAME:$FTP_PASSWORD" \
-              -Q "-MKD $dir" "ftp://$FTP_SERVER/" -o /dev/null
+              -Q "*MKD $dir" "ftp://$FTP_SERVER/" -o /dev/null
           done
 
           echo "Subiendo archivos..."
           total=$(find . -type f | wc -l)
           count=0
+          fail=0
           find . -type f | sed 's|^\./||' | while read -r file; do
             count=$((count + 1))
-            curl -s --ssl-reqd -k --user "$FTP_USERNAME:$FTP_PASSWORD" \
-              -T "$file" "ftp://$FTP_SERVER/$file"
-            echo "[$count/$total] $file"
+            if curl -s --ssl-reqd -k --user "$FTP_USERNAME:$FTP_PASSWORD" \
+              -T "$file" "ftp://$FTP_SERVER/$file"; then
+              echo "[$count/$total] OK  $file"
+            else
+              echo "[$count/$total] FALLÓ  $file"
+              echo 1 > /tmp/deploy_failed
+            fi
           done
 
+          if [ -f /tmp/deploy_failed ]; then
+            echo "Deploy con errores: algunos archivos no se subieron."
+            exit 1
+          fi
           echo "Deploy completo."
