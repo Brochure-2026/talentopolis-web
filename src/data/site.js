@@ -97,14 +97,13 @@ export const menu = [
  * que es la versión sincronizada; el PDF del repo está desactualizado).
  */
 export const metricas = [
-  // Datos en vivo de YouTube Data API (jul. 2026): 7.720 subs · 1.418.892 views
-  // · 470 vídeos. Los tres verificados; el resto proviene del brochure 2026.
-  { valor: "+7.7K", etiqueta: "Suscriptores" },
-  { valor: "+470", etiqueta: "Vídeos publicados" },
-  { valor: "+1.4M", etiqueta: "Views" },
-  { valor: "+7.8K", etiqueta: "Followers en otras RR.SS." },
-  { valor: "+19.7K", etiqueta: "Likes" },
-  { valor: "+45.9K", etiqueta: "Horas de visualización" },
+  // Actualizado ago. 2026 (dato entregado directamente por Talentópolis).
+  { valor: "+7.84K", etiqueta: "Suscriptores" },
+  { valor: "+488", etiqueta: "Vídeos publicados" },
+  { valor: "+1.45M", etiqueta: "Views" },
+  { valor: "+9.48K", etiqueta: "Followers en otras RR.SS." },
+  { valor: "+39.7K", etiqueta: "Likes" },
+  { valor: "+37.72K", etiqueta: "Horas de visualización" },
 ];
 
 /**

@@ -1,0 +1,56 @@
+name: Deploy a talentopolis.cl
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Compilar sitio (Astro)
+        run: npm run build
+
+      # Sube TODAS las páginas siempre (no solo las que cambiaron): el sitio
+      # usa nombres de archivo con hash de contenido (_astro/*.css, *.js), así
+      # que un cambio de estilos genera un archivo nuevo y deja huérfano el
+      # viejo si no se resuben todas las páginas que lo referencian.
+      - name: Deploy por FTPS a cPanel
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          set -e
+          cd dist
+
+          echo "Creando directorios remotos..."
+          find . -type d ! -name "." | sed 's|^\./||' | while read -r dir; do
+            curl -s --ssl-reqd -k --user "$FTP_USERNAME:$FTP_PASSWORD" \
+              -Q "-MKD $dir" "ftp://$FTP_SERVER/" -o /dev/null
+          done
+
+          echo "Subiendo archivos..."
+          total=$(find . -type f | wc -l)
+          count=0
+          find . -type f | sed 's|^\./||' | while read -r file; do
+            count=$((count + 1))
+            curl -s --ssl-reqd -k --user "$FTP_USERNAME:$FTP_PASSWORD" \
+              -T "$file" "ftp://$FTP_SERVER/$file"
+            echo "[$count/$total] $file"
+          done
+
+          echo "Deploy completo."
