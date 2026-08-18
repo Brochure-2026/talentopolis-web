@@ -832,12 +832,26 @@
 }
 
 .proximo--destacado {
-  grid-template-columns: clamp(200px, 24vw, 280px) minmax(0, 1fr);
+  grid-template-columns: clamp(240px, 30vw, 380px) minmax(0, 1fr);
+  align-items: center;
   padding: clamp(22px, 3vw, 36px);
   border: 1px solid var(--border-bright);
   border-radius: var(--radius-lg);
   background: linear-gradient(160deg, rgba(255, 111, 44, .08) 0%, rgba(10, 14, 26, .92) 100%);
   box-shadow: 0 16px 40px rgba(0, 0, 0, .4);
+}
+/* Carátula grande pero al costado, con el texto a la derecha. */
+.proximo--destacado .proximo__media,
+.proximo--destacado .proximo__media--link {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+/* La badge queda arriba de la carátula, no encima (antes tapaba parte del arte). */
+.proximo--destacado .badge-live {
+  position: static;
+  align-self: flex-start;
+  margin-bottom: 14px;
 }
 .proximo--destacado:hover {
   border-color: var(--orange);

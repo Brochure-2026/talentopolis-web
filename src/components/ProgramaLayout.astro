@@ -121,8 +121,10 @@ const schema = [
 }
 
 {/* ---------- EPISODIOS (por temporada + ver más) ---------- */}
+{/* Requiere video real por episodio (p.temporadas); un totalEpisodios
+    manual sin temporadas cargadas (ver programas.js) no arma esta grilla. */}
 {
-  p.totalEpisodios > 0 && (
+  p.temporadas.length > 0 && (
     <section class="section bg-deep" aria-labelledby="episodios-titulo">
       <div class="wrap">
         <div class="section-head reveal">

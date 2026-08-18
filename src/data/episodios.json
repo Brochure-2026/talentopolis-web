@@ -1074,5 +1074,146 @@
     }
    ]
   }
+ ],
+ "mujer-sin-pausa-podcast": [
+  {
+   "temporada": "1ª Temporada",
+   "videos": [
+    {
+     "id": "temdymgREKA",
+     "titulo": "T1-E1 El IMPACTO HISTÓRICO de Las MUJERES: Más Allá de lo Que Imaginabas",
+     "thumb": "/assets/images/ep/temdymgREKA.webp"
+    },
+    {
+     "id": "k4LsKsNcfrA",
+     "titulo": "El PODER de las MUJERES Plateadas en la Economía con Alejandra Domper #silvermap",
+     "thumb": "/assets/images/ep/k4LsKsNcfrA.webp"
+    },
+    {
+     "id": "9C4RrAVow-M",
+     "titulo": "T1-E3 ASTROLOGÍA: ¿Será que TU ÉXITO esta escrito en las estrellas?",
+     "thumb": "/assets/images/ep/9C4RrAVow-M.webp"
+    },
+    {
+     "id": "tLjhXm_Fvo0",
+     "titulo": "T1-E4 EMPODERAMIENTO en la ANTÁRTICA: Una Mujer en el Continente Blanco",
+     "thumb": "/assets/images/ep/tLjhXm_Fvo0.webp"
+    },
+    {
+     "id": "yyoP3Ofu474",
+     "titulo": "DESAFÍOS y OPORTUNIDADES: las MUJERES y la experiencia en el MERCADO LABORAL con Carolina Grünwald",
+     "thumb": "/assets/images/ep/yyoP3Ofu474.webp"
+    },
+    {
+     "id": "i06QBQEQyQU",
+     "titulo": "MUJERES que INSPIRAN: Historias de Mujeres Que Cambian el Mundo con  María Paz Tagle",
+     "thumb": "/assets/images/ep/i06QBQEQyQU.webp"
+    },
+    {
+     "id": "AHuvrmuNN6Y",
+     "titulo": "¿Por qué HOMBRES y MUJERES deben hablar sobre la menopausia? Descúbrelo aquí con Allan Guiloff",
+     "thumb": "/assets/images/ep/AHuvrmuNN6Y.webp"
+    },
+    {
+     "id": "c-O5-7-UhKM",
+     "titulo": "Allan nos comenta los hitos claves Neopausia@talentopolis",
+     "thumb": "/assets/images/ep/c-O5-7-UhKM.webp"
+    },
+    {
+     "id": "q-b3fmELq6M",
+     "titulo": "TRANSFORMA los Cambios de la Menopausia en OPORTUNIDADES Increíbles con Carolina Paulsen",
+     "thumb": "/assets/images/ep/q-b3fmELq6M.webp"
+    },
+    {
+     "id": "kO3IbcckK-Y",
+     "titulo": "El Impacto Clave de las Mujeres Empresarias en los Negocios",
+     "thumb": "/assets/images/ep/kO3IbcckK-Y.webp"
+    },
+    {
+     "id": "U95uw3nMxvM",
+     "titulo": "Liderazgo y prevención: una conversación inspiradora con Mariana Alcerreca",
+     "thumb": "/assets/images/ep/U95uw3nMxvM.webp"
+    },
+    {
+     "id": "cjJKQtR5jiI",
+     "titulo": "Transformando vidas a través de la música con Rosa Vergara",
+     "thumb": "/assets/images/ep/cjJKQtR5jiI.webp"
+    },
+    {
+     "id": "RaZRj2XN_qQ",
+     "titulo": "\"Lo mejor de la primera temporada de Mujer Sin Pausa\"",
+     "thumb": "/assets/images/ep/RaZRj2XN_qQ.webp"
+    }
+   ]
+  }
+ ],
+ "delaulaalacancha-t2": [
+  {
+   "temporada": "T2",
+   "videos": [
+    {
+     "id": "CAj8lxlURwg",
+     "titulo": "De la Universidad al Territorio: Cómo Emprender con Inteligencia Artificial y Vinos Patrimoniales",
+     "thumb": "/assets/images/ep/CAj8lxlURwg.webp"
+    },
+    {
+     "id": "UWYXQtizbG8",
+     "titulo": "Innovación Social y Realidad Virtual: Cómo la Tecnología Transforma Vidas",
+     "thumb": "/assets/images/ep/UWYXQtizbG8.webp"
+    },
+    {
+     "id": "x4r2_ACzjFs",
+     "titulo": "KitiKid y Entreturno: Soluciones sin Pantallas para la Educación y Terapia Infantil en Chile",
+     "thumb": "/assets/images/ep/x4r2_ACzjFs.webp"
+    }
+   ]
+  }
+ ],
+ "comunicarte": [
+  {
+   "temporada": "T1",
+   "videos": [
+    {
+     "id": "cMhtzgrF0Xk",
+     "titulo": "¿Cómo superar el miedo a comunicar? Con Mónica Rincón",
+     "thumb": "/assets/images/ep/cMhtzgrF0Xk.webp"
+    },
+    {
+     "id": "xxHRFgUiSqg",
+     "titulo": "Vencer el miedo y comunicar con impacto con Pancho Melo",
+     "thumb": "/assets/images/ep/xxHRFgUiSqg.webp"
+    },
+    {
+     "id": "BPgiid8rdQY",
+     "titulo": "El método de Francisco Vidal para perder el miedo, hablar en público y dominar la escena",
+     "thumb": "/assets/images/ep/BPgiid8rdQY.webp"
+    },
+    {
+     "id": "Srb0CR1WKl0",
+     "titulo": "¿Liderazgo duro o empático? La reveladora entrevista a la Dra. Paula Daza",
+     "thumb": "/assets/images/ep/Srb0CR1WKl0.webp"
+    },
+    {
+     "id": "WAeds3MgJa8",
+     "titulo": "“Me quedé en blanco al aire”: Carla Zunino revela su secreto para superar los nervios a comunicar",
+     "thumb": "/assets/images/ep/WAeds3MgJa8.webp"
+    },
+    {
+     "id": "RRucGwCEMKk",
+     "titulo": "Experto revela los secretos de la TV para Conectar, Vencer la Timidez y Comunicar con Seniority",
+     "thumb": "/assets/images/ep/RRucGwCEMKk.webp"
+    },
+    {
+     "id": "9Dc6LnJOZyI",
+     "titulo": "Nacho Gutiérrez revela su fórmula: Cómo superar el fracaso y vivir sin angustia",
+     "thumb": "/assets/images/ep/9Dc6LnJOZyI.webp"
+    },
+    {
+     "id": "_KxbGxj0fdA",
+     "titulo": "Cata Edwards y el arte de reinventarse: Cómo salir de la zona de confort y comunicar con éxito",
+     "thumb": "/assets/images/ep/_KxbGxj0fdA.webp"
+    }
+   ]
+  }
  ]
 }

@@ -2,8 +2,8 @@
 import Icon from "./Icon.astro";
 import { proximamente } from "../data/programas.js";
 
-const destacado = proximamente.find((p) => p.destacado) || proximamente[0];
-const otrosProximos = proximamente.filter((p) => !p.destacado);
+const destacado = proximamente.find((p) => p.destacado);
+const otrosProximos = proximamente.filter((p) => p !== destacado);
 
 const getGuestInfo = (inv) => {
   if (typeof inv === "object" && !Array.isArray(inv)) {
@@ -22,40 +22,67 @@ const getGuestInfo = (inv) => {
 <section class="section bg-mid" aria-labelledby="proximos-titulo">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow">Estreno & En Emisión</p>
-      <h2 class="section-title" id="proximos-titulo">
-        Nuevo <strong>programa</strong>
-      </h2>
-      <p class="section-sub">Comunicación estratégica, cultura y pensamiento ejecutivo</p>
+      {
+        destacado ? (
+          <>
+            <p class="eyebrow">Estreno & En Emisión</p>
+            <h2 class="section-title" id="proximos-titulo">
+              Nuevo <strong>programa</strong>
+            </h2>
+          </>
+        ) : (
+          <>
+            <p class="eyebrow">Próximamente</p>
+            <h2 class="section-title" id="proximos-titulo">
+              Próximos <strong>lanzamientos</strong>
+            </h2>
+          </>
+        )
+      }
     </div>
 
-    {/* --- DESTACADO: COMUNICARTE --- */}
+    {/* --- DESTACADO (el próximo lanzamiento con más peso visual) --- */}
     {
       destacado && (
         <article class="proximo proximo--destacado reveal">
-          <a class="proximo__media proximo__media--link" href="/comunicarte/" aria-label="Ver el programa ComunicArte">
-            <span class="badge-live">{destacado.badge || "NUEVO · EN EMISIÓN"}</span>
-            <img
-              src={destacado.portada}
-              alt={destacado.portadaAlt}
-              width="800"
-              height="800"
-              loading="lazy"
-              decoding="async"
-              transition:name="portada-comunicarte"
-            />
-          </a>
+          {destacado.url ? (
+            <a class="proximo__media proximo__media--link" href={destacado.url} aria-label={`Ver el programa ${destacado.nombre}`}>
+              <span class="badge-live">{destacado.badge || "NUEVO · EN EMISIÓN"}</span>
+              <img
+                src={destacado.portada}
+                alt={destacado.portadaAlt}
+                width="800"
+                height="800"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+          ) : (
+            <div class="proximo__media">
+              <span class="badge-live">{destacado.badge || "NUEVO · EN EMISIÓN"}</span>
+              <img
+                src={destacado.portada}
+                alt={destacado.portadaAlt}
+                width="800"
+                height="800"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          )}
 
           <div class="proximo__body">
             <h3 class="proximo__name">
-              <a href="/comunicarte/" class="proximo__name-link">{destacado.nombre}</a>
+              {destacado.url ? <a href={destacado.url} class="proximo__name-link">{destacado.nombre}</a> : destacado.nombre}
             </h3>
             <p class="proximo__text">{destacado.descripcion}</p>
 
-            <a href="/comunicarte/" class="proximo__cta">
-              Ver el programa
-              <Icon nombre="arrow" size={16} />
-            </a>
+            {destacado.url && (
+              <a href={destacado.url} class="proximo__cta">
+                Ver el programa
+                <Icon nombre="arrow" size={16} />
+              </a>
+            )}
 
             {destacado.invitados && (
               <>
@@ -108,8 +135,8 @@ const getGuestInfo = (inv) => {
     {/* --- OTROS PRÓXIMOS LANZAMIENTOS --- */}
     {
       otrosProximos.length > 0 && (
-        <div class="proximos-sub reveal" style="margin-top: 48px;">
-          <h3 class="proximos-sub__title">Próximos Lanzamientos</h3>
+        <div class="proximos-sub reveal" style={destacado ? "margin-top: 48px;" : ""}>
+          {destacado && <h3 class="proximos-sub__title">Próximos Lanzamientos</h3>}
           <div class="proximos stagger" style="margin-top: 20px;">
             {otrosProximos.map((p) => (
               <article class="proximo">

@@ -39,7 +39,7 @@ const P = [
     portadaAlt: "Portada del podcast Del Aula a la Cancha",
     conductor: "Cristián Arenas",
     spotify: "https://open.spotify.com/playlist/5D9GJFOX7SjeNlY7UOuCka",
-    temporada: "En emisión",
+    temporada: "1ª Temporada",
   },
   {
     slug: "mujeres-sin-pausa-podcast",
@@ -145,6 +145,66 @@ const P = [
     spotify: "https://open.spotify.com/show/1KRj25ihnIH6Vk006DNPDv",
     temporada: "1ª Temporada",
   },
+  {
+    slug: "mujer-sin-pausa-podcast",
+    nombre: "Mujer Sin Pausa",
+    tagline: "¡Lo mejor está por venir!",
+    // REAL — literal del sitio anterior (WordPress).
+    descripcion: [
+      "¡Mujer Sin Pausa! Un pódcast hecho para mujeres que están disfrutando de la mitad de la vida, que es cuando el éxito laboral y personal se entrelazan para crear un futuro lleno de oportunidades.",
+      "Las conductoras Dra. Francisca Valdivieso y Dra. María de los Ángeles Larraín, ambas reconocidas ginecólogas, conversan con diversas y destacadas invitadas. Cada una con historias inspiradoras que nos demuestran que el Liderazgo femenino está dibujando un mejor Futuro hoy!",
+    ],
+    portada: "/assets/images/prog-mujer-sin-pausa-600.webp",
+    portadaAlt: "Portada del podcast Mujer Sin Pausa",
+    conductor: "Dra. Francisca Valdivieso y Dra. María de los Ángeles Larraín",
+    spotify: null,
+    temporada: "1ª Temporada",
+  },
+  {
+    slug: "resility",
+    nombre: "Resility",
+    tagline: "Un PodCast de Ciberseguridad, IA y Tech",
+    // REAL — literal del brochure 2026.
+    descripcion: [
+      "Entrevistas B2B ejecutivas con CTOs, CISOs, CIOs, abogados tech y especialistas financieros: ciberseguridad empresarial, IA aplicada a negocios, transformación digital, fintech y marco legal del mundo digital.",
+    ],
+    portada: "/assets/images/prog-resility-600.webp",
+    portadaAlt: "Portada del podcast Resility",
+    conductor: "Patricio Campos",
+    spotify: null,
+    temporada: "1ª Temporada",
+  },
+  {
+    slug: "delaulaalacancha-t2",
+    nombre: "Del Aula a la Cancha T2",
+    tagline: "CFT / IP Santo Tomás",
+    // REAL — misma descripción que la Temporada 1 (mismo programa, nueva
+    // temporada).
+    descripcion: [
+      "Porque el conocimiento técnico ya no es un «plus», es el estándar para quienes buscan marcar la diferencia. Si tu objetivo es salir del «aprender» pasivo y entrar en la cancha real, aquí tienes tu brújula sonora.",
+      "Escuchar relatos de transformación: desde el aula hasta liderar proyectos reales. Conocer herramientas concretas y tácticas que puedes aplicar mañana.",
+    ],
+    portada: "/assets/images/prog-delaulaalacancha-t2-600.webp",
+    portadaAlt: "Portada del podcast Del Aula a la Cancha, Temporada 2",
+    conductor: "Cristián Arenas",
+    spotify: null,
+    temporada: "2ª Temporada · En emisión",
+  },
+  {
+    slug: "comunicarte",
+    nombre: "ComunicArte",
+    tagline: "Comunicación estratégica, cultura y pensamiento ejecutivo",
+    // REAL — literal de la página propia que tenía este programa.
+    descripcion: [
+      "Conversaciones sobre comunicación, liderazgo, cultura y el arte de expresar ideas con impacto. Cada episodio, una invitada o invitado que ha marcado la conversación pública en Chile, en un formato cercano y de alto nivel editorial.",
+      "Un espacio donde la conversación fluye entre la cultura, el arte y el pensamiento ejecutivo — con la mirada estratégica de Macarena Saavedra.",
+    ],
+    portada: "/assets/images/prog-comunicarte-600.webp",
+    portadaAlt: "Portada del podcast ComunicArte",
+    conductor: "Macarena Saavedra",
+    spotify: null,
+    temporada: "1ª Temporada · En emisión",
+  },
 ];
 
 /**
@@ -153,62 +213,15 @@ const P = [
  */
 export const proximamente = [
   {
-    nombre: "ComunicArte",
-    destacado: true,
-    badge: "NUEVO · EN EMISIÓN",
-    portada: "/assets/images/prog-comunicarte-600.webp",
-    portadaAlt: "Portada del podcast ComunicArte",
-    descripcion:
-      "Conduce Macarena Saavedra, periodista especializada en comunicación estratégica y liderazgo. " +
-      "Un espacio donde la conversación fluye entre la cultura, el arte y el pensamiento ejecutivo.",
-    invitados: [
-      {
-        nombre: "Mónica Rincón",
-        cargo: "Periodista y conductora, CNN Chile",
-        thumb: "/assets/images/ep/cMhtzgrF0Xk.webp",
-        youtubeUrl: "https://www.youtube.com/watch?v=cMhtzgrF0Xk",
-        tituloEpisodio: "¿Cómo superar el miedo a comunicar? Con Mónica Rincón"
-      },
-      {
-        nombre: "Francisco Melo",
-        cargo: "Actor y conductor: cine, teatro y TV",
-        thumb: "/assets/images/ep/xxHRFgUiSqg.webp",
-        youtubeUrl: "https://www.youtube.com/watch?v=xxHRFgUiSqg",
-        tituloEpisodio: "Vencer el miedo y comunicar con impacto con Pancho Melo"
-      },
-      {
-        nombre: "Francisco Vidal",
-        cargo: "Ex vocero de gobierno",
-        thumb: "/assets/images/ep/BPgiid8rdQY.webp",
-        youtubeUrl: "https://www.youtube.com/watch?v=BPgiid8rdQY",
-        tituloEpisodio: "El método de Francisco Vidal para perder el miedo, hablar en público y dominar la escena"
-      },
-      {
-        nombre: "Dra. Paula Daza",
-        cargo: "Médica cirujana y exsubsecretaria de Salud Pública",
-        thumb: "/assets/images/ep/Srb0CR1WKl0.webp",
-        youtubeUrl: "https://www.youtube.com/watch?v=Srb0CR1WKl0",
-        tituloEpisodio: "¿Liderazgo duro o empático? La reveladora entrevista a la Dra. Paula Daza"
-      }
-    ],
-  },
-  {
-    nombre: "Resility: Un PodCast de Ciberseguridad, IA y Tech",
-    portada: "/assets/images/prog-resility-600.webp",
-    portadaAlt: "Portada del próximo podcast Resility",
-    canalYoutube: "https://www.youtube.com/@resilitypodcast",
-    descripcion:
-      "Entrevistas B2B ejecutivas con CTOs, CISOs, CIOs, abogados tech y especialistas financieros: " +
-      "ciberseguridad empresarial, IA aplicada a negocios, transformación digital, fintech y marco " +
-      "legal del mundo digital. Conduce Patricio Campos, fundador y CEO de Resility.",
-  },
-  {
     nombre: "IngenIA Conmigo",
+    destacado: true,
+    badge: "MUY PRONTO · NUEVO ESTRENO",
     portada: "/assets/images/prog-ingenia-600.webp",
     portadaAlt: "Portada del próximo podcast IngenIA Conmigo",
     descripcion:
-      "Conversaciones con líderes de industria, académicos y egresados sobre el valor real de la " +
-      "ingeniería en Chile. Conduce Juan José Negroni, en colaboración con la Universidad Santo Tomás.",
+      "¿Cómo será la ingeniería en 2050? Se está construyendo ahora mismo, en cada decisión, proyecto y carrera que arranca hoy. IngenIA Conmigo conecta ese futuro con el presente: " +
+      "conversaciones con líderes de industria, académicos y egresados sobre el valor real de la ingeniería en Chile, y hacia dónde nos está llevando. " +
+      "Conduce Juan José Negroni, en colaboración con la Universidad Santo Tomás.",
   },
 ];
 
@@ -216,7 +229,7 @@ export const programas = P.map((p) => {
   // temporadas: [{ temporada, videos: [{id,titulo,thumb}] }], en orden real de
   // las playlists de YouTube.
   const temporadas = episodios[p.slug] ?? [];
-  const totalEpisodios = temporadas.reduce((n, t) => n + t.videos.length, 0);
+  const totalEpisodios = p.episodiosManual ?? temporadas.reduce((n, t) => n + t.videos.length, 0);
   return {
     ...p,
     url: `/${p.slug}/`,

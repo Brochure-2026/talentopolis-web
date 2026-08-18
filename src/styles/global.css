@@ -557,15 +557,28 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* ==========================================================================
    PROGRAMAS
    ========================================================================== */
-/* Flex centrado (no grid): con un número impar de programas, la última fila
-   queda centrada en vez de dejar una tarjeta huérfana alineada a la izquierda. */
+/* Grilla fija de 3 columnas: con 9 programas queda un 3x3 parejo. */
 .programs {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: clamp(16px, 2vw, 26px);
+  max-width: 940px;
+  margin: 0 auto;
 }
-.programs > * { flex: 1 1 240px; max-width: 300px; }
+
+/* Si la última fila queda con una sola tarjeta suelta (total no múltiplo de
+   3), la centra en la columna del medio en vez de dejarla pegada a la izquierda. */
+.programs > :last-child:nth-child(3n + 1) { grid-column: 2; }
+
+@media (max-width: 860px) {
+  .programs { grid-template-columns: repeat(2, 1fr); max-width: 640px; }
+  .programs > :last-child:nth-child(3n + 1) { grid-column: auto; }
+  .programs > :last-child:nth-child(2n + 1) { grid-column: 1 / -1; max-width: 300px; margin: 0 auto; }
+}
+
+@media (max-width: 520px) {
+  .programs { grid-template-columns: 1fr; max-width: 320px; }
+}
 
 .program {
   position: relative;
@@ -1289,7 +1302,6 @@ html.lenis body { height: auto; }
 
 @media (max-width: 520px) {
   body { font-size: 16px; }
-  .programs > * { flex-basis: 150px; }
   .team { grid-template-columns: 1fr; max-width: 320px; }
   .aliados__logos { gap: 8px; }
   .aliados__logos li { width: 92px; padding: 13px 8px 11px; }
