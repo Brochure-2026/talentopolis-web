@@ -101,12 +101,12 @@ export const menu = [
  */
 export const metricas = [
   // Actualizado ago. 2026 (dato entregado directamente por Talentópolis).
-  { valor: "+7.84K", etiqueta: "Suscriptores" },
+  { valor: "+7.8K", etiqueta: "Suscriptores" },
   { valor: "+488", etiqueta: "Vídeos publicados" },
   { valor: "+1.45M", etiqueta: "Views" },
-  { valor: "+9.48K", etiqueta: "Followers en otras RR.SS." },
+  { valor: "+9.4K", etiqueta: "Followers en otras RR.SS." },
   { valor: "+39.7K", etiqueta: "Likes" },
-  { valor: "+37.72K", etiqueta: "Horas de visualización" },
+  { valor: "+37.9K", etiqueta: "Horas de visualización" },
 ];
 
 /**
