@@ -1026,6 +1026,10 @@
 @media (max-width: 700px) {
   .proximo { grid-template-columns: 1fr; }
   .proximo__media { max-width: 190px; }
+  /* La destacada no debe achicarse: en mobile pasa a una columna, así que su
+     carátula puede usar todo el ancho (se veía más chica que las del resto
+     de los programas). */
+  .proximo--destacado .proximo__media { max-width: 380px; margin: 0 auto; }
 }
 
 @media (max-width: 1100px) {
