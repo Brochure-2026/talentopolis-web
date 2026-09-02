@@ -161,7 +161,7 @@ export const equipo = [
   },
   {
     nombre: "Lucas Núñez",
-    cargo: "Gestor de contenido y marketing",
+    cargo: "Gestor de Contenido y Marketing",
     // Dominio unificado a talentopolis.cl (el usuario escribió "talentopoli.cl",
     // sin la "s"; a confirmar si fuera el dominio corto).
     email: "lnunez@talentopolis.cl",
